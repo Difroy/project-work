@@ -1,5 +1,5 @@
 package projectWork.Controller;
 
-public class Controller {
+public class DettaglioController {
 
 }
