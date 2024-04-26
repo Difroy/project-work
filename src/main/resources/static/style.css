@@ -6,13 +6,14 @@
 
 .navbar {
     background-image: url("../static/navbar-bg.png");
+    background-repeat: no-repeat;
+    align-items: center;
 }
 
 .form-control,
 .btn {
     border-radius: 0;
 }
-
 
 .dropdown-toggle {
     border-radius: 0;
@@ -21,6 +22,7 @@
 .input-group:focus-within {
     box-shadow: 0 0 0 0.25rem rgba(101, 20, 18);
 }
+
 .logo {
     width: 300px;
     height: auto;
@@ -61,3 +63,42 @@ body.overlay-active {
 .dropdown-menu {
     border-radius: 0;
 }
+
+.footer {
+    background-image: url("../static/footer.png");
+    background-repeat: no-repeat;
+    align-items: center;
+    padding: 50px 0;
+    border-top: 1px solid #ddd;
+}
+
+.footer-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    display: block;
+    color: #0066c0;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.carousel-item img {
+    height: 400px; /* Altezza desiderata */
+    object-fit: cover; /* Per riempire l'intera area del container */
+}
+
+.carousel {
+    height: 400px; /* Altezza fissa del carosello */
+}
+
