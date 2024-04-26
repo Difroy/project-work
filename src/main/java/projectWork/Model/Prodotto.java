@@ -16,8 +16,12 @@ import jakarta.persistence.Table;
 @Table(name = "prodotti")
 public class Prodotto {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@ManyToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "id_categoria", referencedColumnName = "id")
+	private Categoria categoria;
 	
 	@Column(name = "nome_prodotto")
 	private String nomeProdotto;
@@ -28,8 +32,11 @@ public class Prodotto {
 	@Column(name = "prezzo")
 	private double prezzo;
 	
-	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "id_categoria", referencedColumnName = "id")
-	private Categoria categoria;
+	@Column
+	private String immagine;
+	
+	@Column
+	private String altro;
+	
 	
 	}
