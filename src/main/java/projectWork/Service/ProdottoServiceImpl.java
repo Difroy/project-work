@@ -111,7 +111,7 @@ public class ProdottoServiceImpl implements ProdottoService {
 
     @Override
     public void registraProdotto(Prodotto prodotto, int idSottocategoria, String nome, String descrizione, String prezzo, MultipartFile immagine, String altro) {
-        prodotto.setSottocategoria(sottoCategoriaService.getCategoriaById(idSottocategoria));
+        prodotto.setSottocategoria(SottocategoriaService.getSottocategoriaById(idSottocategoria));
         prodotto.setNome(nome);
         prodotto.setDescrizione(descrizione);
         prodotto.setPrezzo(Double.parseDouble(prezzo));
