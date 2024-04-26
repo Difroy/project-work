@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "utenti")
@@ -19,15 +21,18 @@ public class Utente {
 	
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "id_profilo", referencedColumnName = "id")
+	@Valid
 	private Profilo profilo;
 	
 	@Column
+	@Pattern(regexp = "[a-zA-Z0-9._-]{1,50}", message = "Caratteri non ammessi")
 	private String username;
 	
 	@Column
 	private String email;
 	
 	@Column
+	@Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,50}", message = "Password troppo debole, deve andare in palestra")
 	private String password;
 	
 	@Column

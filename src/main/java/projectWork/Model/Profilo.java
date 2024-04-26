@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "profili")
@@ -35,9 +36,9 @@ public class Profilo {
 	@Column(name = "data_di_nascita")
 	private LocalDate dataDiNascita;
 	
-	@Column
-	private String indirizzo;
-	
+	@Column(name = "indirizzo_residenza")
+	private String indirizzoResidenza;
+
 	@Column
 	private String telefono;
 	
@@ -104,14 +105,14 @@ public class Profilo {
 		this.dataDiNascita = dataDiNascita;
 	}
 
-	public String getIndirizzo() {
-		return indirizzo;
+	public String getIndirizzoResidenza() {
+		return indirizzoResidenza;
 	}
 
-	public void setIndirizzo(String indirizzo) {
-		this.indirizzo = indirizzo;
+	public void setIndirizzoResidenza(String indirizzoResidenza) {
+		this.indirizzoResidenza = indirizzoResidenza;
 	}
-
+	
 	public String getTelefono() {
 		return telefono;
 	}
