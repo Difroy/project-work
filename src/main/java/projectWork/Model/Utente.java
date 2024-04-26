@@ -1,12 +1,17 @@
 package projectWork.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
@@ -19,7 +24,7 @@ public class Utente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne(cascade = CascadeType.REFRESH)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_profilo", referencedColumnName = "id")
 	@Valid
 	private Profilo profilo;
@@ -37,6 +42,20 @@ public class Utente {
 	
 	@Column
 	private String avatar;
+	
+	public List<Acquisto> getAcquisti() {
+		return acquisti;
+	}
+
+	public void setAcquisti(List<Acquisto> acquisti) {
+		this.acquisti = acquisti;
+	}
+
+	@OneToMany(mappedBy = "utente",
+			cascade = CascadeType.REMOVE,
+			fetch = FetchType.EAGER,
+			orphanRemoval = true)
+	private List<Acquisto> acquisti = new ArrayList<>();
 	
 
 	public int getId() {

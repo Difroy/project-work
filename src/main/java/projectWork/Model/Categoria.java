@@ -23,13 +23,16 @@ public class Categoria {
 	@Column
 	private String tipo;
 	
+	@Column
+	private String icona;
+	
 	@OneToMany (
 			mappedBy = "categoria",
 		    cascade = CascadeType.REMOVE,
 	        fetch = FetchType.EAGER,
 	        orphanRemoval = true
 			)
-	private List<Categoria> categorie = new ArrayList<>();
+	private List<Sottocategoria> sottocategorie = new ArrayList<>();
 
 	public int getId() {
 		return id;
@@ -47,11 +50,21 @@ public class Categoria {
 		this.tipo = tipo;
 	}
 
-	public List<Categoria> getCategorie() {
-		return categorie;
+	public String getIcona() {
+		return icona;
 	}
 
-	public void setCategorie(List<Categoria> categorie) {
-		this.categorie = categorie;
+	public void setIcona(String icona) {
+		this.icona = icona;
 	}
+
+	public List<Sottocategoria> getSottocategorie() {
+		return sottocategorie;
+	}
+
+	public void setSottocategorie(List<Sottocategoria> sottocategorie) {
+		this.sottocategorie = sottocategorie;
+	}
+
+	
 }

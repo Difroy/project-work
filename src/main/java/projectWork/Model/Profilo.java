@@ -42,27 +42,19 @@ public class Profilo {
 	@Column
 	private String telefono;
 	
-	/* @ManyToMany(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "id_utente", referencedColumnName = "id")
-	private Utente utente; 
-	dubbio: penso che non serva a nulla questa parte? sotto commento pure gli annessi getter e setter
-	*/
-	
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
+	}
+
 	@OneToOne(
 			mappedBy = "profilo",
-			cascade = CascadeType.REMOVE,
-			fetch = FetchType.EAGER,
-			orphanRemoval = true
+			cascade = CascadeType.REFRESH
 			)
-	private List<Utente> utenti = new ArrayList<>();
-
-	public List<Utente> getUtenti() {
-		return utenti;
-	}
-
-	public void setUtenti(List<Utente> utenti) {
-		this.utenti = utenti;
-	}
+	private Utente utente;
 
 	public int getId() {
 		return id;
@@ -120,14 +112,5 @@ public class Profilo {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
-
-	/* public Utente getUtente() {
-		return utente;
-	}
-
-	public void setUtente(Utente utente) {
-		this.utente = utente;
-	} */
 	
 }

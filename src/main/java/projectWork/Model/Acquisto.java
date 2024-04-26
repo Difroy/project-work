@@ -21,11 +21,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "acquisti")
 public class Acquisto {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany
+	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "id_utente", referencedColumnName = "id")
 	private Utente utente;
 	
@@ -53,7 +55,15 @@ public class Acquisto {
 			name = "ordini",
 			joinColumns = @JoinColumn(name = "id_acquisto", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_prodotto", referencedColumnName = "id")
 			)
-	private List<Ordine> ordini = new ArrayList<>();
+	private List<Acquisto> acquisti = new ArrayList<>();
+
+	public List<Acquisto> getAcquisti() {
+		return acquisti;
+	}
+
+	public void setAcquisti(List<Acquisto> acquisti) {
+		this.acquisti = acquisti;
+	}
 
 	public int getId() {
 		return id;
@@ -119,11 +129,5 @@ public class Acquisto {
 		this.statoPagamento = statoPagamento;
 	}
 
-	public List<Ordine> getOrdini() {
-		return ordini;
-	}
-
-	public void setOrdini(List<Ordine> ordini) {
-		this.ordini = ordini;
-	}
+	
 }
