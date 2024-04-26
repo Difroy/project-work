@@ -35,11 +35,11 @@ public class AcquistoServiceImpl implements AcquistoService {
         if(ordine != null && profilo != null) {
             Acquisto acquisto = new Acquisto();
             acquisto.setDataAcquisto(LocalDate.now());
-            acquisto.setCostoSpedizione();
+            acquisto.setCostoSpedizione(0);
             acquisto.setImportoTotale(prodottoService.getTotaleCarrello(session));
-            acquisto.setMetodoDiPagamento();
-            acquisto.setIndirizzoDomicilio();
-            acquisto.setStatoPagamento();
+            acquisto.setMetodoDiPagamento(null);
+            acquisto.setIndirizzoDomicilio(null);
+            acquisto.setStatoPagamento(null);
             acquistoDao.save(acquisto);
         }
     }

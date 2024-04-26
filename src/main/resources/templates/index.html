@@ -5,48 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="../static/style.css" rel="stylesheet">
     <title>Home - La Bottega del Brigante</title>
-    <style>
-        .navbar-nav .nav-link {
-            margin-right: 30px;
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-body" data-bs-theme="light">
         <div class="container-fluid justify-content-center">
-            <a class="navbar-brand" href="#">La Bottega del Brigante</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="../static/LOGOTIPO.png" alt="Logo" width="30" height="30" class="logo d-inline-block align-top me-2">
+            </a>
             <form class="d-flex ms-2 flex-grow-1" role="search">
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorie
+                <div class="input-group">
+                    <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorie
+                        </button>
+                        <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
+                            <li><a class="dropdown-item" href="#">Gadget</a></li>
+                            <li><a class="dropdown-item" href="#">Giocattoli</a></li>
+                            <li><a class="dropdown-item" href="#">Gioielli</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
+                        </ul>
+                    </div>
+                    <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
+                    <button class="btn btn-warning" type="submit">
+                        <i class="bi bi-search"></i> <!-- Icona di lente d'ingrandimento -->
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
-                        <li><a class="dropdown-item" href="#">Gadget</a></li>
-                        <li><a class="dropdown-item" href="#">Giocattoli</a></li>
-                        <li><a class="dropdown-item" href="#">Gioielli</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
-                    </ul>
                 </div>
-                <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Cerca</button>
-                <!-- Qui vorrei mettere icona della lente di ingrandimento -->
             </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
+                onclick="toggleBodyOverlay()">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Login</a>
+                    <a class="nav-link" href="#">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ordini</a>
@@ -81,7 +84,56 @@
                 <span class="visually-hidden">Successiva</span>
             </button>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://www.changethefuture.it/assets/uploads/2020/05/animali-selvatici.jpg" alt="Abbigliamento" class="category-img">
+                    <div class="category-title">Abbigliamento</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://www.montecarlonews.it/fileadmin/archivio/montecarlonews/negozio-animali-online.jpg" alt="Gadget" class="category-img">
+                    <div class="category-title">Gadget</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://www.focus.it/images/2022/08/18/-1131346997-orig.jpeg" alt="Giocattoli" class="category-img">
+                    <div class="category-title">Giocattoli</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/grevys-zebra-on-alert-royalty-free-image-1647954551.jpg?crop=0.668xw:1.00xh;0,0&resize=1200:*" alt="Gioielli" class="category-img">
+                    <div class="category-title">Gioielli</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://www.focus.it/site_stored/imgs/0003/008/muccardo.900x600.jpg" alt="Opere Artistiche" class="category-img">
+                    <div class="category-title">Opere Artistiche</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://rivistanatura.com/wp-content/uploads/2021/07/Panda-770x470.jpg" alt="Opere Multimediali" class="category-img">
+                    <div class="category-title">Opere Multimediali</div>
+                </div>
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="category-container">
+                    <img src="https://citynews-today.stgy.ovh/~media/horizontal-hi/14611916259359/turtle-on-the-grass-2021-08-26-22-34-25-utc.jpg" alt="Opere Narrative" class="category-img">
+                    <div class="category-title">Opere Narrative</div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        function toggleBodyOverlay() {
+            document.body.classList.toggle('overlay-active');
+        }
+    </script>
 </body>
 
 </html>

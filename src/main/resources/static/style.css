@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+.navbar-nav .nav-link {
+    margin-right: 30px;
+}
+
+.navbar {
+    background-image: url("../static/navbar-bg.png");
+}
+
+.form-control,
+.btn {
+    border-radius: 0;
+}
+
+
+.dropdown-toggle {
+    border-radius: 0;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(101, 20, 18);
+}
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+#cann {
+    width: 20px;
+}
+
+body.overlay-active {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.category-img {
+    width: 150px;
+    height: 150px; 
+    border-radius: 50%;
+    margin-bottom: 20px; 
+}
+
+.category-container {
+    text-align: center;
+    margin-top: 30px;
+    flex: 1;
+    padding: 0 15px;
+}
+
+.category-title {
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
