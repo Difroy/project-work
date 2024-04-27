@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+body {
+    background-image: url('../static/body-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .navbar-nav .nav-link {
     margin-right: 30px;
 }
@@ -8,6 +14,8 @@
     background-image: url("../static/navbar-bg.png");
     background-repeat: no-repeat;
     align-items: center;
+    position: relative;
+    z-index: 9999;
 }
 
 .form-control,
@@ -26,6 +34,7 @@
 .logo {
     width: 300px;
     height: auto;
+    margin-left: 4%;
 }
 
 #cann {
@@ -43,10 +52,10 @@ body.overlay-active {
 }
 
 .category-img {
-    width: 150px;
-    height: 150px; 
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .category-container {
@@ -94,11 +103,68 @@ body.overlay-active {
 }
 
 .carousel-item img {
-    height: 400px; /* Altezza desiderata */
-    object-fit: cover; /* Per riempire l'intera area del container */
+    height: 400px;
+    object-fit: cover;
 }
 
 .carousel {
-    height: 400px; /* Altezza fissa del carosello */
+    height: 400px;
+    z-index: 9998;
 }
 
+.parchment {
+    position: relative;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8e8c8;
+    -webkit-mask-image: url('../static/parchment-bg.png');
+    mask-image: url('../static/parchment-bg.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    pointer-events: none;
+}
+
+.parchment-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.parchment:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-color: #f8e8c8;
+    z-index: -1;
+}
+
+.parchment:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 90%;
+    height: 20px;
+    transform: translateX(-50%) rotate(-2deg);
+}
+
+.parchment:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 90%;
+    height: 20px;
+    transform: translateX(-50%) rotate(2deg);
+}
+
+.container-fluid {
+    max-width: 120%;
+}
