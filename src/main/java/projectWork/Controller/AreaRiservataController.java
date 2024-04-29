@@ -1,4 +1,4 @@
-package projectWork.Controller;
+/*package projectWork.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,3 +37,4 @@ public class AreaRiservataController {
 
 	}
 }
+*/
