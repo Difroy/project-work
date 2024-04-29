@@ -24,7 +24,7 @@ public class LoginUtenteController
         if(session.getAttribute("utente") != null)
             return "redirect:/riservatautente";
         model.addAttribute("error", error);
-        return "loginUtenteTest";
+        return "loginUtente";
     }
 
     @PostMapping
