@@ -1,8 +1,7 @@
-package projectWork.Controller;
+package projectWork.controller;
 
 import jakarta.servlet.http.HttpSession;
-
-import projectWork.Service.UtenteService;
+import projectWork.service.UtenteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class LoginUtenteController
         if(session.getAttribute("utente") != null)
             return "redirect:/riservatautente";
         model.addAttribute("error", error);
-        return "loginutente";
+        return "loginUtenteTest";
     }
 
     @PostMapping

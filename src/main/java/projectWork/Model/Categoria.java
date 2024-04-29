@@ -1,4 +1,4 @@
-package projectWork.Model;
+package projectWork.model;
 
 import java.util.ArrayList;
 import java.util.List;

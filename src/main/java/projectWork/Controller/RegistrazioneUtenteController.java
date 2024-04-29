@@ -1,5 +1,6 @@
-/*package projectWork.Controller;
+/*package projectWork.controller;
 
 public class RegistrazioneUtenteController {
 
 }*/
+

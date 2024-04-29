@@ -1,8 +1,7 @@
-package projectWork.Service;
+package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Model.Profilo;
-import projectWork.Model.Utente;
+import projectWork.model.Utente;
 
 public interface UtenteService {
     boolean loginUtente(String username, String password, HttpSession session);

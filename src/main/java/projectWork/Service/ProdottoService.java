@@ -1,8 +1,10 @@
-package projectWork.Service;
+package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
+import projectWork.model.Prodotto;
+
 import org.springframework.web.multipart.MultipartFile;
-import projectWork.Model.Prodotto;
+
 import java.util.List;
 
 public interface ProdottoService {

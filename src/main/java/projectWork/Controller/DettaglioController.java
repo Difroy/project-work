@@ -1,4 +1,4 @@
-/*package projectWork.Controller;
+/*package projectWork.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,3 +35,6 @@ public class DettaglioController {
 		return "redirect:/dettaglio?id=" + id + "&add=y";
 	}
 }*/
+
+
+

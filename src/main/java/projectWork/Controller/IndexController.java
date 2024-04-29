@@ -1,4 +1,4 @@
-package projectWork.Controller;
+package projectWork.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Model.Categoria;
-import projectWork.Service.CategoriaService;
+import projectWork.model.Categoria;
+import projectWork.service.CategoriaService;
 
 //localhost:8080
 @Controller

@@ -1,7 +1,7 @@
-package projectWork.Service;
+package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Model.Acquisto;
+import projectWork.model.Acquisto;
 
 import java.util.List;
 
