@@ -1,7 +1,7 @@
 package projectWork.Controller;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Service.ProfiloService;
+import projectWork.Service.UtenteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginUtenteController
 {
     @Autowired
-    private ProfiloService profiloService;
+    private UtenteService utenteService;
     
     @GetMapping
    public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
@@ -35,7 +35,7 @@ public class LoginUtenteController
     )
     {
     	
-    	if(!profiloService.loginProfilo(username, password, session))
+    	if(!utenteService.loginUtente(username, password, session))
     		return "redirect:/loginutente?error";
         return "redirect:/riservatautente";
     }
