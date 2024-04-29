@@ -1,4 +1,4 @@
-/*package projectWork.Controller;
+package projectWork.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 import projectWork.Model.Utente;
 import projectWork.Service.ProdottoService;
-import projectWork.Service.ProfiloService;
+import projectWork.Service.UtenteService;
 
 @Controller
 @RequestMapping("/areariservata")
@@ -19,7 +19,7 @@ public class AreaRiservataController {
 	@Autowired
 	private ProdottoService prodottoService;
 
-	@Autowired ProfiloService profiloService;
+	@Autowired UtenteService profiloService;
 
 	@GetMapping
 	public String getPage(Model model, HttpSession session, @RequestParam (name="send", required=false) String send) {
@@ -37,4 +37,3 @@ public class AreaRiservataController {
 
 	}
 }
-*/

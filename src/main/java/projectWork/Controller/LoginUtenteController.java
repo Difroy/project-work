@@ -1,7 +1,8 @@
-/*package projectWork.Controller;
+package projectWork.Controller;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Service.ProfiloService;
+
+import projectWork.Service.UtenteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginUtenteController
 {
     @Autowired
-    private ProfiloService profiloService;
+    private UtenteService utenteService;
 
     @GetMapping
     public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
     {
-        if(session.getAttribute("profilo") != null)
+        if(session.getAttribute("utente") != null)
             return "redirect:/riservatautente";
         model.addAttribute("error", error);
         return "loginutente";
@@ -35,9 +36,9 @@ public class LoginUtenteController
     )
     {
 
-        if(!profiloService.loginProfilo(username, password, session))
+        if(!utenteService.loginUtente(username, password, session))
             return "redirect:/loginutente?error";
         return "redirect:/riservatautente";
     }
 
-}*/
+}
