@@ -1,9 +1,10 @@
 @charset "utf-8";
-
+@import url('https://fonts.googleapis.com/css2?family=Bilbo&family=Italianno&family=Lugrasimo&family=Mate+SC&family=Merienda:wght@300..900&family=Sixtyfour&display=swap');
 body {
+    font-family: Merienda;
+    font-weight: bold;
     background-image: url('../static/bg.png');
     background-size: cover;
-    background-repeat: no-repeat;
     z-index: 2;
 }
 
@@ -17,7 +18,7 @@ body {
     background-size: cover;
     position: fixed;
     width: 100%;
-    height: 10%
+    height: 10%;
 }
 
 .form-control,
@@ -65,28 +66,22 @@ body {
     border-radius: 0;
 }
 
+.logoF {
+    width: 300px;
+}
+
 .footer {
     background-image: url("../static/footer.png");
-    background-repeat: no-repeat;
+    background-size: cover;
     align-items: center;
-    padding: 50px 0;
-    border-top: 1px solid #ddd;
 }
 
-.footer-logo {
-    width: 100px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.footer-links {
-    margin-bottom: 20px;
+.containerF {
+    margin-top: 65px;
 }
 
 .footer-links a {
-    display: block;
-    color: #0066c0;
-    margin-bottom: 5px;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -103,10 +98,6 @@ body {
     height: 400px;
     z-index: 1;
     width: 100%;
-}
-
-.logoF {
-    width: 300px;
 }
 
 @media (max-width: 991.98px) {
