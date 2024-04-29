@@ -10,32 +10,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 import projectWork.Model.Utente;
 import projectWork.Service.ProdottoService;
-import projectWork.Service.UtenteService;
+import projectWork.Service.ProfiloService;
 
 @Controller
 @RequestMapping("/areariservata")
 public class AreaRiservataController {
-	
+
 	@Autowired
 	private ProdottoService prodottoService;
-	
-	@Autowired
-	UtenteService utenteService;
-	
+
+	@Autowired ProfiloService profiloService;
+
 	@GetMapping
 	public String getPage(Model model, HttpSession session, @RequestParam (name="send", required=false) String send) {
-		
+
 		if(session.getAttribute("utente")==null)
 			return "redirect:/loginutente";
 		Utente utente = (Utente) session.getAttribute("utente");
 		model.addAttribute("utente", utente);
-		
-		
+
+
 		return send;
-		
-		
-		
-		
+
+
+
+
 	}
 }
-
