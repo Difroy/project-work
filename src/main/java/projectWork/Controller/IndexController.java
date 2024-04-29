@@ -22,8 +22,8 @@ public class IndexController {
 	@GetMapping
 	public String getPage(Model model, HttpSession session) {
 
-		List<Categoria> categoria = categoriaService.getCategorie();
-		model.addAttribute("categoria", categoria);
+		List<Categoria> categorie = categoriaService.getCategorie();
+		model.addAttribute("categorie", categorie);
 
 		return "indexTest";
 
