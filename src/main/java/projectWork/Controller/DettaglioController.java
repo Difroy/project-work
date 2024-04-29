@@ -1,4 +1,4 @@
-/*package projectWork.controller;
+package projectWork.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
-import projectWork.Model.Prodotto;
-import projectWork.Service.ProdottoService;
+import projectWork.model.Prodotto;
+import projectWork.service.ProdottoService;
 
 @Controller
 @RequestMapping("/dettaglio")
@@ -34,7 +34,7 @@ public class DettaglioController {
 			return "redirect:/dettaglio?id=" + id + "&add=n";
 		return "redirect:/dettaglio?id=" + id + "&add=y";
 	}
-}*/
+}
 
 
 
