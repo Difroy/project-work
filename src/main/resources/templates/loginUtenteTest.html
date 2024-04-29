@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Login Utente</title>
 </head>
 <body>
+<p th:if="${error!= null}"> Credenziali Errate</p>
+<form action="/loginutente" method="post">
+<input type="text" name = "username" placeholder="username" required>
+<br>
+<input type = "password" name="password" placeholder = "password" required>
+<br>
+<input type="submit" value="Accedi"> 
 
+</form>
 </body>
 </html>
