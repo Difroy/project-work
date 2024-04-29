@@ -25,7 +25,7 @@ public class IndexController {
 		List<Categoria> categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
 
-		return "indexTest";
+		return "index";
 
 	}
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
-import projectWork.model.Profilo;
 import projectWork.model.Utente;
 import projectWork.service.UtenteService;
 
@@ -27,7 +26,7 @@ public class RegistrazioneUtenteController {
 	public String getPage (Model model) {
 		Utente utente = new Utente ();
 		model.addAttribute("utente", utente);
-		return "registrazioneUtenteTest";
+		return "registrazioneUtente";
 		
 	}
 	
