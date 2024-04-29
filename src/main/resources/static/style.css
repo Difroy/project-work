@@ -84,10 +84,12 @@ body {
     background-image: url("../static/footer.png");
     background-size: cover;
     align-items: center;
+    width: 100%;
 }
 
 .containerF {
     margin-top: 65px;
+    
 }
 
 .footer-links a {
@@ -110,16 +112,25 @@ body {
     width: 100%;
 }
 
+#cardLog {
+    margin-top: 0px;
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+}
+
+#cardReg {
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+    margin-bottom: 90px;
+}
 
 .card {
-    width: 500px;
-    max-width: 100%;
-    box-shadow: 8px 8px 8px 8px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 100px;
 }
 
 .card-title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Merienda;
     font-size: 30px;
 }
 

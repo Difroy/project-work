@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="../static/style.css" rel="stylesheet">
-    <title>Home - La Bottega del Brigante</title>
+    <title>Riservata Utente</title>
 </head>
 
 <body>
@@ -60,82 +60,23 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="5000">
-                    <img src="https://www.scienzainrete.it/files/styles/molto_grande/public/francesco-ungaro-primate.jpg?itok=0e2lccD7"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="5000">
-                    <img src="https://www.buonenotizie.it/wp-content/uploads/2021/04/panda-3857754_1920.jpg"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="5000">
-                    <img src="https://www.focusjunior.it/content/uploads/2018/10/giraffe-2222908_960_720-e1548405712185.jpg"
-                        class="d-block w-100" alt="...">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 mt-5 d-flex justify-content-center">
+                <div class="card">
+                    <div class="card-body text-center text-md-start">
+                        <h5 class="card-title">Benvenuto, <span id="username">NomeUtente</span>!</h5>
+                        <p class="card-text">
+                            Grazie per aver effettuato l'accesso all'area riservata. Qui troverai un riepilogo dei tuoi ordini:
+                        </p>
+                        <ul id="orderList" class="list-group">
+                        </ul>
+                        <p class="card-text">
+                            Non hai ancora effettuato ordini? <a href="#">Inizia ad acquistare ora!</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Precedente</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Successiva</span>
-            </button>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://www.changethefuture.it/assets/uploads/2020/05/animali-selvatici.jpg"
-                        alt="Abbigliamento" class="category-img">
-                    <div class="category-title">Abbigliamento</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://www.montecarlonews.it/fileadmin/archivio/montecarlonews/negozio-animali-online.jpg"
-                        alt="Gadget" class="category-img">
-                    <div class="category-title">Gadget</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://www.focus.it/images/2022/08/18/-1131346997-orig.jpeg" alt="Giocattoli"
-                        class="category-img">
-                    <div class="category-title">Giocattoli</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://hips.hearstapps.com/hmg-prod/images/grevys-zebra-on-alert-royalty-free-image-1647954551.jpg?crop=0.668xw:1.00xh;0,0&resize=1200:*"
-                        alt="Gioielli" class="category-img">
-                    <div class="category-title">Gioielli</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://www.focus.it/site_stored/imgs/0003/008/muccardo.900x600.jpg"
-                        alt="Opere Artistiche" class="category-img">
-                    <div class="category-title">Opere Artistiche</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://rivistanatura.com/wp-content/uploads/2021/07/Panda-770x470.jpg"
-                        alt="Opere Multimediali" class="category-img">
-                    <div class="category-title">Opere Multimediali</div>
-                </div>
-            </div>
-            <div class="col-md-auto text-center">
-                <div class="category-container">
-                    <img src="https://citynews-today.stgy.ovh/~media/horizontal-hi/14611916259359/turtle-on-the-grass-2021-08-26-22-34-25-utc.jpg"
-                        alt="Opere Narrative" class="category-img">
-                    <div class="category-title">Opere Narrative</div>
-                </div>
-            </div>
             <footer class="footer mt-5 py-3">
                 <div class="containerF">
                     <div class="row">
@@ -173,8 +114,7 @@
                 </div>
             </footer>
         </div>
-
-
+    
 </body>
 
 </html>
