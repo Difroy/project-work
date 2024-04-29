@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio Prodotto</title>
+</head>
+<body>
+    <a th:href="@{/}">Torna ai Prodotti</a>
+    <h2 th:text="${prodotto.nome}">Nome Prodotto</h2>
+    <h3 th:text="${#numbers.formatDecimal(prodotto.prezzo, 0, 'POINT', 2, 'COMMA')}">Prezzo Prodotto</h3>
+    <ul>
+        <li th:text="${prodotto.categoria.descrizione}">Descrizione Categoria</li>
+    </ul>
+    <a th:href="@{/dettaglio/aggiungi(id=${prodotto.id})}">Aggiungi al Carrello</a>
+    <p th:if="${add!=null}"
+       th:text="${add.equals('y') ? 'Prodotto Aggiunto' : 'Prodotto Già Presente'}"
+       th:style="${add.equals('y') ? 'color:blue' : 'color:yellow'}">
+    </p>
+</body>
+</html>

@@ -1,8 +1,8 @@
-package projectWork.Service;
+package projectWork.service;
 
 import java.util.List;
 
-import projectWork.Model.Sottocategoria;
+import projectWork.model.Sottocategoria;
 
 public interface SottocategoriaService {
 	void registraSottocategoria(Sottocategoria sottocategoria);

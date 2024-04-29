@@ -39,9 +39,9 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ordini</a></li>
+				<li class="nav-item"><a th:href="@{/loginutente}" class="nav-link active"
+					aria-current="page">Login</a></li>
+				<li class="nav-item"><a th:href="@{/registrazioneutente}" class="nav-link">Registrati</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Carrello</a>
 				</li>
 			</ul>
@@ -53,13 +53,13 @@
 			<div th:each="categoria : ${categorie}"
 				class="col-12 col-sm-6 col-md-4 mx-auto vh-100">
 				<div class="card" style="text-align: center;">
-					<img th:src="@{'categoria' + ${categoria.id} + '.jpg'}"
+					<img th:src="@{${categoria.icona}}"
 						class="card-img-top" style="height: 400px; object-fit: contain;"
 						alt="Immagine Categoria">
 					<div class="card-body">
 						<h5 th:text="${categoria.tipo}"></h5>
 						<a th:href="@{/sottocategoria(id=${categoria.id})}"
-							class="btn btn-primary">Dettagli</a>
+							class="btn btn-primary">Dettagli</a> 
 					</div>
 				</div>
 			</div>

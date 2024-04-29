@@ -1,9 +1,10 @@
-package projectWork.Service;
+package projectWork.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import projectWork.Dao.CategoriaDao;
-import projectWork.Model.Categoria;
+
+import projectWork.dao.CategoriaDao;
+import projectWork.model.Categoria;
 
 import java.util.List;
 
@@ -22,7 +23,6 @@ public class CategoriaServiceImpl implements CategoriaService{
         return (List<Categoria>) categoriaDao.findAll();
     }
 
-    @SuppressWarnings("OptionalGetWithoutIsPresent")
     @Override
     public Categoria getCategoriaById(int id) {
         return categoriaDao.findById(id).get();

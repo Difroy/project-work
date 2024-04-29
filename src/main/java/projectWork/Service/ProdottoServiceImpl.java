@@ -1,11 +1,12 @@
-package projectWork.Service;
+package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import projectWork.Dao.ProdottoDao;
-import projectWork.Model.Prodotto;
+
+import projectWork.dao.ProdottoDao;
+import projectWork.model.Prodotto;
 
 import java.util.ArrayList;
 import java.util.Base64;

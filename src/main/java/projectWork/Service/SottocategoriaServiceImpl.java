@@ -1,12 +1,12 @@
-package projectWork.Service;
+package projectWork.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import projectWork.Dao.SottocategoriaDao;
-import projectWork.Model.Sottocategoria;
+import projectWork.dao.SottocategoriaDao;
+import projectWork.model.Sottocategoria;
 
 @Service
 public class SottocategoriaServiceImpl implements SottocategoriaService{

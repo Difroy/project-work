@@ -1,7 +1,8 @@
-package projectWork.Dao;
+package projectWork.dao;
 
 import org.springframework.data.repository.CrudRepository;
-import projectWork.Model.Prodotto;
+
+import projectWork.model.Prodotto;
 
 public interface ProdottoDao extends CrudRepository<Prodotto, Integer>{
 

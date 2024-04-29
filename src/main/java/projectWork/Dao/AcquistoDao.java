@@ -1,8 +1,8 @@
-package projectWork.Dao;
+package projectWork.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import projectWork.Model.Acquisto;
+import projectWork.model.Acquisto;
 
 public interface AcquistoDao extends CrudRepository<Acquisto, Integer>{
 

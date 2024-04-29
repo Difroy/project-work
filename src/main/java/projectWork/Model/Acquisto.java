@@ -1,4 +1,4 @@
-package projectWork.Model;
+package projectWork.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

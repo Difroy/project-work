@@ -1,7 +1,8 @@
-package projectWork.Service;
+package projectWork.service;
 
-import projectWork.Model.Categoria;
 import java.util.List;
+
+import projectWork.model.Categoria;
 
 public interface CategoriaService {
     void registraCategoria(Categoria categoria);
