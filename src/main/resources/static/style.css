@@ -5,22 +5,32 @@ body {
     font-family: Merienda;
     font-weight: bold;
     background-image: url('../static/bg.png');
-    background-size: cover;
+    background-repeat: repeat;
+    background-size: 400px;
+    background-attachment: fixed;
     z-index: 2;
     color: #ffffff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-nav .nav-link {
     margin-right: 30px;
+    margin-left: 30px;
 }
 
 .navbar {
     z-index: 3;
     background-image: url('../static/navbar-bg.png');
     background-size: cover;
-    position: fixed;
+    background-repeat: no-repeat;
+    min-height: 90px;
     width: 100%;
-    height: 10%;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
 
 .nav-link {
@@ -86,6 +96,10 @@ body {
     align-items: center;
 }
 
+.row {
+    margin-right: 0;
+}
+
 .containerF {
     margin-top: 65px;
 }
@@ -107,19 +121,27 @@ body {
 .carousel {
     height: 400px;
     z-index: 1;
-    width: 100%;
 }
 
+#cardLog {
+    margin-top: 0px;
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+}
+
+#cardReg {
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+    margin-bottom: 90px;
+}
 
 .card {
-    width: 500px;
-    max-width: 100%;
-    box-shadow: 8px 8px 8px 8px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .card-title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Merienda;
     font-size: 30px;
 }
 
@@ -139,7 +161,6 @@ body {
     height: 100%;
     width: 100%;
 }
-
 
 #carouselExample {
     height: 100%;
@@ -166,7 +187,7 @@ body {
         text-align: center;
     }
 
-    .navbar-nav .nav-link {
+   .navbar-nav .nav-link {
         padding: .5rem 0;
     }
 
@@ -183,7 +204,7 @@ body {
         z-index: 1000;
     }
 
-    .navbar-collapse.show {
+     .navbar-collapse.show {
         left: 0;
     }
 
@@ -194,22 +215,26 @@ body {
         padding-left: 1rem;
     }
 
-    .navbar-collapse .nav-item {
+   .navbar-collapse .nav-item {
         margin-bottom: 0.5rem;
     }
 
-    .navbar-toggler {
+   .navbar-toggler {
         position: relative;
     }
 
-    .navbar {
+     .navbar {
         z-index: 999;
-        height: 20%;
+        height: 150px;
     }
 
     .logoN {
-        position: absolute;
-        top: 7%;
-        left: 15%;
+      margin-left: 35%;
+      margin-bottom: 5%;
+    }
+
+    .navbar-nav .nav-link {
+        margin-right: 30px;
+        margin-left: 0;
     }
 }
