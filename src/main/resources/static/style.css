@@ -31,9 +31,9 @@ body {
     z-index: 3;
     background-image: url('../static/navbar-bg.png');
     background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 90px;
-    width: 100%;
+    background-position: center;
+    min-height: 93px;
+    padding-bottom: 30px;
 }
 
 .navbar-collapse {
@@ -106,8 +106,10 @@ body {
 
 .footer {
     background-image: url("../static/footer.png");
-    background-size: cover;
     align-items: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 288px;
 }
 
 .row {
@@ -115,7 +117,7 @@ body {
 }
 
 .containerF {
-    margin-top: 65px;
+    margin-top: 100px;
 }
 
 .footer-links a {
@@ -128,12 +130,13 @@ body {
 }
 
 .carousel-item img {
-    height: 400px;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
 .carousel {
-    height: 400px;
+    height: auto;
     z-index: 1;
 }
 
@@ -154,6 +157,7 @@ body {
     font-size: large;
     margin-left: auto;
     margin-right: auto;
+    height: 90%;
 }
 
 #cardReg {
@@ -162,6 +166,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 800px;
+    height: 95%;
 }
 
 #cardT {
@@ -174,15 +179,17 @@ body {
 }
 
 .card {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 500px; 
     max-width: 100%; 
     margin-bottom: 20px;
+    height: 100%;
 }
 
 .card-title {
     font-family: Merienda;
     font-size: 20px;
+    text-align: center;
 }
 
 .card-img-top {
@@ -255,10 +262,10 @@ body {
    .navbar-toggler {
         position: relative;
     }
-
+    
      .navbar {
         z-index: 999;
-        height: 150px;
+        height: 160px;
     }
 
     .logoN {
