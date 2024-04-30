@@ -25,7 +25,7 @@ public class Profilo {
 	private String cognome;
 	
 	@Column
-	private char genere;
+	private String genere;
 
 	@Column(name = "data_di_nascita")
 	private LocalDate dataDiNascita;
@@ -74,15 +74,14 @@ public class Profilo {
 		this.cognome = cognome;
 	}
 
-	public char getGenere() {
+	public String getGenere() {
 		return genere;
 	}
 
-	public void setGenere(char genere) {
+	public void setGenere(String genere) {
 		this.genere = genere;
 	}
-	
-	
+
 	public LocalDate getDataDiNascita() {
 		return dataDiNascita;
 	}
