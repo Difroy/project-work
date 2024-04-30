@@ -14,11 +14,7 @@ public class SottocategoriaServiceImpl implements SottocategoriaService{
 	@Autowired
 	private SottocategoriaDao sottocategoriaDao;
 
-	@Override
-	public void registraSottocategoria(Sottocategoria sottocategoria) {
-		sottocategoriaDao.save(sottocategoria);
-	}
-
+	
 	@Override
 	public List<Sottocategoria> getSottocategorie() {
 		return (List<Sottocategoria>) sottocategoriaDao.findAll();
@@ -29,9 +25,6 @@ public class SottocategoriaServiceImpl implements SottocategoriaService{
 		return sottocategoriaDao.findById(id).get();
 	}
 
-	@Override
-	public void cancellaSottocategoria(int id) {
-		sottocategoriaDao.deleteById(id);
-	}
+	
 	
 }
