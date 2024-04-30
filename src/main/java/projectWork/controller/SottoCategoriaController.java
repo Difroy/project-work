@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import projectWork.model.Categoria;
 import projectWork.model.Sottocategoria;
 import projectWork.service.CategoriaService;
 import projectWork.service.SottocategoriaService;
@@ -26,8 +27,8 @@ public class SottoCategoriaController {
             Model model,
             @RequestParam(name = "id", required = false) Integer id
     ) {
-        List<Sottocategoria> sottocategorie = sottocategoriaService.getSottocategorie();
-        model.addAttribute("sottocategorie", sottocategorie);
+        Categoria categoria = categoriaService.getCategoriaById(id);
+        model.addAttribute("sottocategorie", categoria.getSottocategorie());
         return "sottocategoria";
     }
 }
