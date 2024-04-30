@@ -38,7 +38,8 @@
 
 <div class="container-fluid" style="background-color: #4A708B;">
     <div class="row p-4">
-        <div th:each="sottocategoria : ${sottocategorie}" class="col-12 col-sm-6 col-md-4 mx-auto vh-100"> <!-- sottocategoria è una variabile scelta da me, sottocategorie invece è il sottocategorie di controller -->
+        <div th:each="sottocategoria : ${sottocategorie}"
+             class="col-12 col-sm-6 col-md-4 mx-auto vh-100">
             <div class="card" style="text-align: center;">
                 <img th:src="@{${sottocategoria.icona}}"
                      class="card-img-top" style="height: 400px; object-fit: contain;"
