@@ -124,7 +124,6 @@ body {
 }
 
 #cardLog {
-    margin-top: 0px;
     background-color: rgba(255, 255, 255, 0.636);
     font-size: large;
 }
@@ -237,4 +236,13 @@ body {
         margin-right: 30px;
         margin-left: 0;
     }
+
+    .footer {
+        position: relative;
+    }
+
+    .footer-links a {
+        margin-left: 2%;
+    }
+    
 }

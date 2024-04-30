@@ -11,55 +11,166 @@
     <title>Home</title>
 </head>
 
-
-
-<nav
-		class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body"
-		data-bs-theme="dark">
-		<div class="container-fluid justify-content-center">
-			<a class="navbar-brand" href="#">La Bottega del Brigante</a>
-			<form class="d-flex ms-2 flex-grow-1" role="search">
-
-				<input class="form-control me-2" type="search" placeholder="Cerca"
-					aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Cerca</button>
-				<!-- Qui vorrei mettere icona della lente di ingrandimento -->
-			</form>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarText"
-				aria-controls="navbarText" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a th:href="@{/loginutente}" class="nav-link active"
-					aria-current="page">Login</a></li>
-				<li class="nav-item"><a th:href="@{/registrazioneutente}" class="nav-link">Registrati</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Carrello</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="container-fluid" style="background-color: #4A708B;">
-		<div class="row p-4">
-			<div th:each="categoria : ${categorie}"
-				class="col-12 col-sm-6 col-md-4 mx-auto vh-100">
-				<div class="card" style="text-align: center;">
-					<img th:src="@{${categoria.icona}}"
-						class="card-img-top" style="height: 400px; object-fit: contain;"
-						alt="Immagine Categoria">
-					<div class="card-body">
-						<h5 th:text="${categoria.tipo}"></h5>
-						<a th:href="@{/sottocategoria(id=${categoria.id})}"
-							class="btn btn-primary">Dettagli</a> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="../static/LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
+            </a>
+            <form class="d-flex ms-2 flex-grow-1" role="search">
+                <div class="input-group">
+                    <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorie
+                        </button>
+                        <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
+                            <li><a class="dropdown-item" href="#">Gadget</a></li>
+                            <li><a class="dropdown-item" href="#">Giocattoli</a></li>
+                            <li><a class="dropdown-item" href="#">Gioielli</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
+                        </ul>
+                    </div>
+                    <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
+                    <button class="btn btn-warning" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login/Registrazione</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ordini</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Carrello</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="https://www.scienzainrete.it/files/styles/molto_grande/public/francesco-ungaro-primate.jpg?itok=0e2lccD7"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://www.buonenotizie.it/wp-content/uploads/2021/04/panda-3857754_1920.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://www.focusjunior.it/content/uploads/2018/10/giraffe-2222908_960_720-e1548405712185.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Precedente</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Successiva</span>
+        </button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://www.changethefuture.it/assets/uploads/2020/05/animali-selvatici.jpg"
+                    alt="Abbigliamento" class="category-img">
+                <div class="category-title">Abbigliamento</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://www.montecarlonews.it/fileadmin/archivio/montecarlonews/negozio-animali-online.jpg"
+                    alt="Gadget" class="category-img">
+                <div class="category-title">Gadget</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://www.focus.it/images/2022/08/18/-1131346997-orig.jpeg" alt="Giocattoli"
+                    class="category-img">
+                <div class="category-title">Giocattoli</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/grevys-zebra-on-alert-royalty-free-image-1647954551.jpg?crop=0.668xw:1.00xh;0,0&resize=1200:*"
+                    alt="Gioielli" class="category-img">
+                <div class="category-title">Gioielli</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://www.focus.it/site_stored/imgs/0003/008/muccardo.900x600.jpg" alt="Opere Artistiche"
+                    class="category-img">
+                <div class="category-title">Opere Artistiche</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://rivistanatura.com/wp-content/uploads/2021/07/Panda-770x470.jpg"
+                    alt="Opere Multimediali" class="category-img">
+                <div class="category-title">Opere Multimediali</div>
+            </div>
+        </div>
+        <div class="col-md-auto text-center">
+            <div class="category-container">
+                <img src="https://citynews-today.stgy.ovh/~media/horizontal-hi/14611916259359/turtle-on-the-grass-2021-08-26-22-34-25-utc.jpg"
+                    alt="Opere Narrative" class="category-img">
+                <div class="category-title">Opere Narrative</div>
+            </div>
+        </div>
+       <footer class="footer py-3">
+            <div class="containerF">
+                <div class="row">
+                    <div class="text-center">
+                        <img src="../static/LOGOTIPO.png" alt="Logo" class="logoF mb-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-links list-unstyled">
+                            <li class="d-inline me-3"><a href="#">Abbigliamento</a>
+                            </li>
+                            <li class="d-inline me-3"><a href="#">Gadget</a>
+                            </li>
+                            <li class="d-inline me-3"><a href="#">Giocattoli</a>
+                            </li>
+                            <li class="d-inline me-3"><a href="#">Gioielli</a>
+                            </li>
+                            <li class="d-inline me-3"><a href="#">Opere
+                                    Artistiche</a>
+                            </li>
+                            <li class="d-inline-block me-3"><a href="#">Opere
+                                    Multimediali</a></li>
+                            <li class="d-inline-block me-3"><a href="#">Opere
+                                    Narrative</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12 text-center">
+                        <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>
