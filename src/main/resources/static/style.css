@@ -104,7 +104,15 @@ body {
     width: 300px;
 }
 
-
+.footer {
+    background-image: url("../static/footer.png");
+    background-image: url("footer.png");
+    background-size: cover;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 288px;
+    }
 
 .row {
     margin-right: 0;
