@@ -22,7 +22,7 @@ public class LoginUtenteController
     public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
     {
         if(session.getAttribute("utente") != null)
-            return "redirect:/riservatautente";
+            return "redirect:/areariservata";
         model.addAttribute("error", error);
         return "loginUtente";
     }
@@ -37,7 +37,7 @@ public class LoginUtenteController
 
         if(!utenteService.loginUtente(username, password, session))
             return "redirect:/loginutente?error";
-        return "redirect:/riservatautente";
+        return "redirect:/areariservata";
     }
 
 }
