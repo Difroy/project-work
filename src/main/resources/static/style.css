@@ -15,6 +15,13 @@ body {
     padding: 0;
 }
 
+#bg {
+    background-image: url('../static/bgalt.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .navbar-nav .nav-link {
     margin-right: 10px;
     margin-left: 20px;
@@ -145,6 +152,8 @@ body {
 #cardLog {
     background-color: rgba(255, 255, 255, 0.636);
     font-size: large;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #cardReg {
@@ -158,6 +167,10 @@ body {
 #cardT {
     font-size: 35px;
     font-weight: bold;
+}
+
+#cardL {
+    margin-left: auto;
 }
 
 .card {
