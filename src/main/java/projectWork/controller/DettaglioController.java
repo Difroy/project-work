@@ -24,7 +24,7 @@ public class DettaglioController {
 		Prodotto prodotto = prodottoService.getProdottoById(id);
 		model.addAttribute("prodotto", prodotto);
 		model.addAttribute("add", add);
-		return "dettaglio";
+		return "dettaglioProdotto";
 	}
 
 	@GetMapping("/aggiungi")
@@ -35,8 +35,3 @@ public class DettaglioController {
 		return "redirect:/dettaglio?id=" + id + "&add=y";
 	}
 }
-
-
-
-
-
