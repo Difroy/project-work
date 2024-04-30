@@ -77,10 +77,10 @@ body {
 }
 
 .category-container {
-    position: relative;
+    
     overflow: hidden;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     flex: 1;
     padding: 0 15px;
 }
@@ -130,6 +130,18 @@ body {
     z-index: 1;
 }
 
+#carouselExample {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-inner {
+    text-align: center;
+}
+
 #cardLog {
     background-color: rgba(255, 255, 255, 0.636);
     font-size: large;
@@ -142,72 +154,28 @@ body {
 }
 
 .card {
-    width: 100%;
     margin-top: 50px;
+    width: 500px; 
+    max-width: 100%; 
+    margin-bottom: 20px;
 }
 
 .card-title {
     font-family: Merienda;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .card-img-top {
     width: 80%;
     height: 80%;
     object-fit: cover;
-}
-
-.campi {
-    width: 100%;
-    max-width: 100%;
-}
-
-.card-body {
-    height: 100%;
-    width: 100%;
-}
-
-#carouselExample {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-inner {
-    text-align: center;
-}
-
-.copertina {
-    max-width: 100%;
-    max-height: 100%;
-    display: inline-block;
-}
-
-.card {
-    width: 500px; 
-    max-width: 100%; 
-    box-shadow: 8px 8px 8px 8px;
-    margin-bottom: 20px;
-}
-
-.card-title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
-    
-}
-
-.card-img-top {
-    width: 80%;
-    height: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .campi {
-    width: 100%; 
-    max-width: 100%; 
+    width: 100%;
+    max-width: 100%;
 }
 
 .card-body {
@@ -215,25 +183,13 @@ body {
     width: 100%;
 }
 
-
-#carouselExample {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-inner {
-    text-align: center;
-}
-
 .copertina {
     max-width: 100%;
     max-height: 100%;
     display: inline-block;
 }
-#ombra{
+
+#ombra {
     box-shadow: 5px 5px 5px 5px; 
     
 }
