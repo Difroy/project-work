@@ -12,7 +12,53 @@
     <title>Login</title>
 </head>
 
-<body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<body>
+    <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="../static/LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
+        </a>
+        <form class="d-flex ms-2 flex-grow-1" role="search">
+            <div class="input-group">
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorie
+                    </button>
+                    <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
+                        <li><a class="dropdown-item" href="#">Gadget</a></li>
+                        <li><a class="dropdown-item" href="#">Giocattoli</a></li>
+                        <li><a class="dropdown-item" href="#">Gioielli</a></li>
+                        <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
+                        <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
+                        <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
+                    </ul>
+                </div>
+                <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
+                <button class="btn btn-warning" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login/Registrazione</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ordini</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrello</a>
+                </li>
+            </ul>
+        </div>
+</nav>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -40,8 +86,43 @@
                 </div>
             </div>
         </div>
-        
     </div>
+    <footer class="footer py-3 fixed-bottom">
+        <div class="containerF">
+            <div class="row">
+                <div class="text-center">
+                    <img src="../static/LOGOTIPO.png" alt="Logo" class="logoF mb-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="footer-links list-unstyled">
+                        <li class="d-inline me-3"><a href="#">Abbigliamento</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="#">Gadget</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="#">Giocattoli</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="#">Gioielli</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="#">Opere
+                                Artistiche</a>
+                        </li>
+                        <li class="d-inline-block me-3"><a href="#">Opere
+                                Multimediali</a></li>
+                        <li class="d-inline-block me-3"><a href="#">Opere
+                                Narrative</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>

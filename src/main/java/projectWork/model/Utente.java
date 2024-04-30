@@ -23,26 +23,26 @@ public class Utente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_profilo", referencedColumnName = "id")
 	@Valid
 	private Profilo profilo;
-	
+
 	@Column
 	@Pattern(regexp = "[a-zA-Z0-9._-]{1,50}", message = "Caratteri non ammessi")
 	private String username;
-	
+
 	@Column
 	private String email;
-	
+
 	@Column
-	@Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,50}", message = "Password troppo debole, deve andare in palestra")
+	@Pattern(regexp = "(?=.\\d)(?=.[a-z])(?=.[A-Z])(?=.[@$!%?&])[A-Za-z\\d@$!%?&]{6,50}", message = "Password troppo debole, deve andare in palestra")
 	private String password;
-	
+
 	@Column
 	private String avatar;
-	
+
 	public List<Acquisto> getAcquisti() {
 		return acquisti;
 	}
@@ -56,7 +56,7 @@ public class Utente {
 			fetch = FetchType.EAGER,
 			orphanRemoval = true)
 	private List<Acquisto> acquisti = new ArrayList<>();
-	
+
 
 	public int getId() {
 		return id;
@@ -106,4 +106,3 @@ public class Utente {
 		this.avatar = avatar;
 	}
 }
-
