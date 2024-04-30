@@ -96,11 +96,11 @@
                   </div>
                   <div class="mb-3">
                     <label for="genere" class="form-label">Genere</label>
-                    <select class="form-select" id="genere" name="genere" th:field="*{profilo.genere}" placeholder="Inserisci il tuo genere" required>
+                    <select class="form-select" id="genere" name="genere" th:switch="*{profilo.genere}" placeholder="Inserisci il tuo genere" required>
                       <option value="">Seleziona...</option>
-                      <option value="maschio">Maschio</option>
-                      <option value="femmina">Femmina</option>
-                      <option value="altro">Altro</option>
+                      <option value="maschio" th:case1>Maschio</option>
+                      <option value="femmina" th:case2>Femmina</option>
+                      <option value="altro" th:case3>Altro</option>
                     </select>
                   </div>
                   <div class="mb-3">
