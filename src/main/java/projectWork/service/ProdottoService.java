@@ -31,4 +31,7 @@ public interface ProdottoService {
     
     
     void cancellaProdotto(int id);
+
+
+	List<Prodotto> getProdottiByCategoriaAndSottocategoria(Integer categoriaId, Integer sottocategoriaId);
 }

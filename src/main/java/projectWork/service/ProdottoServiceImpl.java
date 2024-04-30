@@ -21,6 +21,8 @@ public class ProdottoServiceImpl implements ProdottoService {
 
     @Autowired
     private SottocategoriaService sottocategoriaService;
+    
+    
 
     @Override
     public List<Prodotto> getProdotti() {
@@ -132,5 +134,10 @@ public class ProdottoServiceImpl implements ProdottoService {
     @Override
     public void cancellaProdotto(int id) {
         prodottoDao.deleteById(id);
+    }
+
+    @Override
+    public List<Prodotto> getProdottiByCategoriaAndSottocategoria(Integer categoriaId, Integer sottocategoriaId) {
+    	return prodottoDao.findBySottocategoria_Categoria_IdAndSottocategoria_Id(categoriaId, sottocategoriaId);
     }
 }
