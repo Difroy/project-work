@@ -45,7 +45,8 @@
                     <h5 th:text="${prodotto.nome}"></h5>
                     <p th:text="${prodotto.descrizione}"></p>
                     <p th:text="${prodotto.prezzo}"></p>
-                    <a th:href="@{/dettaglioProdotto(id=${prodotto.id})}" class="btn btn-primary">Aggiungi al carrello</a>
+                   <a th:href="@{'/dettaglio?id=' + ${prodotto.id}}" class="btn btn-primary">Aggiungi al carrello</a>
+                   
                 </div>
             </div>
         </div>
