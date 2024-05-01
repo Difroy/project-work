@@ -48,8 +48,10 @@
 		</div>
 	</nav>
 	
-	
+<div class="container-fluid" style="background-color: #4A708B;">	
 
+ <h1 th:text ="'Benvenuto nella tua Area Riservata ' + ${utente.username}" style="text-align:center"></h1>
+  <h4 th:if="${carrello == null}" style="text-align:center">Non hai un carrello</h4>
 <table th:if="${carrello != null}">
 <tr th:each="prodotto : ${carrello}">
 <td th:text="${prodotto.nome}"></td>
@@ -57,10 +59,53 @@
 <td><a th:href="@{/areariservata/rimuovi(id=${prodotto.id})}"> Rimuovi dal Carrello</a></td>
 </tr>
  </table>
+ 
+ <h5 th:if="${carrello != null}" th:text="'Totale Carrello ' + ${totale}"></h5>
+ 
+ <a th:if = "${carrello != null}" th:href ="@{/riservautente/invia}">Invia ordine</a>
+ <p th:if="${send !=null}"> Ordine inviato!! </p>
 
-	<div class="container-fluid" style="background-color: #4A708B;">
-	 <h1 th:text ="'Benvenuto nella tua Area Riservata ' + ${utente.username}" style="text-align:center"></h1>
- <h4 th:if="${carrello == null}" style="text-align:center">Non hai un carrello</h4>
+	
+	<hr>
+	<form th:object = "${utente}" method="post">
+	<input type="hidden" th:field="*{id}">
+	<input type="hidden" th:field="*{profilo.id}">
+	<input type = "text" th:field="*{profilo.nome}" placeholder="nome" required>
+	<p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"> </p>
+	<br>
+	<input type = "text" th:field="*{profilo.cognome}" placeholder = "cognome" required>
+	<p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{cognome}"></p>
+	<br>
+	<input type = "text" th:field="*{username}" placeholder ="username" readonly>
+<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+<p th:if ="${error != null}" th:text="${error}"></p>
+<br>
+<input type = "text"  th:field="*{password}" placeholder="password" required id="pwd">
+	<button type= "button" onclick="mostra()">Mostra/Nascondi</button>
+<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+<br>
+<input type = "submit" value = "Modifica Dati">
+
+	</form>
+ 
+ <script> document.addEventListener ("DOMContentLoaded", function (){
+var pwd = document.getElementById ("pwd");
+pwd.type = "password";	
+});
+function mostra () {
+	if (pwd.type == "password")
+		pwd.type = "text";
+	else
+		pwd.type = "password";
+	
+}
+</script>
+ 
+
+ 
+ 
+ 
+ 
 		<div class="row p-4">
 			<div th:each="categoria : ${categorie}"
 				class="col-12 col-sm-6 col-md-4 mx-auto vh-100">
