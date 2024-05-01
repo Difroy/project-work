@@ -30,9 +30,8 @@ body {
 .navbar {
     z-index: 3;
     background-image: url('navbar-bg.png');
-    background-size: cover;
+    background-size: 105%;
     background-position: center;
-    min-height: 93px;
     padding-bottom: 30px;
 }
 
@@ -109,10 +108,9 @@ body {
     background-image: url("footer.png");
     background-size: cover;
     align-items: center;
-    background-size: cover;
+    background-size: 105%;
     background-position: center;
-    min-height: 288px;
-    }
+}
 
 .row {
     margin-right: 0;
@@ -186,7 +184,6 @@ body {
     width: 500px; 
     max-width: 100%; 
     margin-bottom: 20px;
-  
 }
 
 .card-title {
@@ -221,10 +218,9 @@ body {
 
 #ombra {
     box-shadow: 5px 5px 5px 5px; 
-    
 }
 
-#bottone{
+#bottone {
    margin-left: 90px;
 }
 
@@ -273,6 +269,7 @@ body {
      .navbar {
         z-index: 999;
         height: 160px;
+        background-size: contain;
     }
 
     .logoN {
