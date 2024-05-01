@@ -170,6 +170,7 @@ body {
 #cardT {
     font-size: 35px;
     font-weight: bold;
+    text-align: center;
 }
 
 #cardL {
@@ -267,7 +268,7 @@ body {
      .navbar {
         z-index: 999;
         height: 160px;
-        background-size: contain;
+        background-size: cover;
     }
 
     .logoN {
@@ -282,10 +283,22 @@ body {
 
     .footer {
         position: relative;
+        background-size: cover;
     }
 
     .footer-links a {
         margin-left: 2%;
     }
+
+    #bottone {
+        margin-left: 160px;
+    }
+
+    .avatar-selection img {
+        margin-left: 50%;
+    }
     
+   .radio-inline {
+    margin-left: 20%;
+   }
 }

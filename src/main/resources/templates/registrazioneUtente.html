@@ -154,9 +154,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" th:field="*{password}"
-                                    placeholder="Inserisci la tua password" required>
-                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" th:field="*{password}"
+                                        placeholder="Inserisci la tua password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">👁️</button>
+                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="avatar" class="form-label">Avatar</label>
@@ -225,6 +228,18 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🔒';
+        });
+    </script>
 
 </body>
 
