@@ -2,12 +2,12 @@ package projectWork.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
@@ -25,10 +25,10 @@ public class AreaRiservataController {
 	private ProdottoService prodottoService;
 
 	@Autowired
-	UtenteService profiloService;
+	private UtenteService utenteService;
 	
 	@Autowired
-	AcquistoService acquistoService;
+	private AcquistoService acquistoService;
 	
 	@Autowired
 	private CategoriaService categoriaService;
@@ -66,6 +66,19 @@ public class AreaRiservataController {
 	public String invia (HttpSession session) {
 		acquistoService.inviaAcquisto(session);
 		return "redirect:/areariservata?send";	
+	}
+
+	@PostMapping
+	public String formManager (
+			@Valid @ModelAttribute("utente") Utente utente,
+			BindingResult result,
+			HttpSession session
+	) {
+		if(result.hasErrors())
+			return "areariservata";
+		utenteService.registraUtente(utente);
+		session.setAttribute("utente", utente);
+		return "redirect:/areariservata";
 	}
 	
 	
