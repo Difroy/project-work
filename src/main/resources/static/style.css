@@ -16,7 +16,7 @@ body {
 }
 
 #bg {
-    background-image: url('../static/bgalt.png');
+    background-image: url('bgalt.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -105,7 +105,7 @@ body {
 }
 
 .footer {
-    background-image: url("../static/footer.png");
+    background-image: url("footer.png");
     background-image: url("footer.png");
     background-size: cover;
     align-items: center;
