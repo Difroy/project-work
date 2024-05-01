@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,6 @@
     <link href="style.css" rel="stylesheet">
     <title>Registrazione</title>
     <style>
-
         .img-fluid {
             max-width: 100%;
             height: auto;
@@ -22,161 +22,174 @@
             flex-wrap: wrap;
         }
 
+        .avatar-selection img {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .avatar-selection img:hover {
+            border: 5px solid #007bff;
+        }
     </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
-        </a>
-        <form class="d-flex ms-2 flex-grow-1" role="search">
-            <div class="input-group">
-                <div class="dropdown">
-                    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorie
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
+            </a>
+            <form class="d-flex ms-2 flex-grow-1" role="search">
+                <div class="input-group">
+                    <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorie
+                        </button>
+                        <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
+                            <li><a class="dropdown-item" href="#">Gadget</a></li>
+                            <li><a class="dropdown-item" href="#">Giochi</a></li>
+                            <li><a class="dropdown-item" href="#">Gioielli</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
+                            <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
+                        </ul>
+                    </div>
+                    <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
+                    <button class="btn btn-warning" type="submit">
+                        <i class="bi bi-search"></i>
                     </button>
-                    <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
-                        <li><a class="dropdown-item" href="#">Gadget</a></li>
-                        <li><a class="dropdown-item" href="#">Giochi</a></li>
-                        <li><a class="dropdown-item" href="#">Gioielli</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
-                    </ul>
                 </div>
-                <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
-                <button class="btn btn-warning" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Registrazione</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Carrello</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrazione</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrello</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container-fluid">
         <div class="row justify-content-center">
-          <div th:if="${error != null}" class="col-12">
-            <p>Credenziali Errate</p>
-        </div>
-          <div class="col-md-8"  style="margin-bottom: 60px;">
-            <div class="card" id="cardReg">
-              <div class="card-body">
-                <h5 class="card-title text-center mb-4" id="cardT">Registrazione</h5>
-                <form th:object="${utente}" method="post">
-                  <div class="form-row mb-3">
-                    <div class="mb-3">
-                      <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}" placeholder="Inserisci il tuo nome" required>
-                        <p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
-                    </div>
-                    <div class="mb-3">
-                      <label for="cognome" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}" placeholder="Inserisci il tuo cognome" required>
-                        <p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}"></p>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="genere" class="form-label">Genere</label>
-                    <select class="form-select" id="genere" name="profilo.genere"  required>
-                     
-                      <option value="maschio">Maschio</option>
-                      <option value="femmina">Femmina</option>
-                      <option value="altro">Altro</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label for="dataNascita" class="form-label">Data di Nascita</label>
-                        <input type="date" class="form-control" id="dataNascita" th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita" required>
-                        <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}" th:errors="*{profilo.dataDiNascita}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
-                    <input type="text" class="form-control" id="indirizzo" th:field="*{profilo.indirizzoResidenza}" placeholder="Inserisci il tuo indirizzo di residenza" required>
-                        <p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}" th:errors="*{profilo.indirizzoResidenza}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="telefono" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}" placeholder="Inserisci il tuo numero di telefono" required>
-                        <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Inserisci la tua email" required>
-                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Inserisci il tuo username" required>
-                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Inserisci la tua password" required>
-                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="avatar" class="form-label">Avatar</label>
-                    <div class="avatar-container">
-                        <!-- Avatar 1 -->
-                        <div class="col-6 col-sm-3">
-                            <input type="radio" id="avatar1" name="avatar" value="avatar1" required>
-                            <label for="avatar1" class="d-block">
-                                <img src="av1.jpg" alt="Avatar 1" class="img-fluid">
-                            </label>
-                        </div>
-                        <!-- Avatar 2 -->
-                        <div class="col-6 col-sm-3">
-                            <input type="radio" id="avatar2" name="avatar" value="avatar2" required>
-                            <label for="avatar2" class="d-block">
-                                <img src="av2.jpg" alt="Avatar 2" class="img-fluid">
-                            </label>
-                        </div>
-                        <!-- Avatar 3 -->
-                        <div class="col-6 col-sm-3">
-                            <input type="radio" id="avatar3" name="avatar" value="avatar3" required>
-                            <label for="avatar3" class="d-block">
-                                <img src="av3.jpg" alt="Avatar 3" class="img-fluid">
-                            </label>
-                        </div>
-                        <!-- Avatar 4 -->
-                        <div class="col-6 col-sm-3">
-                            <input type="radio" id="avatar4" name="avatar" value="avatar4" required>
-                            <label for="avatar4" class="d-block">
-                                <img src="av4.jpg" alt="Avatar 4" class="img-fluid">
-                            </label>
-                        </div>
+            <div th:if="${error != null}" class="col-12">
+                <p>Credenziali Errate</p>
+            </div>
+            <div class="col-md-8" style="margin-bottom: 60px;">
+                <div class="card" id="cardReg">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4" id="cardT">Registrazione</h5>
+                        <form th:object="${utente}" method="post">
+                            <div class="form-row mb-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}"
+                                        placeholder="Inserisci il tuo nome" required>
+                                    <p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cognome" class="form-label">Cognome</label>
+                                    <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}"
+                                        placeholder="Inserisci il tuo cognome" required>
+                                    <p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="genere" class="form-label">Genere</label>
+                                <select class="form-select" id="genere" name="profilo.genere" required>
+
+                                    <option value="maschio">Maschio</option>
+                                    <option value="femmina">Femmina</option>
+                                    <option value="altro">Altro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dataNascita" class="form-label">Data di Nascita</label>
+                                <input type="date" class="form-control" id="dataNascita"
+                                    th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita"
+                                    required>
+                                <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
+                                    th:errors="*{profilo.dataDiNascita}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
+                                <input type="text" class="form-control" id="indirizzo"
+                                    th:field="*{profilo.indirizzoResidenza}"
+                                    placeholder="Inserisci il tuo indirizzo di residenza" required>
+                                <p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}"
+                                    th:errors="*{profilo.indirizzoResidenza}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}"
+                                    placeholder="Inserisci il tuo numero di telefono" required>
+                                <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" th:field="*{email}"
+                                    placeholder="Inserisci la tua email" required>
+                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" th:field="*{username}"
+                                    placeholder="Inserisci il tuo username" required>
+                                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" th:field="*{password}"
+                                    placeholder="Inserisci la tua password" required>
+                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="avatar" class="form-label">Avatar</label>
+                                <div class="avatar-selection">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar1.jpg" checked>
+                                        <img src="avatar1.jpg" alt="Avatar 1">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar2.jpg">
+                                        <img src="avatar2.jpg" alt="Avatar 2">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar3.jpg">
+                                        <img src="avatar3.jpg" alt="Avatar 3">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar4.jpg">
+                                        <img src="avatar4.jpg" alt="Avatar 4">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Registrati</button>
+                        </form>
+                        <p class="mt-3 text-center">Hai già un account? <a href="login.html">Accedi qui</a></p>
                     </div>
                 </div>
-                
-                  <button type="submit" class="btn btn-primary w-100">Registrati</button>
-                </form>
-                <p class="mt-3 text-center">Hai già un account? <a href="login.html">Accedi qui</a></p>
-              </div>
             </div>
-          </div>
         </div>
-        
-      </div>
-      <footer class="footer py-3">
+
+    </div>
+    <footer class="footer py-3">
         <div class="containerF">
             <div class="row">
                 <div class="text-center">
@@ -214,4 +227,5 @@
     </footer>
 
 </body>
+
 </html>

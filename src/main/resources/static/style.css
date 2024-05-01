@@ -117,10 +117,6 @@ body {
     margin-right: 0;
 }
 
-.containerF {
-    margin-top: 30px;
-}
-
 .footer-links a {
     color: #ffffff;
     text-decoration: none;
@@ -159,7 +155,7 @@ body {
     font-size: large;
     margin-left: auto;
     margin-right: auto;
-    height: 90%;
+    height: 80%;
 }
 
 #cardReg {
@@ -178,6 +174,7 @@ body {
 
 #cardL {
     margin-left: auto;
+    margin-bottom: 30px;
 }
 
 .card {
