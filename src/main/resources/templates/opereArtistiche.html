@@ -1,341 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="../static/style.css" rel="stylesheet">
-    <title>opere Artistiche</title>
-    <style type="text/css">
-        
-   
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="../static/style.css" rel="stylesheet">
+  <title>opere Artistiche</title>
+  <style type="text/css">
+
+
+  </style>
 </head>
+
 <body>
-  
+
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="../static/LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
-        </a>
-        <form class="d-flex ms-2 flex-grow-1" role="search">
-            <div class="input-group">
-                <div class="dropdown">
-                    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorie
-                    </button>
-                    <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
-                        <li><a class="dropdown-item" href="#">Gadget</a></li>
-                        <li><a class="dropdown-item" href="#">Giochi</a></li>
-                        <li><a class="dropdown-item" href="#">Gioielli</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
-                        <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
-                    </ul>
-                </div>
-                <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
-                <button class="btn btn-warning" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="index.html">
+        <img src="../static/LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
+      </a>
+      <form class="d-flex ms-2 flex-grow-1" role="search">
+        <div class="input-group">
+          <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Categorie
+            </button>
+            <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Abbigliamento</a></li>
+              <li><a class="dropdown-item" href="#">Gadget</a></li>
+              <li><a class="dropdown-item" href="#">Giochi</a></li>
+              <li><a class="dropdown-item" href="#">Gioielli</a></li>
+              <li><a class="dropdown-item" href="#">Opere Artistiche</a></li>
+              <li><a class="dropdown-item" href="#">Opere Multimediali</a></li>
+              <li><a class="dropdown-item" href="#">Opere Narrative</a></li>
+            </ul>
+          </div>
+          <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
+          <button class="btn btn-warning" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
     <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Registrazione</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Carrello</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registrazione</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Carrello</a>
+        </li>
+      </ul>
     </div>
-</nav>
-        
+  </nav>
+
   <div class="container mt-3">
-    <div class="row">  
-        <div class="col-md-4 col-sm-12"> 
-            <div class="card">
-                <img class="card-img-top" src="../static/SottoCategorie/Quadro/nave pirata.jpg" alt="one piece vol 1">
-                <div class="card-body">
-                   <h5 class="card-title">
-                    Quadro della barca a vela nera della nave pirata
-                     </h5>  
-                     <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante" onclick="toggleCollapse('pulsante1')">Info
-                   </button>
-                   <div class="collapse" style="display: none;" id="pulsante1">
-                       <div class="campi">
-                           <fieldset>
-                            
-                               <div id="carouselExample" class="carousel slide">
-                                   <div class="carousel-inner">
-                                     <div class="carousel-item active">
-                                       <img class="copertina" src="../static/SottoCategorie/Quadro/nave pirata.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                     <div class="carousel-item">
-                                       <img class="copertina" src="../static/SottoCategorie/Quadro/navepirataback.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                   </div>
-                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Next</span>
-                                   </button>
-                                 </div>
-                                
-                                 <h5> Descrizione </h5>
-                                 <p>L'adolescente Jim Hawkins, con l'aiuto di una mappa olografica e di alcuni amici, va alla ricerca del Pianeta del Tesoro.</p>
-                                 <div>
-                                   <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
-                                 </div>
-                                 <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
-                </div>
-               </div>
-           </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="../static/SottoCategorie/Quadro/nave pirata.jpg"
+            alt="Quadro della barca a vela nera della nave pirata">
+          <div class="card-body">
+            <h5 class="card-title">
+              Quadro della barca a vela nera della nave pirata
+            </h5>
+            <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante"
+              onclick="toggleCollapse('pulsante1')" id="bottone">Dettagli
+            </button>
+            <div class="collapse" style="display: none;" id="pulsante1">
+              <div class="campi">
+                <fieldset>
 
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-sm-12">
-            <div class="card">
-                <img class="card-img-top" src="../static/SottoCategorie/Foto/cartolina tesoro.jpg" alt="one piece vol 1">
-                <div class="card-body">
-                   <h5 class="card-title">
-                    Cartolina Tesoro Pirata
-                     </h5>  
-                     <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante2" onclick="toggleCollapse('pulsante2')" >Info
-                   </button>
-                   <div class="collapse" style="display: none;" id="pulsante2">
-                       <div class="campi">
-                           <fieldset>
-                            
-                               <div id="carouselExample2" class="carousel slide">
-                                   <div class="carousel-inner">
-                                     <div class="carousel-item active">
-                                       <img class="copertina" src="../static/SottoCategorie/Foto/cartolina tesoro.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                     <div class="carousel-item">
-                                       <img class="copertina" src="../static/SottoCategorie/" class="d-block w-100" alt="...">
-                                     </div>
-                                   </div>
-                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
-                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
-                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Next</span>
-                                   </button>
-                                 </div>
-                                
-                                 <h5> Descrizione </h5>
-                                 <p>Il Capitano Salazar, insieme al suo equipaggio di marinai fantasma, riesce a uscire dal Triangolo del Diavolo. L'unica speranza di salvezza per Jack Sparrow è il Tridente di Poseidone, ma per recuperarlo è costretto a stringere un'insolita alleanza</p>
-                                 <div>
-                                   <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
-                                 </div>
-                                 <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
-                </div>
-               </div>
-           </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="card">
-                <img class="card-img-top" src="../static/SottoCategorie/Quadro/nave5.jpg" alt="one piece vol 1">
-                <div class="card-body">
-                   <h5 class="card-title">
-                    Pirati dei Caraibi - Oltre i confini del mare
-                     </h5>  
-                     <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante3" onclick="toggleCollapse('pulsante3')">Info
-                   </button>
-                   <div class="collapse" style="display: none;" id="pulsante3">
-                       <div class="campi">
-                           <fieldset>
-                            
-                               <div id="carouselExample3" class="carousel slide">
-                                   <div class="carousel-inner">
-                                     <div class="carousel-item active">
-                                       <img class="copertina" src="../static/SottoCategorie/Quadro/nave5.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                     <div class="carousel-item">
-                                       <img class="copertina" src="../static/SottoCategorie/Quadro/nave5 back.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                   </div>
-                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3" data-bs-slide="prev">
-                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3" data-bs-slide="next">
-                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Next</span>
-                                   </button>
-                                 </div>
-                                
-                                 <h5> Descrizione </h5>
-                                 <p>In compagnia di Barbarossa, il capitano Jack Sparrow parte alla ricerca della Fontana della giovinezza. I due scoprono però che anche Barbanera e sua figlia hanno intrapreso la stessa missione.</p>
-                                 <div>
-                                   <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
-                                 </div>
-                                 <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
-                </div>
-               </div>
-           </div>
-            </div>
-        </div>
+                  <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="copertina" src="../static/SottoCategorie/Quadro/nave pirata.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="copertina" src="../static/SottoCategorie/Quadro/navepirataback.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
 
-        <div class="col-md-4 col-sm-12">
-            <div class="card">
-                <img class="card-img-top" src="../static/SottoCategorie/Sculture/scultura1.jpg" alt="one piece vol 1">
-                <div class="card-body">
-                   <h5 class="card-title">
-                    Scultura Busto Capitano
-                     </h5>  
-                     <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante4" onclick="toggleCollapse('pulsante4')">Info
-                   </button>
-                   <div class="collapse" style="display: none;" id="pulsante4">
-                       <div class="campi">
-                           <fieldset>
-                            
-                               <div id="carouselExample4" class="carousel slide">
-                                   <div class="carousel-inner">
-                                     <div class="carousel-item active">
-                                       <img class="copertina" src="../static/SottoCategorie/Sculture/scultura1.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                     <div class="carousel-item">
-                                       <img class="copertina" src="../static/SottoCategorie/Sculture/sculturaback.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                   </div>
-                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample4" data-bs-slide="prev">
-                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample4" data-bs-slide="next">
-                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Next</span>
-                                   </button>
-                                 </div>
-                                
-                                 <h5> Descrizione </h5>
-                                 <p>Il Capitan Harlock è deciso ad impedire che il piano di dominio dell'universo da parte della coalizione di Gaia vada a buon fine.</p>
-                                 <div>
-                                   <h5><span class="badge bg-secondary"><s>20,00€</s></span> 18,99€</h5>
-                                 </div>
-                                 <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
-                </div>
-               </div>
-           </div>
+                  <h5> Descrizione </h5>
+                  <p>[MIGLIOR DECORAZIONE PER LA CASA]: l'arte su tela riempie la famiglia di un'atmosfera artistica e
+                    mostra uno stile personale unico. Offriamo vari modelli per camerette per adolescenti, camerette per
+                    bambini, camerette per ragazze o ragazzi, coprendo tutti i temi: astratto, anime, film classici,
+                    paesaggi di animali, ispiratori, nostalgici, moderni e contemporanei.</p>
+                  <div>
+                    <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
+                  </div>
+                  <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="col-md-4 col-sm-12">
-            <div class="card">
-                <img class="card-img-top" src="../static/SottoCategorie/Sculture/scultura2.jpg" alt="one piece vol 1">
-                <div class="card-body">
-                   <h5 class="card-title">
-                    Led artigianale - jolly roger
-                     </h5>  
-                     <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante5" onclick="toggleCollapse('pulsante5')">Info
-                   </button>
-                   <div class="collapse" style="display: none;" id="pulsante5">
-                       <div class="campi">
-                           <fieldset>
-                            
-                               <div id="carouselExample5" class="carousel slide">
-                                   <div class="carousel-inner">
-                                     <div class="carousel-item active">
-                                       <img class="copertina" src="../static/SottoCategorie/Sculture/scultura2.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                     <div class="carousel-item">
-                                       <img class="copertina" src="../static/SottoCategorie/Sculture/sculturaback2.jpg" class="d-block w-100" alt="...">
-                                     </div>
-                                   </div>
-                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample5" data-bs-slide="prev">
-                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample5" data-bs-slide="next">
-                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                     <span class="visually-hidden">Next</span>
-                                   </button>
-                                 </div>
-                                
-                                 <h5> Descrizione </h5>
-                                 <p>Una nave americana viene assalita da pirati somali a largo di Mogadiscio. Il capitano, allora, si offre come prigioniero in cambio della libertà dell'equipaggio.</p>
-                                 <div>
-                                   <h5><span class="badge bg-secondary"><s>9,90€</s></span> 9,40€</h5>
-                                 </div>
-                                 <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
-                </div>
-               </div>
-           </div>
-            </div>
         </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="../static/SottoCategorie/Foto/cartolina tesoro.jpg"
+            alt="Cartolina Tesoro Pirata">
+          <div class="card-body">
+            <h5 class="card-title">
+              Cartolina Tesoro Pirata
+            </h5>
+            <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante2"
+              onclick="toggleCollapse('pulsante2')" id="bottone">Dettagli
+            </button>
+            <div class="collapse" style="display: none;" id="pulsante2">
+              <div class="campi">
+                <fieldset>
+
+                  <div id="carouselExample2" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="copertina" src="../static/SottoCategorie/Foto/cartolina tesoro.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="copertina" src="../static/SottoCategorie/" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <h5> Descrizione </h5>
+                  <p>I biglietti del tesoro sono di circa 18 cm di larghezza e 20,5 cm di altezza
+                    12 pezzi per confezione</p>
+                  <div>
+                    <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
+                  </div>
+                  <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="../static/SottoCategorie/Quadro/nave5.jpg" alt="Dipinto su tela Barca a vela">
+          <div class="card-body">
+            <h5 class="card-title">
+              Dipinto su tela Barca a vela
+            </h5>
+            <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante3"
+              onclick="toggleCollapse('pulsante3')" id="bottone">Dettagli
+            </button>
+            <div class="collapse" style="display: none;" id="pulsante3">
+              <div class="campi">
+                <fieldset>
+
+                  <div id="carouselExample3" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="copertina" src="../static/SottoCategorie/Quadro/nave5.jpg" class="d-block w-100"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="copertina" src="../static/SottoCategorie/Quadro/nave5 back.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <h5> Descrizione </h5>
+                  <p>Decorazione murale: Scelta per decorazione della parete Come ospite in soggiorno, camera da letto,
+                    camera, bagno, sala da pranzo, sala riunioni, corridoio, asili, coffee House, condo House,
+                    Hotel,spa, salone, sauna e altri spazi della casa, ufficio, affari, riflessione e relax.Buoni regali
+                    per capodanno, matrimonio, anniversario, ringraziamento, natale, festa della mamma, festa del papà,
+                    San Valentino, compleanno.</p>
+                  <div>
+                    <h5><span class="badge bg-secondary"><s>5,20€</s></span> 4,94€</h5>
+                  </div>
+                  <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="../static/SottoCategorie/Sculture/scultura1.jpg"
+            alt=" Scultura Busto Capitano">
+          <div class="card-body">
+            <h5 class="card-title">
+              Scultura Busto Capitano
+            </h5>
+            <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante4"
+              onclick="toggleCollapse('pulsante4')" id="bottone">Dettagli
+            </button>
+            <div class="collapse" style="display: none;" id="pulsante4">
+              <div class="campi">
+                <fieldset>
+
+                  <div id="carouselExample4" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="copertina" src="../static/SottoCategorie/Sculture/scultura1.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="copertina" src="../static/SottoCategorie/Sculture/sculturaback.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample4"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample4"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <h5> Descrizione </h5>
+                  <p>è fatta di materiali di alta qualità: Statua resina miscela di pietra arenaria di alta qualità,
+                    resistente e non sarà dissolvenza. Squisita fattura, il design molto realistico, aggiungere un
+                    bellissimo scenario per la vostra stanza.</p>
+                  <div>
+                    <h5><span class="badge bg-secondary"><s>20,00€</s></span> 18,99€</h5>
+                  </div>
+                  <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="../static/SottoCategorie/Sculture/scultura2.jpg"
+            alt="Statua Dell'ancora Della Barca">
+          <div class="card-body">
+            <h5 class="card-title">
+              Statua Dell'ancora Della Barca
+            </h5>
+            <button class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#pulsante5"
+              onclick="toggleCollapse('pulsante5')" id="bottone">Dettagli
+            </button>
+            <div class="collapse" style="display: none;" id="pulsante5">
+              <div class="campi">
+                <fieldset>
+
+                  <div id="carouselExample5" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="copertina" src="../static/SottoCategorie/Sculture/scultura2.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="copertina" src="../static/SottoCategorie/Sculture/sculturaback2.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample5"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample5"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                  <h5> Descrizione </h5>
+                  <p>La statua dell'ancora della barca è realizzata in resina solida di alta qualità, rispettosa
+                    dell'ambiente. L'arte vivace, il contorno chiaro della linea è dato a queste sculture e statuette
+                    dell'ancora, si può godere della bellezza della vita, anche rendere la vostra casa individuale.</p>
+                  <div>
+                    <h5><span class="badge bg-secondary"><s>9,90€</s></span> 9,40€</h5>
+                  </div>
+                  <a href="#" class="btn btn-warning">Aggiungi al carrello</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     </div>
   </div>
   <footer class="footer py-3">
     <div class="containerF">
-        <div class="row">
-            <div class="text-center">
-                <img src="../static/LOGOTIPO.png" alt="Logo" class="logoF mb-3">
-            </div>
+      <div class="row">
+        <div class="text-center">
+          <img src="../static/LOGOTIPO.png" alt="Logo" class="logoF mb-3">
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <ul class="footer-links list-unstyled">
-                    <li class="d-inline me-3"><a href="#">Abbigliamento</a>
-                    </li>
-                    <li class="d-inline me-3"><a href="#">Gadget</a>
-                    </li>
-                    <li class="d-inline me-3"><a href="#">Giochi</a>
-                    </li>
-                    <li class="d-inline me-3"><a href="#">Gioielli</a>
-                    </li>
-                    <li class="d-inline me-3"><a href="#">Opere
-                            Artistiche</a>
-                    </li>
-                    <li class="d-inline-block me-3"><a href="#">Opere
-                            Multimediali</a></li>
-                    <li class="d-inline-block me-3"><a href="#">Opere
-                            Narrative</a>
-                    </li>
-                </ul>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <ul class="footer-links list-unstyled">
+            <li class="d-inline me-3"><a href="#">Abbigliamento</a>
+            </li>
+            <li class="d-inline me-3"><a href="#">Gadget</a>
+            </li>
+            <li class="d-inline me-3"><a href="#">Giochi</a>
+            </li>
+            <li class="d-inline me-3"><a href="#">Gioielli</a>
+            </li>
+            <li class="d-inline me-3"><a href="#">Opere
+                Artistiche</a>
+            </li>
+            <li class="d-inline-block me-3"><a href="#">Opere
+                Multimediali</a></li>
+            <li class="d-inline-block me-3"><a href="#">Opere
+                Narrative</a>
+            </li>
+          </ul>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-12 text-center">
-                <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
-            </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12 text-center">
+          <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
         </div>
+      </div>
     </div>
-</footer>
+  </footer>
   <script>
     function toggleCollapse(cardId) {
-		var div = document.getElementById(cardId);
-		if (div.style.display === "none") {
-			div.style.display = "block";
-		} else {
-			div.style.display = "none";
-		}
+      var div = document.getElementById(cardId);
+      if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
     }
-</script>
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
