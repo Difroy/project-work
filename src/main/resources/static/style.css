@@ -138,6 +138,7 @@ body {
 }
 
 .carousel {
+    margin-top: 20px;
     height: auto;
     z-index: 1;
 }
@@ -181,11 +182,11 @@ body {
 }
 
 .card {
-    margin-top: 20px;
+    margin-top: 50px;
     width: 500px; 
     max-width: 100%; 
     margin-bottom: 20px;
-    height: 100%;
+  
 }
 
 .card-title {
@@ -221,6 +222,10 @@ body {
 #ombra {
     box-shadow: 5px 5px 5px 5px; 
     
+}
+
+#bottone{
+   margin-left: 90px;
 }
 
 @media (max-width: 991.98px) {
