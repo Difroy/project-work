@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 @RequestMapping("/login")
 public class LoginUtenteController
 {
     @Autowired
     private UtenteService utenteService;
-
     @GetMapping
     public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
     {
@@ -26,7 +26,6 @@ public class LoginUtenteController
         model.addAttribute("error", error);
         return "login";
     }
-
     @PostMapping
     public String formManager(
             @RequestParam("username") String username,
@@ -34,10 +33,8 @@ public class LoginUtenteController
             HttpSession session
     )
     {
-
         if(!utenteService.loginUtente(username, password, session))
             return "redirect:/login";
         return "redirect:/areariservata";
     }
-
 }
