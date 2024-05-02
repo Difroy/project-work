@@ -220,6 +220,30 @@ body {
    margin-left: 90px;
 }
 
+
+#cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+
+#login-button {
+    margin-top: 20px;
+}
+
+.filtrobottoni {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
 @media (max-width: 991.98px) {
     .navbar-nav {
         flex-direction: column;
