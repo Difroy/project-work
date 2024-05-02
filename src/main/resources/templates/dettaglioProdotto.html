@@ -51,7 +51,7 @@
                             <span th:text="${#numbers.formatDecimal(prodotto.prezzo, 0, 'POINT', 2, 'COMMA')}">Prezzo</span>
                         </h5>
                     </div>
-                    <button class="btn btn-primary">Aggiungi al carrello</button>
+                    <a th:href="@{/dettaglioProdotto/aggiungi(id=${prodotto.id})}">Aggiungi al carrello</a>
                 </div>
             </div>
         </div>
