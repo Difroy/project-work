@@ -49,6 +49,7 @@ public class CarrelloServiceImpl implements CarrelloService {
 		@SuppressWarnings("unchecked")
 		List<Prodotto> carrello = session.getAttribute("carrello") == null ? new ArrayList<>() : (List<Prodotto>) session.getAttribute("carrello");
 		carrello.add(prodottoService.getProdottoById(id));
+		System.out.println(carrello);
 		session.setAttribute("carrello", carrello);
 	}
     

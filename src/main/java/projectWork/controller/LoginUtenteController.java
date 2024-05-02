@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/loginutente")
+@RequestMapping("/login")
 public class LoginUtenteController
 {
     @Autowired
@@ -24,7 +24,7 @@ public class LoginUtenteController
         if(session.getAttribute("utente") != null)
             return "redirect:/areariservata";
         model.addAttribute("error", error);
-        return "loginUtente";
+        return "login";
     }
 
     @PostMapping
@@ -36,7 +36,7 @@ public class LoginUtenteController
     {
 
         if(!utenteService.loginUtente(username, password, session))
-            return "redirect:/loginutente?error";
+            return "redirect:/login";
         return "redirect:/areariservata";
     }
 
