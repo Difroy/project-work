@@ -220,6 +220,13 @@ body {
    margin-left: 90px;
 }
 
+.filtrobottoni {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
 @media (max-width: 991.98px) {
     .navbar-nav {
         flex-direction: column;
