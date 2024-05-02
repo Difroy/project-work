@@ -83,13 +83,12 @@ body {
 }
 
 .category-container {
-    
     overflow: hidden;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
     flex: 1;
-    padding: 0 15px;
+    padding: 15px;
 }
 
 .category-title {
@@ -115,10 +114,6 @@ body {
 
 .row {
     margin-right: 0;
-}
-
-.containerF {
-    margin-top: 30px;
 }
 
 .footer-links a {
@@ -159,7 +154,7 @@ body {
     font-size: large;
     margin-left: auto;
     margin-right: auto;
-    height: 90%;
+    height: 80%;
 }
 
 #cardReg {
@@ -174,10 +169,12 @@ body {
 #cardT {
     font-size: 35px;
     font-weight: bold;
+    text-align: center;
 }
 
 #cardL {
     margin-left: auto;
+    margin-bottom: 30px;
 }
 
 .card {
@@ -270,7 +267,7 @@ body {
      .navbar {
         z-index: 999;
         height: 160px;
-        background-size: contain;
+        background-size: cover;
     }
 
     .logoN {
@@ -285,10 +282,22 @@ body {
 
     .footer {
         position: relative;
+        background-size: cover;
     }
 
     .footer-links a {
         margin-left: 2%;
     }
+
+    #bottone {
+        margin-left: 160px;
+    }
+
+    .avatar-selection img {
+        margin-left: 50%;
+    }
     
+   .radio-inline {
+    margin-left: 20%;
+   }
 }

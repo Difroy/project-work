@@ -63,9 +63,15 @@
     </div>
 </nav>
         
-  <div class="container mt-3">
+<button class="btn btn-warning" onclick="filtro('Fumetto')">Fumetto</button>
+<button class="btn btn-warning" onclick="filtro('Manga')">Manga</button>
+<button class="btn btn-warning" onclick="filtro('Romanzo')">Romanzo</button>
+<button class="btn btn-warning" onclick="mostraTutto()">Mostra tutto</button>
+
+
+  <div class="container mt-3" >
     <div class="row">  
-        <div class="col-md-3 col-sm-12"> 
+        <div class="col-md-3 col-sm-12" categoria="Manga" > 
             <div class="card " id="ombra">
                 <img class="card-img-top" src="../static/SottoCategorie/Manga/OnePiece/onePiece103.jpg" alt="one piece vol 103">
                 <div class="card-body">
@@ -111,7 +117,7 @@
             </div>
         </div>
         
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12" categoria="Manga">
             <div class="card" id="ombra">
                 <img class="card-img-top" src="../static/SottoCategorie/Manga/OnePiece/one piece variant 1.jpg" alt="one piece vol 98">
                 <div class="card-body">
@@ -154,7 +160,7 @@
            </div>
             </div>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12" categoria="Manga">
             <div class="card" id="ombra">
                 <img class="card-img-top" src="../static/SottoCategorie/Manga/OnePiece/one piece variant 2.jpg" alt="one piece vol 99">
                 <div class="card-body">
@@ -198,7 +204,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12" categoria="Romanzo">
             <div class="card" id="ombra">
                 <img class="card-img-top" src="../static/SottoCategorie/Romanzo/romanzo1.jpg" alt="Francis Drake">
                 <div class="card-body">
@@ -242,7 +248,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12" categoria="Fumetto">
             <div class="card" id="ombra">
                 <img class="card-img-top" src="../static/SottoCategorie/Fumetto/fumetto1.jpg" alt="Le piu belle storie di pirati">
                 <div class="card-body">
@@ -335,6 +341,29 @@
 			div.style.display = "none";
 		}
     }
+
+
+    function filtro(category) {
+     cards = document.querySelectorAll('.card');
+      cards.forEach(function(card) {
+         cardCategory = card.parentNode.getAttribute('categoria');
+        if (cardCategory === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+
+function mostraTutto() {
+    cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+        card.style.display = 'block';
+    });
+}
+
+
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
