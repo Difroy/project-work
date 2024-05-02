@@ -29,7 +29,7 @@ public class CarrelloController {
 
 		double totaleOrdine = calcolaTotale(carrello);
 		model.addAttribute("totaleOrdineCarrello", String.format("%.2f", totaleOrdine));
-		return "carrello";
+		return "carrelloBE";
 
 	}
 
