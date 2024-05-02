@@ -38,53 +38,67 @@
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="indexTest.html">
-                <img src="LOGOTIPO.png" alt="Logo" class="logoN d-inline-block align-top me-2">
-            </a>
-            <form class="d-flex ms-2 flex-grow-1" role="search">
-                <div class="input-group">
-                    <div class="dropdown">
-                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorie
-                        </button>
-                        <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="abbigliamento.html">Abbigliamento</a></li>
-                            <li><a class="dropdown-item" href="gadget.html">Gadget</a></li>
-                            <li><a class="dropdown-item" href="giochi.html">Giochi</a></li>
-                            <li><a class="dropdown-item" href="gioielli.html">Gioielli</a></li>
-                            <li><a class="dropdown-item" href="opereArtistiche.html">Opere Artistiche</a></li>
-                            <li><a class="dropdown-item" href="opereMultimediali.html">Opere Multimediali</a></li>
-                            <li><a class="dropdown-item" href="opereNarrative.html">Opere Narrative</a></li>
-                        </ul>
-                    </div>
-                    <input class="form-control" type="search" placeholder="Cerca" aria-label="Search">
-                    <button class="btn btn-warning" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-            </form>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registrazioneUtente.html">Registrazione</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="carrello.html">Carrello</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">
+            <img th:src="@{LOGOTIPO.png}" alt="Logo" class="logoN d-inline-block align-top me-2">
+        </a>
+       
+        <form class="d-flex ms-2 flex-grow-1" role="search">
+				<div class="input-group">
+					<div class="dropdown">
+						<button class="btn btn-warning dropdown-toggle" type="button"
+							id="dropdownMenuButton" data-bs-toggle="dropdown"
+							aria-expanded="false">Categorie</button>
+						<ul class="dropdown-menu bg-warning"
+							aria-labelledby="dropdownMenuButton">
+
+
+							<li th:each="categoria : ${categorie}"><a
+								th:text="${categoria.tipo}" class="dropdown-item"
+								th:href="@{/categoria(id=${categoria.id})}"></a></li>
+						</ul>
+					</div>
+					<input class="form-control" type="search" placeholder="Cerca"
+						aria-label="Search">
+					<button class="btn btn-warning" type="submit">
+						<i class="bi bi-search"></i>
+					</button>
+				</div>
+			</form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+     
+        <div th:if="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a th:href="@{/areariservata/logout}" class="nav-link active" aria-current="page">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/carrello}">Carrello</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Impostazioni</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/registrazioneutente}">Registrazione</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/carrello}">Carrello</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> 
 
     <div class="container-fluid">
         <div class="row justify-content-center">

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import projectWork.model.Utente;
 import projectWork.service.UtenteService;
@@ -30,20 +31,18 @@ public class RegistrazioneUtenteController {
 		
 	}
 	
+	
 	@PostMapping
-	public String formManager (@Valid @ModelAttribute ("utente") Utente utente, BindingResult result, Model model) {
-		if (result.hasErrors())
-			return "registrazioneutente";
-		if (!utenteService.controlloUsername(utente.getUsername())) {
-		model.addAttribute("error", "Username non disponibile");
-		return "registrazioneutente";	
-			
-		}
-		utenteService.registraUtente(utente);
-		return "redirect:/loginutente";
+	public String formManager(
+	        @Valid @ModelAttribute("utente") Utente utente,
+	        BindingResult result,
+	        HttpSession session
+	) {
+	    if (result.hasErrors())
+	        return "registrazioneutente";
+	    utenteService.registraUtente(utente);
+	    session.setAttribute("utente", utente); // Aggiungi l'utente alla sessione
+	    return "redirect:/areariservata"; // Reindirizza alla pagina dell'area riservata
 	}
-	
-	
-	
 }
 
