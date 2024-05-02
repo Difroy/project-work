@@ -105,8 +105,6 @@ body {
 
 .footer {
     background-image: url("footer.png");
-    background-image: url("footer.png");
-    background-size: cover;
     align-items: center;
     background-size: 105%;
     background-position: center;
@@ -272,7 +270,6 @@ body {
 
     .logoN {
       margin-left: 25%;
-      margin-bottom: 5%;
     }
 
     .navbar-nav .nav-link {
@@ -282,11 +279,11 @@ body {
 
     .footer {
         position: relative;
-        background-size: cover;
+        background-size: 400%;
     }
 
     .footer-links a {
-        margin-left: 2%;
+        margin-left: 3%;
     }
 
     #bottone {
