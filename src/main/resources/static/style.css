@@ -83,13 +83,12 @@ body {
 }
 
 .category-container {
-    
     overflow: hidden;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
     flex: 1;
-    padding: 0 15px;
+    padding: 15px;
 }
 
 .category-title {
@@ -106,8 +105,6 @@ body {
 
 .footer {
     background-image: url("footer.png");
-    background-image: url("footer.png");
-    background-size: cover;
     align-items: center;
     background-size: 105%;
     background-position: center;
@@ -115,10 +112,6 @@ body {
 
 .row {
     margin-right: 0;
-}
-
-.containerF {
-    margin-top: 30px;
 }
 
 .footer-links a {
@@ -159,7 +152,7 @@ body {
     font-size: large;
     margin-left: auto;
     margin-right: auto;
-    height: 90%;
+    height: 80%;
 }
 
 #cardReg {
@@ -174,10 +167,12 @@ body {
 #cardT {
     font-size: 35px;
     font-weight: bold;
+    text-align: center;
 }
 
 #cardL {
     margin-left: auto;
+    margin-bottom: 30px;
 }
 
 .card {
@@ -225,6 +220,13 @@ body {
    margin-left: 90px;
 }
 
+.filtrobottoni {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
 @media (max-width: 991.98px) {
     .navbar-nav {
         flex-direction: column;
@@ -270,12 +272,11 @@ body {
      .navbar {
         z-index: 999;
         height: 160px;
-        background-size: contain;
+        background-size: cover;
     }
 
     .logoN {
       margin-left: 25%;
-      margin-bottom: 5%;
     }
 
     .navbar-nav .nav-link {
@@ -285,10 +286,22 @@ body {
 
     .footer {
         position: relative;
+        background-size: 400%;
     }
 
     .footer-links a {
-        margin-left: 2%;
+        margin-left: 3%;
+    }
+
+    #bottone {
+        margin-left: 160px;
+    }
+
+    .avatar-selection img {
+        margin-left: 50%;
     }
     
+   .radio-inline {
+    margin-left: 20%;
+   }
 }
