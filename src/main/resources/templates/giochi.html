@@ -63,6 +63,13 @@
     </div>
 </nav>
         
+<div class="filtrobottoni">
+  <button class="btn btn-warning" onclick="filtro('Fumetto')">Fumetto</button>
+  <button class="btn btn-warning" onclick="filtro('Manga')">Manga</button>
+  <button class="btn btn-warning" onclick="filtro('Romanzo')">Romanzo</button>
+  <button class="btn btn-warning" onclick="mostraTutto()">Mostra tutto</button>
+  </div>
+
   <div class="container mt-3">
     <div class="row">  
         <div class="col-md-3 col-sm-12"> 
@@ -338,6 +345,26 @@
 			div.style.display = "none";
 		}
     }
+
+    function filtro(category) {
+     cards = document.querySelectorAll('.card');
+      cards.forEach(function(card) {
+         cardCategory = card.parentNode.getAttribute('categoria');
+        if (cardCategory === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+
+function mostraTutto() {
+    cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+        card.style.display = 'block';
+    });
+}
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
