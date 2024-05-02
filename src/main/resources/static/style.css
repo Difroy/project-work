@@ -100,7 +100,17 @@ body {
 }
 
 .logoF {
-    width: 300px;
+    width: 280px;
+}
+
+.footer-links a {
+    color:rgb(50, 23, 23);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #ffffff;
 }
 
 .footer {
@@ -108,6 +118,8 @@ body {
     align-items: center;
     background-size: 105%;
     background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(50, 23, 23);
 }
 
 .row {
@@ -115,12 +127,14 @@ body {
 }
 
 .footer-links a {
-    color: #ffffff;
+    color:rgb(50, 23, 23);
     text-decoration: none;
+    font-size: small;
 }
 
 .footer-links a:hover {
     text-decoration: underline;
+    color: #ffffff;
 }
 
 .carousel-item img {
@@ -242,6 +256,20 @@ body {
     display: flex;
     justify-content: center; 
     align-items: center; 
+}
+
+#dichiarazione{
+    font-size: small;
+    color: rgb(50, 23, 23);
+}
+
+#socials{
+    font-size: medium;
+}
+
+.spazio {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 991.98px) {
