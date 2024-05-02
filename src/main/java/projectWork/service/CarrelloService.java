@@ -1,19 +1,17 @@
 package projectWork.service;
 
-import projectWork.model.Prodotto;
 
-import java.util.List;
+
+import jakarta.servlet.http.HttpSession;
 
 public interface CarrelloService {
 
-    void aggiungiProdotto(Prodotto prodotto);
+    void aggiungiProdotto(int id, HttpSession session);
 
-    void rimuoviProdotto(Prodotto prodotto);
+    void rimuoviProdotto(int id, HttpSession session);
 
-    List<Prodotto> getProdotto();
+    void svuotaCarrello(HttpSession session);
 
-    void svuotaCarrello();
-
-    double calcolaTotale();
+   
 
 }
