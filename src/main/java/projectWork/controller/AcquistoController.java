@@ -14,6 +14,8 @@ import projectWork.model.Prodotto;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;
+import projectWork.service.ProdottoService;
+import projectWork.service.UtenteService;
 
 @Controller
 @RequestMapping ("/acquisto")
@@ -23,15 +25,24 @@ public class AcquistoController {
 	private AcquistoService acquistoService;
 	@Autowired
 	private CarrelloService carrelloService;
-	
+	@Autowired
+	private ProdottoService prodottoService;
+	@Autowired
+	private UtenteService utenteService;
 	
 	@GetMapping
 	public String getPage (HttpSession session, Model model, @RequestParam (name = "send", required= false) String send) 
 	
 	{
-		if (session.getAttribute("Utente") == null) {
-			return "redirect:login";
+		if (session.getAttribute("utente") == null) {
+		 return "redirect:login";
+		Utente utente = (Utente) session.getAttribute("utente");
+		model.addAttribute("utente", utente);
+		model.addAttribute("carrello", prodottoService.getCarrello(session));
+		
 		}
+		
+		return send;
 		
 		
 	}
