@@ -37,6 +37,7 @@ private CategoriaService categoriaService;
 		model.addAttribute("categorie", categorie);
 		return "carrello";
 	}
+	
 
 	private double calcolaTotale(List<Prodotto> carrello) {
 		double totale = 0;
@@ -47,10 +48,23 @@ private CategoriaService categoriaService;
 		}
 		return totale;
 	}
+	
+	
 	@GetMapping ("/rimuovi")
 	public String rimuovi (@RequestParam("id") int id, HttpSession session) {
 		
 		carrelloService.rimuoviProdotto(id, session);
 		return "redirect:/carrello";
 	}
+	
+	
+	@GetMapping("/aggiungi")
+	public String aggiungi(
+			@RequestParam("id") int id, HttpSession session) {
+		carrelloService.aggiungiProdotto(id, session);
+		return "redirect:/carrello";
+	}
+	
+	
+	
 }

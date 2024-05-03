@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
+import projectWork.model.Prodotto;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
+import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
 import projectWork.service.ProdottoService;
 import projectWork.service.UtenteService;
@@ -32,6 +34,8 @@ public class AreaRiservataController {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	
+	@Autowired CarrelloService carrelloService;
 
 	@GetMapping
 	public String getPage(Model model, HttpSession session,
@@ -75,6 +79,18 @@ public class AreaRiservataController {
 		session.setAttribute("utente", utente);
 		return "redirect:/areariservata";
 	}
+	
+	@GetMapping("/invia")
+	public String invia (HttpSession session) {
+		
+		Utente utente = (Utente) session.getAttribute("utente");
+		@SuppressWarnings("unchecked")
+		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
+		carrelloService.svuotaCarrello(session);
+		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
+		return "redirect:/areariservata";	
+	}
+
 	
 	
 }
