@@ -34,4 +34,8 @@ public interface ProdottoService {
 
 
 	List<Prodotto> getProdottiByCategoriaAndSottocategoria(Integer categoriaId, Integer sottocategoriaId);
+	
+	
+	List<Prodotto> RicercaProdottto (String nome);
+	
 }

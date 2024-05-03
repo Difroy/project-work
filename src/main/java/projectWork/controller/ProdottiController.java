@@ -20,12 +20,31 @@ public class ProdottiController {
 
     @GetMapping
     public String getPage(Model model,
-                          @RequestParam(name = "categoriaId") Integer categoriaId,
-                          @RequestParam(name = "sottocategoriaId") Integer sottocategoriaId) {
-
-        List<Prodotto> prodotti = prodottoService.getProdottiByCategoriaAndSottocategoria(categoriaId, sottocategoriaId);
-        model.addAttribute("prodotti", prodotti);
+                          @RequestParam(name = "categoriaId", required = false) Integer categoriaId,
+                          @RequestParam(name = "sottocategoriaId", required=false) Integer sottocategoriaId,
+                          @RequestParam(name = "ricerca", required = false) String ricerca ) {
+    	
+    	List<Prodotto> prodotti;
+        if(ricerca != null) {
+            prodotti = prodottoService.RicercaProdottto(ricerca);
+        }else{
+            prodotti = prodottoService.getProdottiByCategoriaAndSottocategoria(categoriaId, sottocategoriaId);
+            
+        }
+model.addAttribute("prodotti", prodotti);
+      
+        
+        
 
         return "prodottiTest";
     }
+    
+    @GetMapping("/ricerca")
+    public String ricercaProdotto(@RequestParam (name ="ricerca") String ricerca) {
+		if (ricerca != null && !ricerca.isEmpty())
+    	return "redirect:/prodotti?ricerca="+ricerca;
+    	return "redirect:/prodotti";
+
+    }
+    
 }

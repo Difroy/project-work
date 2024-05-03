@@ -29,8 +29,6 @@ public class Sottocategoria {
 	@Column
 	private String nome;
 	
-	@Column
-	private String icona;
 	
 	@OneToMany(
 			mappedBy = "sottocategoria",
@@ -71,11 +69,4 @@ public class Sottocategoria {
 		this.nome = nome;
 	}
 
-	public String getIcona() {
-		return icona;
-	}
-
-	public void setIcona(String icona) {
-		this.icona = icona;
-	}
 }

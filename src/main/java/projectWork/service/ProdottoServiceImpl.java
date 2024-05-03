@@ -130,4 +130,11 @@ public class ProdottoServiceImpl implements ProdottoService {
 	public List<Prodotto> getProdottiByCategoriaAndSottocategoria(Integer categoriaId, Integer sottocategoriaId) {
 		return prodottoDao.findBySottocategoria_Categoria_IdAndSottocategoria_Id(categoriaId, sottocategoriaId);
 	}
+
+	@Override
+	public List<Prodotto> RicercaProdottto(String nome) {
+		
+		return (List<Prodotto>) prodottoDao.findByNomeContainingIgnoreCase(nome);
+		
+	}
 }

@@ -16,6 +16,7 @@ import projectWork.model.Prodotto;
 import projectWork.model.Sottocategoria;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
+import projectWork.service.ProdottoService;
 
 @Controller
 @RequestMapping("/categoria")
@@ -26,14 +27,20 @@ public class CategoriaController {
 	private CategoriaService categoriaService;
 	@Autowired
 	private CarrelloService carrelloService;
+	@Autowired
+	private ProdottoService prodottoService;
 	
 	@GetMapping
-	public String getPage(@RequestParam("id") int id, Model model, @RequestParam(name="filtro", required=false) String filtro, @RequestParam (name="add", required=false) String add) {
+	public String getPage(@RequestParam(name="id",required =false ) Integer id, Model model, @RequestParam(name="filtro", required=false) String filtro, @RequestParam (name="add", required=false) String add,
+			@RequestParam (name = "ricerca", required = false) String ricerca ) {
 		
 		List<Categoria>categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
+
 		model.addAttribute("add", add);
-		Categoria categoria = categoriaService.getCategoriaById(id);
+		Categoria categoria = new Categoria();
+		if (id != null)
+		categoria = categoriaService.getCategoriaById(id);
 		List<Prodotto>prodotti = new ArrayList<>();
 		for (Sottocategoria sottocategoria: categoria.getSottocategorie())
 			for (Prodotto prodotto : sottocategoria.getProdotti())
@@ -43,22 +50,27 @@ public class CategoriaController {
 					.filter(p-> p.getSottocategoria().getNome().equals(filtro)).toList();
 			
 		}
-		
-		
-		
+		 if(ricerca != null) 
+	            prodotti =   prodottoService.RicercaProdottto(ricerca);
+	
+		 
 		model.addAttribute("prodotti", prodotti);
 		model.addAttribute("categoria", categoria);
-		
 		return "categoria";
-		
 	}
-	
+		
+		
 	@GetMapping ("/aggiungi")
-	
 	public String aggiungi (@RequestParam("id") int id, HttpSession session, @RequestParam("idCat") int idCat) {
 		carrelloService.aggiungiProdotto(id, session);
 		return "redirect:/categoria?id="+idCat+"&add";
-		
 	}
+	
+	 @GetMapping("/ricerca")
+	    public String ricercaProdotto(@RequestParam (name ="ricerca") String ricerca) {
+			if (ricerca != null && !ricerca.isEmpty())
+	    	return "redirect:/categoria?ricerca="+ricerca;
+	    	return "redirect:/categoria";
+	    }
 	
 }
