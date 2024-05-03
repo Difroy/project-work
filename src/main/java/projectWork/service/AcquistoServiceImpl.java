@@ -8,6 +8,7 @@ import projectWork.dao.AcquistoDao;
 import projectWork.model.Acquisto;
 import projectWork.model.Prodotto;
 import projectWork.model.Profilo;
+import projectWork.model.Utente;
 
 import java.time.LocalDate;
 import java.util.List;

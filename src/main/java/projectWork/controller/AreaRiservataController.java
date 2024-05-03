@@ -62,12 +62,7 @@ public class AreaRiservataController {
 		return "redirect:/areariservata";
 		
 	}
-	@GetMapping("/invia")
-	public String invia (HttpSession session) {
-		acquistoService.inviaAcquisto(session);
-		return "redirect:/areariservata?send";	
-	}
-
+	
 	@PostMapping
 	public String formManager (
 			@Valid @ModelAttribute("utente") Utente utente,

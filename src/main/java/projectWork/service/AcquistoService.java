@@ -2,11 +2,19 @@ package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Acquisto;
+import projectWork.model.Prodotto;
+import projectWork.model.Utente;
 
 import java.util.List;
 
 public interface AcquistoService {
     public List<Acquisto> getAcquisti();
-    Acquisto getAcquistoById(int id);
+     
+    
     void inviaAcquisto(HttpSession session);
+    
+     
+    Acquisto getAcquistoById(int id);
+    
+   
 }
