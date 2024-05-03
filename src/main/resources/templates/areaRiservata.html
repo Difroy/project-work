@@ -76,10 +76,10 @@
                    
                    
                     <table th:if="${carrello != null}" id="orderList" class="list-group">
-                    <tr th:each="prodotto : ${carrello}">
-<td th:text="${prodotto.nome}"></td>
-<td th:text="${prodotto.prezzo}"></td>
-<td><a th:href="@{/areariservata/rimuovi(id=${prodotto.id})}"> Rimuovi dal Carrello</a></td>
+                    	<tr th:each="prodotto : ${carrello}">
+						<td th:text="${prodotto.nome}"></td>
+						<td th:text="${prodotto.prezzo}"></td>
+						<td><a th:href="@{/areariservata/rimuovi(id=${prodotto.id})}"> Rimuovi dal Carrello</a></td>
                     
                     </table>
                     
@@ -93,6 +93,7 @@
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
  
  <div class="container mt-5">
         <div class="card" id="settingsCard">
@@ -202,31 +203,39 @@
 				<div class="text-center">
 					<br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
 						class="logoF mb-3">
+=======
+		<footer class="footer py-3">
+			<div class="containerF">
+				<div class="row">
+					<div class="text-center">
+						<br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
+									   class="logoF mb-3">
+					</div>
+>>>>>>> Stashed changes
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="footer-links list-unstyled">
-						<li th:each="categoria: ${categorie}" class="d-inline me-3"><a
-							th:href="@{/categoria(id=${categoria.id})}"
-							th:text="${categoria.tipo}"></a></li>
-							</ul>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<ul class="footer-links list-unstyled">
+							<li th:each="categoria: ${categorie}" class="d-inline me-3"><a
+									th:href="@{/categoria(id=${categoria.id})}"
+									th:text="${categoria.tipo}"></a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="row mt-3">
-				<div class="col-md-12 text-center">
-					<p>Ci trovi in rete, viandante! Arr!</p>
-					<a href="#"><img th:src="@{social.png}" width="100px"></a>
+				<div class="row mt-3">
+					<div class="col-md-12 text-center">
+						<p>Ci trovi in rete, viandante! Arr!</p>
+						<a href="#"><img th:src="@{social.png}" width="100px"></a>
+					</div>
 				</div>
-			</div>
-			<div class="row mt-3">
-				<div class="col-md-12 text-center" id="dichiarazione">
-					<p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+				<div class="row mt-3">
+					<div class="col-md-12 text-center" id="dichiarazione">
+						<p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+					</div>
 				</div>
-			</div>
 
-		</div>
-	</footer>
+			</div>
+		</footer>
     
 
 </body>

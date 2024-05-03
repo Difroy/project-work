@@ -101,23 +101,23 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<footer class="footer py-3">
 		<div class="containerF">
 			<div class="row">
 				<div class="text-center">
 					<br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
-						class="logoF mb-3">
+								   class="logoF mb-3">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<ul class="footer-links list-unstyled">
 						<li th:each="categoria: ${categorie}" class="d-inline me-3"><a
-							th:href="@{/categoria(id=${categoria.id})}"
-							th:text="${categoria.tipo}"></a></li>
-							</ul>
+								th:href="@{/categoria(id=${categoria.id})}"
+								th:text="${categoria.tipo}"></a></li>
+					</ul>
 				</div>
 			</div>
 			<div class="row mt-3">

@@ -14,6 +14,7 @@
 <link href="style.css" rel="stylesheet">
 <title>Il tuo carrello</title>
 </head>
+
 <body>
 	<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -79,10 +80,75 @@
 </nav> 
 	
 	<div id="cart-container">
-		<h1 class="mt-5">Il tuo carrello</h1>
 		<div id="cart-items">
-
+			<br>
 			<div class="container">
+				<div class="row">
+					<!-- Riassunto del carrello -->
+					<div class="col-md-8">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Il tuo Carrello</h5>
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Immagine</th>
+											<th>Prodotto</th>
+											<th>Descrizione</th>
+											<th>Prezzo</th>
+											<th></th> <!-- spazio per il pulsante Rimuovi -->
+										</tr>
+									</thead>
+									<tbody>
+										<!--  prodotti nel carrello -->
+										<tr>
+											<td><img src="percorso/immagine1.jpg" alt="Immagine Prodotto 1" style="max-width: 50px;"></td>
+											<td>Prodotto 1</td>
+											<td>Descrizione Prodotto 1</td>
+											<td>$10.00</td>
+											<td>
+												<button class="btn btn-danger btn-sm">Rimuovi</button>
+											</td>
+										</tr>
+										<tr>
+											<td><img src="percorso/immagine2.jpg" alt="Immagine Prodotto 2" style="max-width: 50px;"></td>
+											<td>Prodotto 2</td>
+											<td>Descrizione Prodotto 2</td>
+											<td>$15.00</td>
+											<td>
+												<button class="btn btn-danger btn-sm">Rimuovi</button>
+											</td>
+										</tr>
+										<!-- Altre righe per gli altri prodotti -->
+									</tbody>
+								</table>
+								<button class="btn btn-warning">Svuota Carrello</button>
+							</div>
+						</div>
+					</div>
+					<!-- Colonna pagamento -->
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Totale</h5>
+								<p class="card-text">Totale Carrello: $50.00</p>
+								<h5 class="card-title">Metodi di Pagamento</h5>
+								<!-- Metodi di pagamento -->
+								<ul class="list-group">
+									
+									<li class="list-group-item">PayPal</li>
+									
+								</ul>
+								
+								<a href="#" class="btn btn-primary mt-3">Procedi all'acquisto</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<!--<div class="container">
 				<div class="row my-4">
 					<div class="col-md-8"></div>
 					<div id="empty-cart" class="mt-3" style="display: none;">Il
@@ -98,7 +164,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	
