@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
-import projectWork.model.Prodotto;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;

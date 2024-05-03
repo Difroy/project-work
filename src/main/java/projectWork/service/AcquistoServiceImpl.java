@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import projectWork.dao.AcquistoDao;
 import projectWork.model.Acquisto;
 import projectWork.model.Prodotto;
-import projectWork.model.Profilo;
 import projectWork.model.Utente;
 
 import java.time.LocalDate;
