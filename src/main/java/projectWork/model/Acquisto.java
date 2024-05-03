@@ -52,14 +52,16 @@ public class Acquisto {
 			name = "ordini",
 			joinColumns = @JoinColumn(name = "id_acquisto", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_prodotto", referencedColumnName = "id")
 			)
-	private List<Acquisto> acquisti = new ArrayList<>();
+	private List<Prodotto> prodotti = new ArrayList<>();
 
-	public List<Acquisto> getAcquisti() {
-		return acquisti;
+
+
+	public List<Prodotto> getProdotti() {
+		return prodotti;
 	}
 
-	public void setAcquisti(List<Acquisto> acquisti) {
-		this.acquisti = acquisti;
+	public void setProdotti(List<Prodotto> prodotti) {
+		this.prodotti = prodotti;
 	}
 
 	public int getId() {

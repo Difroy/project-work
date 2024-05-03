@@ -17,6 +17,8 @@
 </head>
 
 <body>
+
+
 	<nav class="navbar navbar-expand-lg">
 		<div class="container-fluid">
 			<a class="navbar-brand" th:href="@{/}"> <img
@@ -45,24 +47,38 @@
 					</button>
 				</div>
 			</form>
-			<button class="navbar-toggler" type="button"
+			<!-- <button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
-			</button>
+			</button> -->
 
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+			<!-- div class="collapse navbar-collapse" id="navbarText">
+				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" th:text="$"></button> class="dropdown-menu" aria-labelledby="dropdownMenuButton"-->
+			<div>
+				<ul>
 					<li class="nav-item"><a th:href="@{/areariservata/logout}"
 						class="nav-link active" aria-current="page">Logout</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/carrello}">Carrello</a></li>
-					<li class="nav-item"><a th:href="@{/}" class="nav-link">Impostazioni</a></li>
+					<li class="nav-item"><a th:text="${utente.username}"
+						class="dropdown-item"></a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+
+
+
+
+
+
+
+
+
+
 
 	<div class="row">
 		<div class="col-md-8 offset-md-2 mt-5 d-flex justify-content-center">
@@ -75,28 +91,21 @@
 					<p class="card-text">Grazie per aver effettuato l'accesso
 						all'area riservata. Qui troverai un riepilogo dei tuoi ordini:</p>
 
-					<p th:if="${carrello == null}" class="card-text">
+					<p th:if="${acquisti == null}" class="card-text">
 						Non hai ancora effettuato ordini! <a th:href="@{/}">Inizia ad
 							acquistare ora!</a>
 					</p>
 
 
-					<table th:if="${carrello != null}" id="orderList"
+					<table th:if="${acquisti != null}" id="orderList"
 						class="list-group">
-						<tr th:each="prodotto : ${carrello}">
-							<td th:text="${prodotto.nome}"></td>
-							<td th:text="${prodotto.prezzo}"></td>
-							<td><a
-								th:href="@{/areariservata/rimuovi(id=${prodotto.id})}">
-									Rimuovi dal Carrello</a></td>
+						<tr th:each="acquisto : ${acquisti}">
+							<td th:text="${acquisto.dataAcquisto}"></td>
+							<td th:text="${acquisto.importoTotale}"></td>
+						</tr>
 					</table>
 
-					<h5 th:if="${carrello != null}"
-						th:text="'Totale Carrello ' + ${totale}"></h5>
-
-					<a th:if="${carrello != null}" th:href="@{/riservautente/invia}">Invia
-						ordine</a>
-					<p th:if="${send !=null}">Ordine inviato!!</p>
+					
 
 
 				</div>
@@ -109,8 +118,8 @@
 			<div class="card-body">
 				<h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
 				<form th:object="${utente}" id="settingsForm" method="post">
-					<input type="hidden" th:field="*{id}">
-					<input type="hidden" th:field="*{profilo.id}">
+					<input type="hidden" th:field="*{id}"> <input type="hidden"
+						th:field="*{profilo.id}">
 					<div class="mb-3">
 						<label for="nome" class="form-label">Nome</label> <input
 							type="text" class="form-control" id="nome"
@@ -154,7 +163,8 @@
 					</div>
 					<div class="mb-3">
 						<label for="address" class="form-label">Indirizzo di
-							spedizione</label> <input type="text" name="spedizione" class="form-control" id="address"
+							spedizione</label> <input type="text" name="spedizione"
+							class="form-control" id="address"
 							placeholder="Inserisci il tuo indirizzo di spedizione">
 					</div>
 					<div class="mb-3">
@@ -210,35 +220,33 @@
 						</div>
 					</div>
 					<button type="submit" class="btn btn-primary" id="bottone2">Salva
-					modifiche</button>
+						modifiche</button>
 				</form>
-				
+
 			</div>
 
 
 		</div>
 	</div>
 
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var pwd = document.getElementById("password");
-            pwd.type = "password";
-            let indirizzo = document.getElementById("indirizzo");
-            let address = document.getElementById("address");
-            address.value = indirizzo.value;
-        });
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var pwd = document.getElementById("password");
+			pwd.type = "password";
+			let indirizzo = document.getElementById("indirizzo");
+			let address = document.getElementById("address");
+			address.value = indirizzo.value;
+		});
 
-        const togglePassword = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
-        togglePassword.addEventListener('click', function() {
-            const type = password.getAttribute('type') === 'password' ? 'text'
-                    : 'password';
-            password.setAttribute('type', type);
-            this.textContent = type === 'password' ? '👁️' : '🔒';
-        });
-        
-        
-    </script>
+		const togglePassword = document.getElementById('togglePassword');
+		const password = document.getElementById('password');
+		togglePassword.addEventListener('click', function() {
+			const type = password.getAttribute('type') === 'password' ? 'text'
+					: 'password';
+			password.setAttribute('type', type);
+			this.textContent = type === 'password' ? '👁️' : '🔒';
+		});
+	</script>
 
 	<footer class="footer py-3">
 		<div class="containerF">

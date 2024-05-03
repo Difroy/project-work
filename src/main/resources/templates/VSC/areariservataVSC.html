@@ -123,7 +123,7 @@
 					aria-current="page">Logout</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/carrello}">Carrello</a></li>
-					<li class="nav-item"><a th:href="@{/}" class="nav-link">Impostazioni</a></li>
+					<li class="nav-item"><a th:text="${utente.username}" class="nav-link"></a></li>
 				</ul>
 			</div>
 		</div>

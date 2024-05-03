@@ -44,6 +44,7 @@ public class AreaRiservataController {
 		if (session.getAttribute("utente") == null)
 			return "redirect:/loginutente";
 		Utente utente = (Utente) session.getAttribute("utente");
+		model.addAttribute("acquisti", acquistoService.getAcquisti());
 		model.addAttribute("utente", utente);
 		model.addAttribute("carrello", prodottoService.getCarrello(session));
 		model.addAttribute("totale", prodottoService.getTotaleCarrello(session));
@@ -80,16 +81,7 @@ public class AreaRiservataController {
 		return "redirect:/areariservata";
 	}
 	
-	@GetMapping("/invia")
-	public String invia (HttpSession session) {
-		
-		Utente utente = (Utente) session.getAttribute("utente");
-		@SuppressWarnings("unchecked")
-		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
-		carrelloService.svuotaCarrello(session);
-		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
-		return "redirect:/areariservata";	
-	}
+	
 
 	
 	
