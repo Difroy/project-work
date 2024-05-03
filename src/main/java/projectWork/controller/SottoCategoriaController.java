@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import projectWork.model.Categoria;
-import projectWork.model.Sottocategoria;
 import projectWork.service.CategoriaService;
-import projectWork.service.SottocategoriaService;
 
-import java.util.List;
+
+
 
 @Controller
 @RequestMapping("/sottocategoria")
@@ -19,8 +18,7 @@ public class SottoCategoriaController {
     @Autowired
     private CategoriaService categoriaService;
 
-    @Autowired
-    private SottocategoriaService sottocategoriaService;
+   
 
     @GetMapping
     public String getPage(

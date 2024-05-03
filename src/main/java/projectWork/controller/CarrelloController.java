@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
 import projectWork.model.Prodotto;
 import projectWork.model.Utente;
+import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
 
@@ -23,6 +24,9 @@ public class CarrelloController {
 	private CarrelloService carrelloService;
 @Autowired
 private CategoriaService categoriaService;
+
+@Autowired
+private AcquistoService acquistoService;
 	
 	@SuppressWarnings("unchecked")
 	@GetMapping
@@ -37,6 +41,7 @@ private CategoriaService categoriaService;
 		model.addAttribute("categorie", categorie);
 		return "carrello";
 	}
+	
 
 	private double calcolaTotale(List<Prodotto> carrello) {
 		double totale = 0;
@@ -47,10 +52,33 @@ private CategoriaService categoriaService;
 		}
 		return totale;
 	}
+	
+	
 	@GetMapping ("/rimuovi")
 	public String rimuovi (@RequestParam("id") int id, HttpSession session) {
 		
 		carrelloService.rimuoviProdotto(id, session);
 		return "redirect:/carrello";
 	}
+	
+	
+	@GetMapping("/aggiungi")
+	public String aggiungi(
+			@RequestParam("id") int id, HttpSession session) {
+		carrelloService.aggiungiProdotto(id, session);
+		return "redirect:/carrello";
+	}
+	
+	@GetMapping("/invia")
+	public String invia (HttpSession session) {
+		
+		Utente utente = (Utente) session.getAttribute("utente");
+		@SuppressWarnings("unchecked")
+		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
+		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
+		carrelloService.svuotaCarrello(session);
+		return "redirect:/areariservata";	
+	}
+	
+	
 }

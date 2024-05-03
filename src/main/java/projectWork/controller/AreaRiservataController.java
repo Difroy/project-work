@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
+import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
 import projectWork.service.ProdottoService;
 import projectWork.service.UtenteService;
@@ -32,6 +33,8 @@ public class AreaRiservataController {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	
+	@Autowired CarrelloService carrelloService;
 
 	@GetMapping
 	public String getPage(Model model, HttpSession session,
@@ -40,6 +43,7 @@ public class AreaRiservataController {
 		if (session.getAttribute("utente") == null)
 			return "redirect:/loginutente";
 		Utente utente = (Utente) session.getAttribute("utente");
+		model.addAttribute("acquisti", acquistoService.getAcquisti());
 		model.addAttribute("utente", utente);
 		model.addAttribute("carrello", prodottoService.getCarrello(session));
 		model.addAttribute("totale", prodottoService.getTotaleCarrello(session));
@@ -75,6 +79,9 @@ public class AreaRiservataController {
 		session.setAttribute("utente", utente);
 		return "redirect:/areariservata";
 	}
+	
+	
+
 	
 	
 }

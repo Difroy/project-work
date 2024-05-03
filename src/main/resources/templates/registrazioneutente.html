@@ -134,6 +134,8 @@
                                     <option value="altro">Altro</option>
                                 </select>
                             </div>
+                            
+                            <!-- versione originale fino a... 
                             <div class="mb-3">
                                 <label for="dataNascita" class="form-label">Data di Nascita</label>
                                 <input type="date" class="form-control" id="dataNascita"
@@ -142,6 +144,23 @@
                                 <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
                                     th:errors="*{profilo.dataDiNascita}"></p>
                             </div>
+                             ...qui -->
+                            
+                            <!--Controllo di maggiorenne fino a...-->
+                            <div class="mb-3">
+    <label for="dataNascita" class="form-label">Data di Nascita</label>
+    <input type="date" class="form-control" id="dataNascita"
+           th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita"
+           required>
+    <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}" th:errors="*{profilo.dataDiNascita}"></p>
+</div>
+<div th:if="${erroreMaggiorenne}">
+    <div class="alert alert-danger" role="alert">
+        Devi essere maggiorenne per registrarti!
+    </div>
+</div>
+<!-- ...qui-->
+                            
                             <div class="mb-3">
                                 <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
                                 <input type="text" class="form-control" id="indirizzo"
@@ -212,33 +231,31 @@
         <div class="containerF">
             <div class="row">
                 <div class="text-center">
-                    <img src="LOGOTIPO.png" alt="Logo" class="logoF mb-3">
+                    <br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
+                                   class="logoF mb-3">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
                     <ul class="footer-links list-unstyled">
-                        <li class="d-inline me-3"><a href="abbigliamento.html">Abbigliamento</a>
-                        </li>
-                        <li class="d-inline me-3"><a href="gadget.html">Gadget</a>
-                        </li>
-                        <li class="d-inline me-3"><a href="giochi.html">Giochi</a>
-                        </li>
-                        <li class="d-inline me-3"><a href="gioielli.html">Gioielli</a>
-                        </li>
-                        <li class="d-inline me-3"><a href="opereArtistiche.html">Opere Artistiche</a>
-                        </li>
-                        <li class="d-inline me-3"><a href="opereMultimediali.html">Opere Multimediali</a></li>
-                        <li class="d-inline me-3"><a href="opereNarrative.html">Opere Narrative</a>
-                        </li>
+                        <li th:each="categoria: ${categorie}" class="d-inline me-3"><a
+                                th:href="@{/categoria(id=${categoria.id})}"
+                                th:text="${categoria.tipo}"></a></li>
                     </ul>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-12 text-center">
+                    <p>Ci trovi in rete, viandante! Arr!</p>
+                    <a href="#"><img th:src="@{social.png}" width="100px"></a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center" id="dichiarazione">
                     <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
                 </div>
             </div>
+
         </div>
     </footer>
 
