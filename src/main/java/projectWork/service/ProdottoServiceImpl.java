@@ -128,7 +128,6 @@ public class ProdottoServiceImpl implements ProdottoService {
             }
             prodottoDao.save(prodotto);
         }
-        prodotto.setAltro(altro);
     }
 
     @Override

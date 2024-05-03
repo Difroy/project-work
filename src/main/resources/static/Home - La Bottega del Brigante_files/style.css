@@ -1,0 +1,334 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bilbo&family=Italianno&family=Lugrasimo&family=Mate+SC&family=Merienda:wght@300..900&family=Sixtyfour&display=swap');
+
+body {
+    font-family: Merienda;
+    font-weight: bold;
+    background-image: url('bg.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    background-attachment: fixed;
+    z-index: 2;
+    color: rgb(50, 23, 23);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#bg {
+    background-image: url('bgalt.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar-nav .nav-link {
+    margin-right: 10px;
+    margin-left: 20px;
+    color: rgb(50, 23, 23);
+}
+
+.navbar {
+    z-index: 3;
+    background-image: url('navbar-bg.png');
+    background-size: 105%;
+    background-position: center;
+    padding-bottom: 30px;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff;
+}
+
+.form-control,
+.btn {
+    border-radius: 0;
+}
+
+.dropdown-toggle {
+    border-radius: 0;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(101, 20, 18);
+}
+
+.logoN {
+    width: 300px;
+    height: auto;
+    margin-left: 4%;
+}
+
+#cann {
+    width: 20px;
+}
+
+.category-img:hover {
+    transform: scale(1.1) translate(-5%, -5%);
+}
+
+.category-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.category-container {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex: 1;
+    padding: 15px;
+}
+
+.category-title {
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+.logoF {
+    width: 200px;
+}
+
+
+.footer {
+    background-image: url("footer.png");
+    align-items: center;
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(50, 23, 23);
+    background-position-y: bottom;
+    font-size: small;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.footer-links a {
+    color:rgb(50, 23, 23);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel {
+    margin-top: 20px;
+    height: auto;
+    z-index: 1;
+}
+
+#carouselExample {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-inner {
+    text-align: center;
+}
+
+#cardLog {
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+}
+
+#cardReg {
+    background-color: rgba(255, 255, 255, 0.636);
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 95%;
+}
+
+#cardT {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#cardL {
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+.card {
+    margin-top: 50px;
+    width: 500px; 
+    max-width: 100%; 
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-family: Merienda;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-img-top {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.campi {
+    width: 100%;
+    max-width: 100%;
+}
+
+.card-body {
+    height: 100%;
+    width: 100%;
+}
+
+.copertina {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+}
+
+#ombra {
+    box-shadow: 5px 5px 5px 5px; 
+}
+
+#bottone {
+   margin-left: 90px;
+}
+
+.filtrobottoni {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+#dichiarazione{
+    font-size: small;
+    color: rgb(50, 23, 23);
+}
+
+#socials{
+    font-size: medium;
+}
+
+
+
+@media (max-width: 991.98px) {
+    
+    .footer-links a {
+        color:rgb(50, 23, 23);
+        text-decoration: none;
+        font-size: small;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+   .navbar-nav .nav-link {
+        padding: .5rem 0;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        bottom: 20%;
+        left: -80%;
+        width: 90%;
+        background-image: url('menu.png');
+        background-size: 150%;
+        background-repeat: no-repeat;
+        transition: all 0.3s;
+        z-index: 1000;
+    }
+
+     .navbar-collapse.show {
+        left: 0;
+    }
+
+    .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        text-align: left;
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+
+   .navbar-collapse .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+   .navbar-toggler {
+        position: relative;
+    }
+    
+     .navbar {
+        z-index: 999;
+        height: 160px;
+        background-size: cover;
+    }
+
+    .logoN {
+      margin-left: 25%;
+    }
+
+    .navbar-nav .nav-link {
+        margin-right: 30px;
+        margin-left: 0;
+    }
+
+    .footer {
+        position: relative;
+        background-size: 400%;
+    }
+
+    .footer-links a {
+        margin-left: 3%;
+    }
+
+    #bottone {
+        margin-left: 160px;
+    }
+
+    .avatar-selection img {
+        margin-left: 50%;
+    }
+    
+   .radio-inline {
+    margin-left: 20%;
+   }
+
+   
+}
