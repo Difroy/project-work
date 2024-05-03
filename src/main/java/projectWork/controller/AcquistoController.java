@@ -30,26 +30,24 @@ public class AcquistoController {
 	@Autowired
 	private UtenteService utenteService;
 	
-	@GetMapping
-	public String getPage (HttpSession session, Model model, @RequestParam (name = "send", required= false) String send) 
-	
-	{
-		if (session.getAttribute("utente") == null) {
-		 return "redirect:login";
-		Utente utente = (Utente) session.getAttribute("utente");
-		model.addAttribute("utente", utente);
-		model.addAttribute("carrello", prodottoService.getCarrello(session));
-		
+
+		@GetMapping
+		public String getPage(HttpSession session, Model model,
+			@RequestParam(name= "send", required = false) String send)
+		{
+			if(session.getAttribute("utente") == null)
+				return "redirect:/login";
+			Utente utente = (Utente) session.getAttribute("utente");
+			model.addAttribute("utente", utente);
+			model.addAttribute("carrello", prodottoService.getCarrello(session));
+			model.addAttribute("totale", prodottoService.getTotaleCarrello(session));
+			model.addAttribute("send", send);
+			return "areariservata";
 		}
-		
-		return send;
-		
-		
 	}
 	
-	
-	
-	@GetMapping("/invia")
+
+	/*@GetMapping("/invia")
 	public String invia (HttpSession session) {
 		
 		Utente utente = (Utente) session.getAttribute("utente");
@@ -61,4 +59,4 @@ public class AcquistoController {
 	}
 
 	
-}
+}*/

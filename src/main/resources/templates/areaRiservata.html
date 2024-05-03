@@ -93,7 +93,110 @@
             </div>
         </div>
     </div>
-    <footer class="footer py-3">
+ 
+ <div class="container mt-5">
+        <div class="card" id="settingsCard">
+            <div class="card-body">
+                <h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
+                <form id="settingsForm">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}"
+                            placeholder="Inserisci il tuo nome" required>
+                        <p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cognome" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}"
+                            placeholder="Inserisci il tuo cognome" required>
+                        <p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}">
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="genere" class="form-label">Genere</label>
+                        <select class="form-select" id="genere" name="profilo.genere" required>
+        
+                            <option value="maschio">Maschio</option>
+                            <option value="femmina">Femmina</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dataNascita" class="form-label">Data di Nascita</label>
+                        <input type="date" class="form-control" id="dataNascita" th:field="*{profilo.dataDiNascita}"
+                            placeholder="Inserisci la tua data di nascita" required>
+                        <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}" th:errors="*{profilo.dataDiNascita}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
+                        <input type="text" class="form-control" id="indirizzo" th:field="*{profilo.indirizzoResidenza}"
+                            placeholder="Inserisci il tuo indirizzo di residenza" required>
+                        <p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}" th:errors="*{profilo.indirizzoResidenza}">
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Indirizzo di spedizione</label>
+                        <input type="text" class="form-control" id="address"
+                            placeholder="Inserisci il tuo indirizzo di spedizione">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}"
+                            placeholder="Inserisci il tuo numero di telefono" required>
+                        <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" th:field="*{email}"
+                            placeholder="Inserisci la tua email" required>
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" th:field="*{username}"
+                            placeholder="Inserisci il tuo username" required>
+                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" th:field="*{password}"
+                            placeholder="Inserisci la tua password" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">👁️</button>
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Avatar</label>
+                        <div class="avatar-selection">
+                            <label class="radio-inline">
+                                <input type="radio" name="avatar" value="avatar1.jpg" checked>
+                                <img src="../static/avatar1.jpg" alt="Avatar 1">
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="avatar" value="avatar2.jpg">
+                                <img src="../static/avatar2.jpg" alt="Avatar 2">
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="avatar" value="avatar3.jpg">
+                                <img src="../static/avatar3.jpg" alt="Avatar 3">
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="avatar" value="avatar4.jpg">
+                                <img src="../static/avatar4.jpg" alt="Avatar 4">
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="bottone2">Salva modifiche</button>
+            </div>
+        
+        </form>
+    </div>
+    </div>
+ 
+ 
+ 
+ <footer class="footer py-3">
 		<div class="containerF">
 			<div class="row">
 				<div class="text-center">

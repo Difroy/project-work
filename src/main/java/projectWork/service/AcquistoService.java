@@ -11,7 +11,7 @@ public interface AcquistoService {
     public List<Acquisto> getAcquisti();
      
     
-    void inviaAcquisto(HttpSession session);
+    void inviaAcquisto(Utente utente, List <Prodotto> prodottiNelCarrello, HttpSession session);
     
      
     Acquisto getAcquistoById(int id);

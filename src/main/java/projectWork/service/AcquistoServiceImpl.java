@@ -31,7 +31,7 @@ public class AcquistoServiceImpl implements AcquistoService {
     }
 
     @Override
-    public void inviaAcquisto(HttpSession session) {
+    public void inviaAcquisto(Utente utente, List <Prodotto > prodottiNelCarrello, HttpSession session) {
         List<Prodotto> ordine = prodottoService.getCarrello(session);
         Profilo profilo = (Profilo) session.getAttribute("profilo");
 
