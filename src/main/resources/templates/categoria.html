@@ -66,7 +66,7 @@
                 </li>
             </ul>
         </div>
-        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
+        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/login}">Login</a>
@@ -106,7 +106,7 @@
 					<div class="card-body">
 						<h5 th:text="${prodotto.nome}" class="card-title"></h5>
 						<button class="btn btn-dark bottone" data-bs-toggle="collapse"
-							data-bs-target="#pulsante" th:value="'pulsante'+ ${prodotto.id}">Dettagli</button>
+							data-bs-target="#pulsante" th:value="'pulsante'+ ${prodotto.id}" id="tasto">Dettagli</button>
 						<div class="collapse" style="display: none;"
 							th:id="'pulsante'+ ${prodotto.id}">
 							<div class="campi">
