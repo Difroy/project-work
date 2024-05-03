@@ -44,19 +44,4 @@ public class AcquistoController {
 			model.addAttribute("send", send);
 			return "areariservata";
 		}
-	}
-	
-
-	/*@GetMapping("/invia")
-	public String invia (HttpSession session) {
-		
-		Utente utente = (Utente) session.getAttribute("utente");
-		@SuppressWarnings("unchecked")
-		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
-		carrelloService.svuotaCarrello(session);
-		acquistoService.inviaAcquisto(utente, prodottiNelCarrello);
-		return "redirect:/areariservata";	
-	}
-
-	
-}*/
+}
