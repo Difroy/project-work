@@ -52,8 +52,5 @@ private CategoriaService categoriaService;
 		
 		carrelloService.rimuoviProdotto(id, session);
 		return "redirect:/carrello";
-		
-		
 	}
-	
 }

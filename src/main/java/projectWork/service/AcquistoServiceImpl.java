@@ -8,6 +8,7 @@ import projectWork.dao.AcquistoDao;
 import projectWork.model.Acquisto;
 import projectWork.model.Prodotto;
 import projectWork.model.Profilo;
+import projectWork.model.Utente;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -30,7 +31,7 @@ public class AcquistoServiceImpl implements AcquistoService {
     }
 
     @Override
-    public void inviaAcquisto(HttpSession session) {
+    public void inviaAcquisto(Utente utente, List <Prodotto > prodottiNelCarrello, HttpSession session) {
         List<Prodotto> ordine = prodottoService.getCarrello(session);
         Profilo profilo = (Profilo) session.getAttribute("profilo");
 

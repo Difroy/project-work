@@ -223,9 +223,6 @@ body {
     box-shadow: 5px 5px 5px 5px; 
 }
 
-#bottone {
-   margin-left: 90px;
-}
 
 .filtrobottoni {
     margin-top: 25px;
@@ -243,6 +240,10 @@ body {
     font-size: medium;
 }
 
+#tasto{
+margin-left: 90px;
+margin-bottom:20px
+}
 
 
 @media (max-width: 991.98px) {
@@ -302,6 +303,7 @@ body {
 
     .logoN {
       margin-left: 25%;
+
     }
 
     .navbar-nav .nav-link {

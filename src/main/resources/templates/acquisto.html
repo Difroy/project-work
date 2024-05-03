@@ -7,18 +7,18 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+	rel="stylesheet">
 <link th:href="@{style.css}" rel="stylesheet">
-<title th:text="${categoria.tipo}"></title>
-<style type="text/css">
-</style>
+<title>Home - La Bottega del Brigante</title>
+
 </head>
 
-<body>
+<body id="bg">
+	
 	<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}">
@@ -66,7 +66,7 @@
                 </li>
             </ul>
         </div>
-        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="">
+        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/login}">Login</a>
@@ -82,54 +82,30 @@
     </div>
 </nav> 
 	
+	<div>
+	<div th:each="prodotti : ${}">
+	</div>
+	</div>
 	
-
-	<div class="filtrobottoni">
-
-		<a th:each="sottocategoria: ${categoria.sottocategorie}" th:href="@{/categoria(id=${categoria.id},filtro=${sottocategoria.nome})}" class="btn btn-warning" th:text="${sottocategoria.nome}"></a>
-		<a th:href="@{/categoria(id=${categoria.id})}" class="btn btn-warning"> Mostra tutto</a>
-		</div>
-
-<p th:if="${add!=null}"> Prodotto aggiunto al carrello </p>
-
-
-
-	<div class="container mt-3">
-		<div class="row">
-			<div th:each="prodotto : ${prodotti}" class="col-md-3 col-sm-12"
-				th:categoria="${prodotto.sottocategoria.categoria}">
-
-
-
-				<div class="card " id="ombra">
-					<img class="card-img-top" th:src="@{${prodotto.immagine}}">
-					<div class="card-body">
-						<h5 th:text="${prodotto.nome}" class="card-title"></h5>
-						<button class="btn btn-dark bottone" data-bs-toggle="collapse"
-							data-bs-target="#pulsante" th:value="'pulsante'+ ${prodotto.id}" id="tasto">Dettagli</button>
-						<div class="collapse" style="display: none;"
-							th:id="'pulsante'+ ${prodotto.id}">
-							<div class="campi">
-
-
-						
-
-								<h5>Descrizione</h5>
-								<p th:text="${prodotto.descrizione}"></p>
-								<div>
-									<h5 th:text="${prodotto.prezzo}">
-										
-									</h5>
-								</div>
-								<a th:href="@{/categoria/aggiungi(id=${prodotto.id},idCat=${categoria.id})}" class="btn btn-warning">Aggiungi al carrello</a>
-							</div>
-						</div>
-					</div>
-
-				</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="row justify-content-center">
+		<div th:each="categoria: ${categorie}" class="col-md-auto text-center">
+			<div class="category-container">
+				<a th:href="@{/categoria(id=${categoria.id})}"> <img
+					th:src="@{${categoria.icona}}" alt="Categoria" class="category-img">
+				</a>
+				<div th:text="${categoria.tipo}" class="category-title"></div>
 			</div>
 		</div>
-		</div>
+	</div>
 	<footer class="footer py-3">
 		<div class="containerF">
 			<div class="row">
@@ -162,22 +138,6 @@
 		</div>
 	</footer>
 
-	<script>
-		document.querySelectorAll('.bottone').forEach(function(pulsante) {
-			pulsante.addEventListener('click', function() {
-				toggleCollapse(this.value)
-			})
-		})
-		function toggleCollapse(cardId) {
-
-			var div = document.getElementById(cardId);
-			if (div.style.display === "none") {
-				div.style.display = "block";
-			} else {
-				div.style.display = "none";
-			}
-		}
-	</script>
 
 </body>
 
