@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Registrazione</title>
+    <style>
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .avatar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .avatar-selection img {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .avatar-selection img:hover {
+            border: 5px solid #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">
+            <img th:src="@{LOGOTIPO.png}" alt="Logo" class="logoN d-inline-block align-top me-2">
+        </a>
+       
+        <form class="d-flex ms-2 flex-grow-1" role="search">
+				<div class="input-group">
+					<div class="dropdown">
+						<button class="btn btn-warning dropdown-toggle" type="button"
+							id="dropdownMenuButton" data-bs-toggle="dropdown"
+							aria-expanded="false">Categorie</button>
+						<ul class="dropdown-menu bg-warning"
+							aria-labelledby="dropdownMenuButton">
+
+
+							<li th:each="categoria : ${categorie}"><a
+								th:text="${categoria.tipo}" class="dropdown-item"
+								th:href="@{/categoria(id=${categoria.id})}"></a></li>
+						</ul>
+					</div>
+					<input class="form-control" type="search" placeholder="Cerca"
+						aria-label="Search">
+					<button class="btn btn-warning" type="submit">
+						<i class="bi bi-search"></i>
+					</button>
+				</div>
+			</form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+     
+        <div th:if="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a th:href="@{/areariservata/logout}" class="nav-link active" aria-current="page">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/carrello}">Carrello</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Impostazioni</a>
+                </li>
+            </ul>
+        </div>
+        <div th:unless="${session['utente'] != null}" class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/registrazioneutente}">Registrazione</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/carrello}">Carrello</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> 
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div th:if="${error != null}" class="col-12">
+                <p>Credenziali Errate</p>
+            </div>
+            <div class="col-md-8" style="margin-bottom: 60px;">
+                <div class="card" id="cardReg">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4" id="cardT">Registrazione</h5>
+                        <form th:object="${utente}" method="post">
+                            <div class="form-row mb-3">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}"
+                                        placeholder="Inserisci il tuo nome" required>
+                                    <p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cognome" class="form-label">Cognome</label>
+                                    <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}"
+                                        placeholder="Inserisci il tuo cognome" required>
+                                    <p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="genere" class="form-label">Genere</label>
+                                <select class="form-select" id="genere" name="profilo.genere" required>
+
+                                    <option value="maschio">Maschio</option>
+                                    <option value="femmina">Femmina</option>
+                                    <option value="altro">Altro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dataNascita" class="form-label">Data di Nascita</label>
+                                <input type="date" class="form-control" id="dataNascita"
+                                    th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita"
+                                    required>
+                                <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
+                                    th:errors="*{profilo.dataDiNascita}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
+                                <input type="text" class="form-control" id="indirizzo"
+                                    th:field="*{profilo.indirizzoResidenza}"
+                                    placeholder="Inserisci il tuo indirizzo di residenza" required>
+                                <p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}"
+                                    th:errors="*{profilo.indirizzoResidenza}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}"
+                                    placeholder="Inserisci il tuo numero di telefono" required>
+                                <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" th:field="*{email}"
+                                    placeholder="Inserisci la tua email" required>
+                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" th:field="*{username}"
+                                    placeholder="Inserisci il tuo username" required>
+                                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" th:field="*{password}"
+                                        placeholder="Inserisci la tua password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">👁️</button>
+                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="avatar" class="form-label">Avatar</label>
+                                <div class="avatar-selection">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar1.jpg" checked>
+                                        <img src="avatar1.jpg" alt="Avatar 1">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar2.jpg">
+                                        <img src="avatar2.jpg" alt="Avatar 2">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar3.jpg">
+                                        <img src="avatar3.jpg" alt="Avatar 3">
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="avatar" value="avatar4.jpg">
+                                        <img src="avatar4.jpg" alt="Avatar 4">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Registrati</button>
+                        </form>
+                        <p class="mt-3 text-center">Hai già un account? <a href="login.html">Accedi qui</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer py-3">
+        <div class="containerF">
+            <div class="row">
+                <div class="text-center">
+                    <img src="LOGOTIPO.png" alt="Logo" class="logoF mb-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="footer-links list-unstyled">
+                        <li class="d-inline me-3"><a href="abbigliamento.html">Abbigliamento</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="gadget.html">Gadget</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="giochi.html">Giochi</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="gioielli.html">Gioielli</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="opereArtistiche.html">Opere Artistiche</a>
+                        </li>
+                        <li class="d-inline me-3"><a href="opereMultimediali.html">Opere Multimediali</a></li>
+                        <li class="d-inline me-3"><a href="opereNarrative.html">Opere Narrative</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🔒';
+        });
+    </script>
+
+</body>
+
+</html>
