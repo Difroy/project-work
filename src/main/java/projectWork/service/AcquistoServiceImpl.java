@@ -41,7 +41,6 @@ public class AcquistoServiceImpl implements AcquistoService {
             acquisto.setCostoSpedizione(0);
             acquisto.setImportoTotale(prodottoService.getTotaleCarrello(session));
             acquisto.setMetodoDiPagamento(null);
-            acquisto.setIndirizzoDomicilio(null);
             acquisto.setStatoPagamento(null);
             acquistoDao.save(acquisto);
         }

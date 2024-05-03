@@ -1,6 +1,9 @@
 package projectWork.model;
 
 import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,6 +30,7 @@ public class Profilo {
 	@Column
 	private String genere;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "data_di_nascita")
 	private LocalDate dataDiNascita;
 	

@@ -108,7 +108,9 @@
 		<div class="card" id="settingsCard">
 			<div class="card-body">
 				<h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
-				<form id="settingsForm">
+				<form th:object="${utente}" id="settingsForm" method="post">
+					<input type="hidden" th:field="*{id}">
+					<input type="hidden" th:field="*{profilo.id}">
 					<div class="mb-3">
 						<label for="nome" class="form-label">Nome</label> <input
 							type="text" class="form-control" id="nome"
@@ -152,7 +154,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="address" class="form-label">Indirizzo di
-							spedizione</label> <input type="text" class="form-control" id="address"
+							spedizione</label> <input type="text" name="spedizione" class="form-control" id="address"
 							placeholder="Inserisci il tuo indirizzo di spedizione">
 					</div>
 					<div class="mb-3">
@@ -180,7 +182,7 @@
 					<div class="mb-3">
 						<label for="password" class="form-label">Password</label>
 						<div class="input-group">
-							<input type="password" class="form-control" id="password"
+							<input type="text" class="form-control" id="password"
 								th:field="*{password}" placeholder="Inserisci la tua password"
 								required>
 							<button class="btn btn-outline-secondary" type="button"
@@ -207,16 +209,36 @@
 							</label>
 						</div>
 					</div>
-				</form>
-				<button type="submit" class="btn btn-primary" id="bottone2">Salva
+					<button type="submit" class="btn btn-primary" id="bottone2">Salva
 					modifiche</button>
+				</form>
+				
 			</div>
 
 
 		</div>
 	</div>
 
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var pwd = document.getElementById("password");
+            pwd.type = "password";
+            let indirizzo = document.getElementById("indirizzo");
+            let address = document.getElementById("address");
+            address.value = indirizzo.value;
+        });
 
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text'
+                    : 'password';
+            password.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🔒';
+        });
+        
+        
+    </script>
 
 	<footer class="footer py-3">
 		<div class="containerF">

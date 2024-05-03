@@ -32,33 +32,12 @@ public class RegistrazioneUtenteController {
 	public String getPage (Model model) {
 		Utente utente = new Utente ();
 		model.addAttribute("utente", utente);
-		return "registrazioneUtente";
+		return "registrazioneutente";
 		
 	}
-	
-	
-	@PostMapping
-	public String formManager(
-	        @Valid @ModelAttribute("utente") Utente utente,
-	        BindingResult result,
-	        HttpSession session
-	) {
-	    if (result.hasErrors())
-	        return "registrazioneutente";
-	    utenteService.registraUtente(utente);
-	    session.setAttribute("utente", utente); // Aggiungi l'utente alla sessione
-	    return "redirect:/areariservata"; // Reindirizza alla pagina dell'area riservata
-	}
-	
 	//prova maggiorenne
-	@GetMapping("/registrazioneutente")
-    public String mostraFormRegistrazione(Model model) {
-		Utente utente = new Utente ();
-        model.addAttribute("utente", utente);
-        return "registrazioneutente";
-    }
-
-    @PostMapping("/registrazioneutente")
+	
+    @PostMapping
     public String processaFormRegistrazione(@ModelAttribute("utente") Utente utente, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "registrazioneutente";
@@ -72,7 +51,7 @@ public class RegistrazioneUtenteController {
                 model.addAttribute("erroreMaggiorenne", true);
                 return "registrazioneutente";
             }
-        }
+        }  
 
         // Altre operazioni di registrazione
 

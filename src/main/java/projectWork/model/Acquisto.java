@@ -42,8 +42,6 @@ public class Acquisto {
 	@Column(name = "metodo_di_pagamento")
 	private String metodoDiPagamento;
 	
-	@Column(name = "indirizzo_domicilio")
-	private String indirizzoDomicilio;
 	
 	@Column(name = "stato_pagamento")
 	private String statoPagamento;
@@ -110,14 +108,6 @@ public class Acquisto {
 
 	public void setMetodoDiPagamento(String metodoDiPagamento) {
 		this.metodoDiPagamento = metodoDiPagamento;
-	}
-
-	public String getIndirizzoDomicilio() {
-		return indirizzoDomicilio;
-	}
-
-	public void setIndirizzoDomicilio(String indirizzoDomicilio) {
-		this.indirizzoDomicilio = indirizzoDomicilio;
 	}
 
 	public String getStatoPagamento() {
