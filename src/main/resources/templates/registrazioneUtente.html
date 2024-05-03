@@ -134,6 +134,8 @@
                                     <option value="altro">Altro</option>
                                 </select>
                             </div>
+                            
+                            <!-- versione originale fino a... 
                             <div class="mb-3">
                                 <label for="dataNascita" class="form-label">Data di Nascita</label>
                                 <input type="date" class="form-control" id="dataNascita"
@@ -142,6 +144,23 @@
                                 <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
                                     th:errors="*{profilo.dataDiNascita}"></p>
                             </div>
+                             ...qui -->
+                            
+                            <!--Controllo di maggiorenne fino a...-->
+                            <div class="mb-3">
+    <label for="dataNascita" class="form-label">Data di Nascita</label>
+    <input type="date" class="form-control" id="dataNascita"
+           th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita"
+           required>
+    <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}" th:errors="*{profilo.dataDiNascita}"></p>
+</div>
+<div th:if="${erroreMaggiorenne}">
+    <div class="alert alert-danger" role="alert">
+        Devi essere maggiorenne per registrarti!
+    </div>
+</div>
+<!-- ...qui-->
+                            
                             <div class="mb-3">
                                 <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
                                 <input type="text" class="form-control" id="indirizzo"
