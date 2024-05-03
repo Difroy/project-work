@@ -28,10 +28,7 @@ public class Sottocategoria {
 	
 	@Column
 	private String nome;
-	
-	@Column
-	private String icona;
-	
+
 	@OneToMany(
 			mappedBy = "sottocategoria",
 			cascade = CascadeType.REMOVE,
@@ -70,12 +67,5 @@ public class Sottocategoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getIcona() {
-		return icona;
-	}
-
-	public void setIcona(String icona) {
-		this.icona = icona;
-	}
+	
 }
