@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -216,18 +216,6 @@
                             </p>
                            
                            
-                            <!--<table th:if="${carrello != null}" id="orderList" class="list-group">
-                            <tr th:each="prodotto : ${carrello}">
-                            <td th:text="${prodotto.nome}"></td>
-                            <td th:text="${prodotto.prezzo}"></td>
-                            <td><a th:href="@{/areariservata/rimuovi(id=${prodotto.id})}"> Rimuovi dal Carrello</a></td>
-                            
-                            </table>
-                            
-                            <h5 th:if="${carrello != null}" th:text="'Totale Carrello ' + ${totale}"></h5>    
-                        
-                             <a th:if = "${carrello != null}" th:href ="@{/riservautente/invia}">Invia ordine</a>
-                             <p th:if="${send !=null}"> Ordine inviato!! </p> -->
                             
                             
                         </div>
@@ -272,7 +260,7 @@
             </div>
 		</div>
     </div>
-    </div>
+   
 
 	<script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -305,44 +293,9 @@
     </script>
 
 
-<!-- <div class="col-md-8 offset-md-2 mt-5 d-flex justify-content-center">
-            <div class="card">
-                <div class="card-body text-center text-md-start">
-                  <h1 th:text ="'Benvenuto nella tua Area Riservata ' + ${utente.username}" style="text-align:center"></h1>   
-                    
-                    <p class="card-text">
-                        Grazie per aver effettuato l'accesso all'area riservata. Qui troverai un riepilogo dei tuoi
-                        ordini:
-                    </p>
-                    
-                    <p th:if="${carrello == null}" class="card-text">
-                        Non hai ancora effettuato ordini! <a th:href="@{/}">Inizia ad acquistare ora!</a>
-                    </p>
-                   
-                   
-                    <table th:if="${carrello != null}" id="orderList" class="list-group">
-                    <tr th:each="prodotto : ${carrello}">
-					<td th:text="${prodotto.nome}"></td>
-					<td th:text="${prodotto.prezzo}"></td>
-					<td><a th:href="@{/areariservata/rimuovi(id=${prodotto.id})}"> Rimuovi dal Carrello</a></td>
-                    
-                    </table>
-                    
-                <h5 th:if="${carrello != null}" th:text="'Totale Carrello ' + ${totale}"></h5>    
-                
-                <a th:if = "${carrello != null}" th:href ="@{/riservautente/invia}">Invia ordine</a>
- 				<p th:if="${send !=null}"> Ordine inviato!! </p>
-                    
-                    
-                </div>
-            </div>
-        </div> 
-	-->
 
 
-
-
-    </div>
+   
     <footer class="footer py-3">
 		<div class="containerF">
 			<div class="row">
