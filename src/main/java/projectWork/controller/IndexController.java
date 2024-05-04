@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
+import projectWork.model.Utente;
 import projectWork.service.CategoriaService;
 
 //localhost:8080
@@ -24,6 +25,9 @@ public class IndexController {
 
 		List<Categoria> categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
+		
+		Utente utente = (Utente) session.getAttribute("utente");
+	    model.addAttribute("utente", utente);
 
 		return "index";
 
