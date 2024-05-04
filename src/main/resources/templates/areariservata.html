@@ -57,14 +57,28 @@
 			<!-- div class="collapse navbar-collapse" id="navbarText">
 				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" th:text="$"></button> class="dropdown-menu" aria-labelledby="dropdownMenuButton"-->
 			<div>
-				<ul>
-					<li class="nav-item"><a th:href="@{/areariservata/logout}"
-						class="nav-link active" aria-current="page">Logout</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/carrello}">Carrello</a></li>
-					<li class="nav-item"><a th:text="${utente.username}"
-						class="dropdown-item"></a></li>
-				</ul>
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img th:src="@{'/' + ${utente.avatar}}" alt="Immagine Impostazioni" class="img-fluid rounded-circle" style="width: 30px; height: 30px;">
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <!-- Inserisci qui le voci del dropdown -->
+        <li><a class="dropdown-item" th:href="@{/areariservata}">Area Riservata</a></li>
+        <li><a class="dropdown-item" href="#">Modifica Credenziali</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Altre opzione</a></li>
+    </ul>
+</li>
+                
+                
+                <li class="nav-item">
+                    <a th:href="@{/areariservata/logout}" class="nav-link active" aria-current="page">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/carrello}">Carrello</a>
+                </li>
+            </ul>
 			</div>
 		</div>
 	</nav>
@@ -77,13 +91,7 @@
 						th:text="'Benvenuto nella tua Area Riservata ' + ${utente.username}"
 						style="text-align: center"></h1>
 
-					<p class="card-text">Grazie per aver effettuato l'accesso
-						all'area riservata. Qui troverai un riepilogo dei tuoi ordini:</p>
-
-					<p th:if="${acquisti == null}" class="card-text">
-						Non hai ancora effettuato ordini! <a th:href="@{/}">Inizia ad
-							acquistare ora!</a>
-					</p>
+					
 
 
 					<table th:if="${acquisti != null}" id="orderList"
@@ -103,11 +111,15 @@
 	</div>
 
 	<div class="container mt-5">
-		<div class="card" id="settingsCard">
-			<div class="card-body">
-				<h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
-				<form th:object="${utente}" id="settingsForm" method="post">
-					<input type="hidden" th:field="*{id}"> <input type="hidden"
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="card" id="settingsCard">
+                <div class="card-body">
+                    <h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
+                  
+                    <form th:object="${utente}" id="settingsForm" method="post">
+                    <input type="hidden" th:field="*{id}"> <input type="hidden"
 						th:field="*{profilo.id}">
 					<div class="mb-3">
 						<label for="nome" class="form-label">Nome</label> <input
@@ -195,31 +207,78 @@
                                 <div class="avatar-selection">
                                     <label class="radio-inline">
                                         <input type="radio" name="avatar" value="avatar1.jpg" checked>
-                                        <img src="avatar1.jpg" alt="Avatar 1">
+                                        <img src="avatar1.jp" alt="Avatar 1">
                                     </label>
                                     <label class="radio-inline">
                                         <input type="radio" name="avatar" value="avatar2.jpg">
-                                        <img src="avatar2.jpg" alt="Avatar 2">
+                                        <img src="avatar2.jp" alt="Avatar 2">
                                     </label>
                                     <label class="radio-inline">
                                         <input type="radio" name="avatar" value="avatar3.jpg">
-                                        <img src="avatar3.jpg" alt="Avatar 3">
+                                        <img src="avatar3.jp" alt="Avatar 3">
                                     </label>
                                     <label class="radio-inline">
                                         <input type="radio" name="avatar" value="avatar4.jpg">
-                                        <img src="avatar4.jpg" alt="Avatar 4">
+                                        <img src="avatar4.jp" alt="Avatar 4">
                                     </label>
                                 </div>
                             </div>
 					<button type="submit" class="btn btn-primary" id="bottone2">Salva
 						modifiche</button>
 				</form>
+				
+				 </div>
+            </div>
+        </div>
+      
+        <div class="col-md-6">
+            <div class="order-md-3 mx-3 text-center">
+                <div class="card">
+                    <div>
+                        <table class="table">
+                            <thead>
+                            
 
-			</div>
-
-
-		</div>
-	</div>
+					
+                                <h3 class="mb-4 mx-3 text-center" id="cardT">Storico Ordini</h3>
+                               <p th:if="${acquisti == null}" class="card-text">
+						Non hai ancora effettuato ordini! <a th:href="@{/}">Inizia ad
+							acquistare ora!</a>
+					</p>
+                                <tr>
+                                
+                                    <th scope="col">Data Ordine</th>
+                                    <th scope="col">Contenuto Ordine</th>
+                                    <th scope="col">Totale Ordine</th>
+                                    <th scope="col">Indirizzo di Spedizione</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Ciclo su ogni oggetto Acquisto -->
+                                <tr th:each="acquisto : ${acquisti}">
+                                    <!-- Popola le celle con i dati dell'acquisto -->
+                                    <td th:text="${acquisto.dataAcquisto}"></td>
+                                    <!-- 
+                                        Considerando che ogni acquisto può avere più prodotti, 
+                                        possiamo ciclare su di essi all'interno di una cella
+                                    -->
+                                    <td>
+                                        <ul>
+                                            <!-- Ciclo su ogni prodotto nell'acquisto -->
+                                            <li th:each="prodotto : ${acquisto.prodotti}" th:text="${prodotto.nome}"></li>
+                                        </ul>
+                                    </td>
+                                    <td th:text="${acquisto.importoTotale}"></td>
+                                    <td th:text="${acquisto.utente.indirizzo}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
