@@ -134,7 +134,10 @@
                                     <!-- Fine della sezione prodotti nel carrello -->
                                 </tbody>
                             </table>
+                            <div th:if="${carrello == null}" class="alert alert-danger" role="alert">
+								Il carrello sembra esser vuoto... Perchè non lo riempi?
                             <button class="btn btn-warning">Svuota Carrello</button>
+                            </div>
                         </div>
                     </div>
                 </div>
