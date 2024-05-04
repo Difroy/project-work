@@ -1,6 +1,7 @@
 package projectWork.controller;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.Period;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,25 +35,26 @@ public class RegistrazioneUtenteController {
 	}
 	//prova maggiorenne
 	
-    @PostMapping
-    public String processaFormRegistrazione(@ModelAttribute("utente") Utente utente, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "registrazioneutente";
-        }
+	
+	  @PostMapping public String
+	  processaFormRegistrazione(@ModelAttribute("utente") Utente utente,
+	  BindingResult result, Model model) { if (result.hasErrors()) { return
+	  "registrazioneutente"; }
+	  
+	  LocalDate dataDiNascita = utente.getProfilo().getDataDiNascita(); if
+	  (dataDiNascita != null) { LocalDate oggi = LocalDate.now(); Period period =
+	  Period.between(dataDiNascita, oggi); if (period.getYears() < 18) {
+	  model.addAttribute("erroreMaggiorenne", true); return "registrazioneutente";
+	  } }
+	  
+	  // Altre operazioni di registrazione
+	    utenteService.registraUtente(utente);
 
-        LocalDate dataDiNascita = utente.getProfilo().getDataDiNascita();
-        if (dataDiNascita != null) {
-            LocalDate oggi = LocalDate.now();
-            Period period = Period.between(dataDiNascita, oggi);
-            if (period.getYears() < 18) {
-                model.addAttribute("erroreMaggiorenne", true);
-                return "registrazioneutente";
-            }
-        }  
-
-        // Altre operazioni di registrazione
-
-        return "redirect:/login"; 
-    }
+	  return "redirect:/login";
+	  
+	  }
+	 
+	
+	
 }
 
