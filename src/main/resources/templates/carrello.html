@@ -144,27 +144,30 @@
     </div>
 </div>
 
-	<div class="col-md-4 colonnaPagamento">
-		<h5>
-			<strong>Totale: </strong>
-		</h5>
-		
-		
-		
-		
-		<p th:text="${totale}"></p>
-		<br> <a th:href="@{/carrello/invia}" class="btn btn-primary">Paga
-			Ora</a>
+	
+	
+	<div class="col-md-4 colonnaPagamento" th:if="${session['utente'] != null}">
+    <h5><strong>Totale: </strong></h5>
+    <p th:text="${totale}"></p>
+    <br> 
+    <a th:href="@{/carrello/invia}" class="btn btn-primary">Paga Ora</a>
+</div>
 
-
-	</div>
-
+<div th:unless="${session['utente'] != null}">
+    <p>Devi effettuare il login per procedere al pagamento.</p>
+    <a th:href="@{/login}" class="btn btn-primary">Login</a>
+</div>
+	
+	
+	
+	
+	
 	<!-- <h5 th:if="${carrello != null}"
 						th:text="'Totale Carrello ' + ${totale}"></h5>
 
 					<a th:if="${carrello != null}" th:href="@{/riservautente/invia}">Invia
 						ordine</a>
-					<p th:if="${send !=null}">Ordine inviato!!</p>
+					<p th:if="${send !=null}">Ordine inviato!!</p>		
  -->
 
 
