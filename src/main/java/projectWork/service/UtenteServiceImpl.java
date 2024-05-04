@@ -1,6 +1,8 @@
 package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,10 +34,19 @@ public class UtenteServiceImpl implements UtenteService {
 
 	}
 
-	@Override
-	public void registraUtente(Utente utente) {
-		utenteDao.save(utente);
-		
-	}
-
+	
+	  @Override public void registraUtente(Utente utente) {
+		  utenteDao.save(utente);
+	  
+	  }
+	 
+	/*
+	 * @Override public void registraUtente(Utente utente) { try {
+	 * utenteDao.save(utente); logger.info("Utente registrato con successo: {}",
+	 * utente.getUsername()); } catch (Exception e) {
+	 * logger.error("Errore durante il salvataggio dell'utente: {}",
+	 * e.getMessage()); } }
+	 */
+	
+	
 }
