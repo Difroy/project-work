@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
 import projectWork.model.Prodotto;
 import projectWork.model.Sottocategoria;
+import projectWork.model.Utente;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
 import projectWork.service.ProdottoService;
@@ -31,9 +32,11 @@ public class CategoriaController {
 	private ProdottoService prodottoService;
 	
 	@GetMapping
-	public String getPage(@RequestParam(name="id",required =false ) Integer id, Model model, @RequestParam(name="filtro", required=false) String filtro, @RequestParam (name="add", required=false) String add,
+	public String getPage(HttpSession session, @RequestParam(name="id",required =false ) Integer id, Model model, @RequestParam(name="filtro", required=false) String filtro, @RequestParam (name="add", required=false) String add,
 			@RequestParam (name = "ricerca", required = false) String ricerca ) {
 		
+		Utente utente = (Utente) session.getAttribute("utente");
+	    model.addAttribute("utente", utente);
 		List<Categoria>categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
 
