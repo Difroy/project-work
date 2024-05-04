@@ -77,7 +77,7 @@
 		</div>
 	</nav>
 
-	<div id="cart-container">
+	<!-- <div id="cart-container">
 		<h1 class="mt-5">Il tuo carrello</h1>
 		<div id="cart-items">
 
@@ -98,7 +98,51 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
+	
+	<div id="cart-container">
+    <h1 class="mt-5">Il tuo carrello</h1>
+    <div id="cart-items">
+        <div class="container">
+            <div class="row">
+                <!-- Riassunto del carrello -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Il tuo Carrello</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Immagine</th>
+                                        <th>Prodotto</th>
+                                        <th>Descrizione</th>
+                                        <th>Prezzo</th>
+                                        <th></th> <!-- spazio per il pulsante Rimuovi -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--  prodotti nel carrello -->
+                                    <tr th:each="prodotto : ${carrello}">
+                                        <td><img th:src="@{${prodotto.immagine}}" alt="Immagine Prodotto" style="max-width: 50px;"></td>
+                                        <td th:text="${prodotto.nome}"></td>
+                                        <td th:text="${prodotto.descrizione}"></td>
+                                        <td th:text="${prodotto.prezzo}"></td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm">Rimuovi</button>
+                                        </td>
+                                    </tr>
+                                    <!-- Fine della sezione prodotti nel carrello -->
+                                </tbody>
+                            </table>
+                            <button class="btn btn-warning">Svuota Carrello</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div> <!-- Div vuoto per spaziatura -->
+            </div>
+        </div>
+    </div>
+</div>
 
 	<div class="col-md-4 colonnaPagamento">
 		<h5>
