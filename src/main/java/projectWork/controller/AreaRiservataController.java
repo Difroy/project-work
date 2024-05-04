@@ -41,7 +41,7 @@ public class AreaRiservataController {
 			@RequestParam(name = "send", required = false) String send) {
 
 		if (session.getAttribute("utente") == null)
-			return "redirect:/loginutente";
+			return "redirect:/login";
 		Utente utente = (Utente) session.getAttribute("utente");
 		model.addAttribute("acquisti", acquistoService.getAcquisti());
 		model.addAttribute("utente", utente);

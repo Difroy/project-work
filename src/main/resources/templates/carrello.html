@@ -126,7 +126,7 @@
                                         <td><img th:src="@{${prodotto.immagine}}" alt="Immagine Prodotto" style="max-width: 50px;"></td>
                                         <td th:text="${prodotto.nome}"></td>
                                         <td th:text="${prodotto.descrizione}"></td>
-                                        <td th:text="${prodotto.prezzo}"></td>
+                                        <td th:text="${prodotto.prezzo}+'€'"></td>
                                         <td>
                                             <button class="btn btn-danger btn-sm">Rimuovi</button>
                                         </td>
@@ -148,7 +148,7 @@
 	
 	<div class="col-md-4 colonnaPagamento" th:if="${session['utente'] != null}">
     <h5><strong>Totale: </strong></h5>
-    <p th:text="${totale}"></p>
+    <p th:text="${totale}+'€'"></p>
     <br> 
     <a th:href="@{/carrello/invia}" class="btn btn-primary">Paga Ora</a>
 </div>
