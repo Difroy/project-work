@@ -21,7 +21,7 @@
 			<form class="d-flex ms-2 flex-grow-1" role="search" action="/categoria/ricerca" method="get">
 				<div class="input-group">
 					<div class="dropdown">
-						<button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+						<button th:text="${categoria!=null?categoria.tipo:'categorie'}" class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
 							data-bs-toggle="dropdown" aria-expanded="false">Categorie</button>
 						<ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuButton">
 
@@ -94,7 +94,7 @@
 		<a th:each="sottocategoria: ${categoria.sottocategorie}"
 			th:href="@{/categoria(id=${categoria.id},filtro=${sottocategoria.nome})}" class="btn btn-warning"
 			th:text="${sottocategoria.nome}"></a>
-		<a th:href="@{/categoria(id=${categoria.id})}" class="btn btn-warning"> Mostra tutto</a>
+		<a th:href="@{/}" class="btn btn-warning"> Mostra tutto</a>
 	</div>
 
 	<p th:if="${add!=null}"> Prodotto aggiunto al carrello </p>

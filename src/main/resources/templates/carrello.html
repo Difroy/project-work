@@ -182,13 +182,12 @@
 		<div id="cart-items">
 			<div class="container">
 				<div class="row">
-					<!-- Riassunto del carrello -->
 					<div class="col-md-8">
 						<div class="card">
 							<div class="card-body">
 								<h3 class="card-title">Il tuo Carrello</h3>
 								<table class="table">
-									<thead>
+									<thead th:if="${carrello!=null}">
 										<tr>
 											<th>Immagine</th>
 											<th>Prodotto</th>
