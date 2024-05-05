@@ -270,7 +270,7 @@
 											id="indirizzoSpedizione" name="indirizzoSpedizione"
 											placeholder="Inserisci indirizzo di spedizione" required>
 									</div>
-									<button type="submit" class="btn btn-primary">Procedi
+									<button th:if="${carrello != null}" type="submit" class="btn btn-primary" >Procedi
 										all'acquisto</button>
 								</div>
 							</form>
