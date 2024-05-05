@@ -2,6 +2,7 @@ package projectWork.controller;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import projectWork.model.Categoria;
 import projectWork.model.Utente;
+import projectWork.service.CategoriaService;
 import projectWork.service.UtenteService;
 
 //localhost:8080/registrazioneutente
@@ -22,14 +26,18 @@ public class RegistrazioneUtenteController {
 
 	@Autowired
 	public UtenteService utenteService;
-	
+	@Autowired
+	private CategoriaService categoriaService;
 	
 	
 	@GetMapping
 	public String getPage (Model model) {
+		List<Categoria> categorie = categoriaService.getCategorie();
+		model.addAttribute("categorie", categorie);
 		Utente utente = new Utente ();
 		model.addAttribute("utente", utente);
 		return "registrazioneutente";
+		
 		
 	}
 	//prova maggiorenne
