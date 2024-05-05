@@ -14,46 +14,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import projectWork.model.Utente;
 import projectWork.service.UtenteService;
 
-//localhost:8080/registrazioneutente
-
 @Controller
 @RequestMapping("/registrazioneutente")
 public class RegistrazioneUtenteController {
 
-	@Autowired
-	public UtenteService utenteService;
-	
-	
-	
-	@GetMapping
-	public String getPage (Model model) {
-		Utente utente = new Utente ();
-		model.addAttribute("utente", utente);
-		return "registrazioneutente";
-		
-	}
-	//prova maggiorenne
-	
-	
-	  @PostMapping public String
-	  processaFormRegistrazione(@ModelAttribute("utente") Utente utente,
-	  BindingResult result, Model model) { if (result.hasErrors()) { return
-	  "registrazioneutente"; }
-	  
-	  LocalDate dataDiNascita = utente.getProfilo().getDataDiNascita(); if
-	  (dataDiNascita != null) { LocalDate oggi = LocalDate.now(); Period period =
-	  Period.between(dataDiNascita, oggi); if (period.getYears() < 18) {
-	  model.addAttribute("erroreMaggiorenne", true); return "registrazioneutente";
-	  } }
-	  
-	  // Altre operazioni di registrazione
-	    utenteService.registraUtente(utente);
+    @Autowired
+    public UtenteService utenteService;
 
-	  return "redirect:/login";
-	  
-	  }
-	 
-	
-	
+    @GetMapping
+    public String getPage(Model model) {
+        Utente utente = new Utente();
+        model.addAttribute("utente", utente);
+        return "registrazioneutente";
+    }
+
+    @PostMapping
+    public String processaFormRegistrazione(@ModelAttribute("utente") Utente utente,
+                                             BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "registrazioneutente";
+        }
+
+        LocalDate dataDiNascita = utente.getProfilo().getDataDiNascita();
+        if (dataDiNascita != null) {
+            LocalDate oggi = LocalDate.now();
+            Period period = Period.between(dataDiNascita, oggi);
+            if (period.getYears() < 18) {
+                model.addAttribute("erroreMaggiorenne", true);
+                return "registrazioneutente";
+            }
+        }
+
+        if (!utenteService.controlloUsername(utente.getUsername())) {
+            model.addAttribute("erroreUsername", true);
+            return "registrazioneutente";
+        }
+
+        // Altre operazioni di registrazione
+        utenteService.registraUtente(utente);
+
+        return "redirect:/login";
+    }
 }
-

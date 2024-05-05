@@ -15,12 +15,12 @@ public class UtenteServiceImpl implements UtenteService {
 	private UtenteDao utenteDao;
 
 
-	@Override
-	public boolean controlloUsername(String username) {
-		if (utenteDao.findByUsername(username) == null) // se l'username non è già in uso
-			return true;
-		return false;
-	}
+	 @Override
+	    public boolean controlloUsername(String username) {
+	        return utenteDao.findByUsername(username) == null; // Ritorna true se l'username non è già in uso
+	    }
+	
+	
 
 	@Override
 	public boolean loginUtente(String username, String password, HttpSession session) {
@@ -34,10 +34,14 @@ public class UtenteServiceImpl implements UtenteService {
 	}
 
 	
-	  @Override public void registraUtente(Utente utente) {
-		  utenteDao.save(utente);
-	  
-	  }
+	@Override
+    public void registraUtente(Utente utente) {
+        if (controlloUsername(utente.getUsername())) { // Controlla se l'username è già in uso
+            utenteDao.save(utente); // Salva l'utente nel database
+        } else {
+            throw new IllegalArgumentException("Username già in uso"); // Solleva un'eccezione se l'username è già in uso
+        }
+    }
 	 
 	/*
 	 * @Override public void registraUtente(Utente utente) { try {
