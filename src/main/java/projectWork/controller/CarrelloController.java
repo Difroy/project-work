@@ -1,5 +1,6 @@
 package projectWork.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
+
 import projectWork.model.Categoria;
 import projectWork.model.Prodotto;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
-import org.springframework.http.ResponseEntity; /*Risposta JSON*/
-import org.springframework.web.bind.annotation.ResponseBody;
+/*import org.springframework.http.ResponseEntity; Risposta JSON
+import org.springframework.web.bind.annotation.ResponseBody;*/
 
 @Controller
 @RequestMapping("/carrello")
@@ -44,7 +46,6 @@ public class CarrelloController {
 		model.addAttribute("categorie", categorie);
 		return "carrello";
 	}
-
 	private double calcolaTotale(List<Prodotto> carrello) {
 		double totale = 0;
 		if (carrello != null) {
@@ -54,38 +55,27 @@ public class CarrelloController {
 		}
 		return totale;
 	}
-
 	@GetMapping("/rimuovi")
 	public String rimuovi(@RequestParam("id") int id, HttpSession session) {
 
 		carrelloService.rimuoviProdotto(id, session);
 		return "redirect:/carrello";
 	}
-
-	@GetMapping("/invia")
-	public String invia(HttpSession session) {
-
+	@PostMapping("/invia")
+	public String invia(HttpSession session, @RequestParam("indirizzoSpedizione") String indirizzoSpedizione,
+			@RequestParam("metodoPagamento") String metodoPagamento) {
 		Utente utente = (Utente) session.getAttribute("utente");
 		@SuppressWarnings("unchecked")
 		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
-		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
+
+		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, indirizzoSpedizione, metodoPagamento, session);
+
 		carrelloService.svuotaCarrello(session);
 		return "redirect:/areariservata";
 	}
-
 	@PostMapping("/svuota")
 	public String svuotaCarrello(HttpSession session) {
 		carrelloService.svuotaCarrello(session);
 		return "redirect:/carrello";
 	}
-
-	/*
-	 * @PostMapping("/svuota")
-	 * 
-	 * @ResponseBody public ResponseEntity<?> svuotaCarrello(HttpSession session) {
-	 * carrelloService.svuotaCarrello(session); return
-	 * ResponseEntity.ok().body("{\"status\": \"success\", \"carrelloVuoto\": true}"
-	 * ); }
-	 */
-
 }

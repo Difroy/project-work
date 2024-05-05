@@ -42,6 +42,8 @@ public class Acquisto {
 	@Column(name = "metodo_di_pagamento")
 	private String metodoDiPagamento;
 	
+	@Column(name = "indirizzo_spedizione")
+	private String indirizzoSpedizione;
 	
 	@Column(name = "stato_pagamento")
 	private String statoPagamento;
@@ -111,7 +113,13 @@ public class Acquisto {
 	public void setMetodoDiPagamento(String metodoDiPagamento) {
 		this.metodoDiPagamento = metodoDiPagamento;
 	}
+public String getIndirizzoSpedizione() {
+		return indirizzoSpedizione;
+	}
 
+	public void setIndirizzoSpedizione(String indirizzoSpedizione) {
+		this.indirizzoSpedizione = indirizzoSpedizione;
+	}
 	public String getStatoPagamento() {
 		return statoPagamento;
 	}
@@ -119,6 +127,4 @@ public class Acquisto {
 	public void setStatoPagamento(String statoPagamento) {
 		this.statoPagamento = statoPagamento;
 	}
-
-	
 }

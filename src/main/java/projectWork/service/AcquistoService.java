@@ -11,10 +11,13 @@ public interface AcquistoService {
     public List<Acquisto> getAcquisti();
      
     
-    void inviaAcquisto(Utente utente, List <Prodotto> prodottiNelCarrello, HttpSession session);
+    void inviaAcquisto(Utente utente, List <Prodotto> prodottiNelCarrello, String indirizzoSpedizione, String metodoPagamento, HttpSession session);
     
      
     Acquisto getAcquistoById(int id);
+
+
+	
     
    
 }
