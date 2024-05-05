@@ -113,8 +113,9 @@
 											<td th:text="${prodotto.nome}"></td>
 											<td th:text="${prodotto.descrizione}"></td>
 											<td th:text="${prodotto.prezzo}+'€'"></td>
-											<td>
-												<button class="btn btn-danger btn-sm">Rimuovi</button>
+											<td >
+												<a th:href="@{/carrello/rimuovi(id=${prodotto.id})}" class="btn btn-danger btn-sm">Rimuovi</a>
+												
 											</td>
 										</tr>
 										<!-- Fine della sezione prodotti nel carrello -->

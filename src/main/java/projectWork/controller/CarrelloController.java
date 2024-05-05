@@ -62,12 +62,12 @@ private AcquistoService acquistoService;
 	}
 	
 	
-	@GetMapping("/aggiungi")
-	public String aggiungi(
-			@RequestParam("id") int id, HttpSession session) {
-		carrelloService.aggiungiProdotto(id, session);
-		return "redirect:/carrello";
-	}
+	/*
+	 * @GetMapping("/aggiungi") public String aggiungi(
+	 * 
+	 * @RequestParam("id") int id, HttpSession session) {
+	 * carrelloService.aggiungiProdotto(id, session); return "redirect:/carrello"; }
+	 */
 	
 	@GetMapping("/invia")
 	public String invia (HttpSession session) {

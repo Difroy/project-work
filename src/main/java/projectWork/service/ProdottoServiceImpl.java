@@ -71,18 +71,18 @@ public class ProdottoServiceImpl implements ProdottoService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void rimuoviDalCarrello(int idProdotto, HttpSession session) {
-		List<Prodotto> ordine = (List<Prodotto>) session.getAttribute("ordine");
+		List<Prodotto> carrello = (List<Prodotto>) session.getAttribute("carrello");
 
-		for (Prodotto p : ordine)
+		for (Prodotto p : carrello)
 			if (p.getId() == idProdotto) {
-				ordine.remove(p);
+				carrello.remove(p);
 				break;
 			}
 
-		ordine = ordine.stream().filter(p -> p.getId() != idProdotto).collect(Collectors.toList());
+		carrello = carrello.stream().filter(p -> p.getId() != idProdotto).collect(Collectors.toList());
 
-		if (ordine.size() > 0)
-			session.setAttribute("ordine", ordine);
+		if (carrello.size() > 0)
+			session.setAttribute("carrello", carrello);
 		else
 			session.removeAttribute("ordine");
 	}

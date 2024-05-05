@@ -16,25 +16,26 @@ public class CarrelloServiceImpl implements CarrelloService {
 	@Autowired
 	private ProdottoService prodottoService;
     
+   
    @Override
-	public void rimuoviProdotto(int id, HttpSession session) {
+   public void rimuoviProdotto(int id, HttpSession session) {
+       @SuppressWarnings("unchecked")
+       List<Prodotto> carrello = (List<Prodotto>) session.getAttribute("carrello");
+       if (carrello != null) {
+           int rimuovi = -1;
+           for (int i = 0; i < carrello.size(); i++) {
+               if (carrello.get(i).getId() == id) {
+                   rimuovi = i;
+                   break;
+               }
+           }
+           if (rimuovi != -1) {
+               carrello.remove(rimuovi);
+           }
+           session.setAttribute("carrello", carrello);
+       }   
+   }
 
-    	@SuppressWarnings("unchecked")
-		List<Prodotto> carrello = (List<Prodotto>)session.getAttribute("carrello");
-    	if (carrello != null) {
-    		int rimuovi = -1;
-    		for (int i = 0; i<carrello.size(); i++) {
-    			if (carrello.get(i).getId() == id) {
-    				rimuovi = i;
-    				break;
-    			}
-    			if (rimuovi != -1) {
-    				carrello.remove (rimuovi);
-    			}
-    			session.setAttribute("carrello", carrello);
-    		}	
-    	}	
-	}
     
      @Override
 	public void svuotaCarrello(HttpSession session) {

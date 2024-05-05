@@ -2,11 +2,11 @@ package projectWork.controller;
 
 import java.util.List;
 
-import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
@@ -16,7 +16,6 @@ import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
 import projectWork.service.ProdottoService;
-import projectWork.service.UtenteService;
 
 @Controller
 @RequestMapping("/areariservata")
@@ -25,8 +24,7 @@ public class AreaRiservataController {
 	@Autowired
 	private ProdottoService prodottoService;
 
-	@Autowired
-	private UtenteService utenteService;
+	
 	
 	@Autowired
 	private AcquistoService acquistoService;
@@ -66,22 +64,5 @@ public class AreaRiservataController {
 		return "redirect:/areariservata";
 		
 	}
-	
-	@PostMapping
-	public String formManager (
-			@Valid @ModelAttribute("utente") Utente utente,
-			BindingResult result,
-			HttpSession session
-	) {
-		if(result.hasErrors())
-			return "areariservata";
-		utenteService.registraUtente(utente);
-		session.setAttribute("utente", utente);
-		return "redirect:/areariservata";
-	}
-	
-	
 
-	
-	
 }
