@@ -229,6 +229,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px, solid, rgb(50, 23, 23);
 }
 
 #dichiarazione {
