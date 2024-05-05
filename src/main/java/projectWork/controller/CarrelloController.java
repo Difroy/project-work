@@ -1,6 +1,5 @@
 package projectWork.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,27 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
-
 import projectWork.model.Categoria;
 import projectWork.model.Prodotto;
 import projectWork.model.Utente;
 import projectWork.service.AcquistoService;
 import projectWork.service.CarrelloService;
 import projectWork.service.CategoriaService;
-/*import org.springframework.http.ResponseEntity; Risposta JSON
-import org.springframework.web.bind.annotation.ResponseBody;*/
 
 @Controller
 @RequestMapping("/carrello")
 public class CarrelloController {
 	@Autowired
 	private CarrelloService carrelloService;
-	@Autowired
-	private CategoriaService categoriaService;
+@Autowired
+private CategoriaService categoriaService;
 
-	@Autowired
-	private AcquistoService acquistoService;
-
+@Autowired
+private AcquistoService acquistoService;
+	
 	@SuppressWarnings("unchecked")
 	@GetMapping
 	public String getPage(Model model, HttpSession session) {
@@ -42,10 +38,12 @@ public class CarrelloController {
 		model.addAttribute("utente", utente);
 		double totaleOrdine = calcolaTotale(carrello);
 		model.addAttribute("totale", String.format("%.2f", totaleOrdine));
-		List<Categoria> categorie = categoriaService.getCategorie();
+		List<Categoria>categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
 		return "carrello";
 	}
+	
+
 	private double calcolaTotale(List<Prodotto> carrello) {
 		double totale = 0;
 		if (carrello != null) {
@@ -55,40 +53,33 @@ public class CarrelloController {
 		}
 		return totale;
 	}
-	@GetMapping("/rimuovi")
-	public String rimuovi(@RequestParam("id") int id, HttpSession session) {
-
+	
+	
+	@GetMapping ("/rimuovi")
+	public String rimuovi (@RequestParam("id") int id, HttpSession session) {
+		
 		carrelloService.rimuoviProdotto(id, session);
 		return "redirect:/carrello";
 	}
+	
 	@PostMapping("/invia")
-	public String invia(HttpSession session, @RequestParam("indirizzoSpedizione") String indirizzoSpedizione,
-			@RequestParam("metodoPagamento") String metodoPagamento) {
-		Utente utente = (Utente) session.getAttribute("utente");
-		@SuppressWarnings("unchecked")
-		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
-<<<<<<< Updated upstream
+    public String invia(HttpSession session, @RequestParam("indirizzoSpedizione") String indirizzoSpedizione,
+            @RequestParam("metodoPagamento") String metodoPagamento) {
+        Utente utente = (Utente) session.getAttribute("utente");
+        @SuppressWarnings("unchecked")
+        List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
 
-		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, indirizzoSpedizione, metodoPagamento, session);
+        acquistoService.inviaAcquisto(utente, prodottiNelCarrello, indirizzoSpedizione, metodoPagamento, session);
 
-		carrelloService.svuotaCarrello(session);
-		return "redirect:/areariservata";
-=======
-		if(prodottiNelCarrello == null) {
-			return "redirect:/carrello";	
-		} else {
-			acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
-			carrelloService.svuotaCarrello(session);
-			
-				
-			return "redirect:/areariservata";		
-		}
-		
->>>>>>> Stashed changes
-	}
+        carrelloService.svuotaCarrello(session);
+        return "redirect:/areariservata";
+    }
+	
 	@PostMapping("/svuota")
 	public String svuotaCarrello(HttpSession session) {
-		carrelloService.svuotaCarrello(session);
-		return "redirect:/carrello";
+	    carrelloService.svuotaCarrello(session);
+	    return "redirect:/carrello"; // Reindirizza l'utente alla pagina del carrello dopo averlo svuotato
 	}
+	
+	
 }
