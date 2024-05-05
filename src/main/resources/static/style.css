@@ -121,7 +121,7 @@ body {
 }
 
 .footer-links a {
-    color:rgb(50, 23, 23);
+    color: rgb(50, 23, 23);
     text-decoration: none;
 }
 
@@ -184,8 +184,8 @@ body {
 
 .card {
     margin-top: 50px;
-    width: 500px; 
-    max-width: 100%; 
+    width: 500px;
+    max-width: 100%;
     margin-bottom: 20px;
 }
 
@@ -220,36 +220,59 @@ body {
 }
 
 #ombra {
-    box-shadow: 5px 5px 5px 5px; 
+    box-shadow: 5px 5px 5px 5px;
 }
 
 
 .filtrobottoni {
     margin-top: 25px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
-#dichiarazione{
+#dichiarazione {
     font-size: small;
     color: rgb(50, 23, 23);
 }
 
-#socials{
+#socials {
     font-size: medium;
 }
 
-#tasto{
-margin-left: 90px;
-margin-bottom:20px
+#tasto {
+    margin-left: 90px;
+    margin-bottom: 20px
 }
 
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avatar-selection img {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.avatar-selection img:hover {
+    border: 5px solid #007bff;
+}
 
 @media (max-width: 991.98px) {
-    
+
     .footer-links a {
-        color:rgb(50, 23, 23);
+        color: rgb(50, 23, 23);
         text-decoration: none;
         font-size: small;
     }
@@ -259,7 +282,7 @@ margin-bottom:20px
         text-align: center;
     }
 
-   .navbar-nav .nav-link {
+    .navbar-nav .nav-link {
         padding: .5rem 0;
     }
 
@@ -276,7 +299,7 @@ margin-bottom:20px
         z-index: 1000;
     }
 
-     .navbar-collapse.show {
+    .navbar-collapse.show {
         left: 0;
     }
 
@@ -287,22 +310,22 @@ margin-bottom:20px
         padding-left: 1rem;
     }
 
-   .navbar-collapse .nav-item {
+    .navbar-collapse .nav-item {
         margin-bottom: 0.5rem;
     }
 
-   .navbar-toggler {
+    .navbar-toggler {
         position: relative;
     }
-    
-     .navbar {
+
+    .navbar {
         z-index: 999;
         height: 160px;
         background-size: cover;
     }
 
     .logoN {
-      margin-left: 25%;
+        margin-left: 25%;
 
     }
 
@@ -327,10 +350,10 @@ margin-bottom:20px
     .avatar-selection img {
         margin-left: 50%;
     }
-    
-   .radio-inline {
-    margin-left: 20%;
-   }
 
-   
+    .radio-inline {
+        margin-left: 20%;
+    }
+
+
 }
