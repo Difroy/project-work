@@ -136,8 +136,21 @@
                             </div>
                             <div class="mb-3">
                                 <label for="telefono" class="form-label">Telefono</label>
-                                <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}"
-                                    placeholder="Inserisci il tuo numero di telefono" required>
+<input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}" placeholder="Inserisci il tuo numero di telefono" required />
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    document.getElementById('telefono').addEventListener('input', function(event) {
+        var input = event.target.value;
+        if (!(/^\d+$/.test(input))) {
+            event.target.setCustomValidity('Inserisci solo numeri.');
+        } else {
+            event.target.setCustomValidity('');
+        }
+    });
+    /*]]>*/
+</script>
+
                                 <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
                             </div>
                             <div class="mb-3">
