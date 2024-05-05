@@ -1,7 +1,11 @@
 package projectWork.controller;
 
 import jakarta.servlet.http.HttpSession;
+import projectWork.model.Categoria;
+import projectWork.service.CategoriaService;
 import projectWork.service.UtenteService;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +22,13 @@ public class LoginUtenteController
 {
     @Autowired
     private UtenteService utenteService;
+    @Autowired
+	private CategoriaService categoriaService;
     @GetMapping
     public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
     {
+    	List<Categoria> categorie = categoriaService.getCategorie();
+		model.addAttribute("categorie", categorie);
         if(session.getAttribute("utente") != null)
             return "redirect:/areariservata";
         model.addAttribute("error", error);
