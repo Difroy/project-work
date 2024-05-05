@@ -79,12 +79,10 @@
 							<li>
 								<hr class="dropdown-divider">
 							</li>
-							<li><a class="dropdown-item" href="#">Altre opzione</a></li>
+							<li class="nav-item"><a th:href="@{/areariservata/logout}"
+								class="nav-link active" aria-current="page">Logout</a></li>
 						</ul></li>
-
-
-					<li class="nav-item"><a th:href="@{/areariservata/logout}"
-						class="nav-link active" aria-current="page">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/carrello}">Carrello</a></li>
 				</ul>
@@ -94,8 +92,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
 					<li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a>
 					</li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/registrazioneutente}">Registrazione</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/carrello}">Carrello</a></li>
 				</ul>
