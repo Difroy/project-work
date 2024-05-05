@@ -12,7 +12,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
 	rel="stylesheet">
-<link th:href="@{style.css}" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <title>Il tuo carrello</title>
 </head>
 
@@ -107,7 +107,8 @@
 											<td th:text="${prodotto.nome}"></td>
 											<td th:text="${prodotto.descrizione}"></td>
 											<td th:text="${prodotto.prezzo}+'€'"></td>
-											<td><a th:href="@{/carrello/rimuovi(id=${prodotto.id})}"
+											<td><a
+												th:href="@{/carrello/rimuovi(id=${prodotto.id})}"
 												class="btn btn-danger btn-sm">Rimuovi</a></td>
 										</tr>
 										<!-- Fine della sezione prodotti nel carrello -->
@@ -129,33 +130,27 @@
 										</form>
 									</div>
 								</div>
+							
+							
+							
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4"></div>
 					<!-- Div vuoto per spaziatura -->
-
-
-
-					<div class="col-md-4 colonnaPagamento"
-						th:if="${session['utente'] != null}">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title">Totale</h5>
-								<p th:text="${totale}+'€'"></p>
-								<h5 class="card-title">Metodi di Pagamento</h5>
-								<ul class="list-group">
-									<li class="list-group-item">PayPal</li>
-								</ul>
-								<br> <a th:href="@{/carrello/invia}"
-									class="btn btn-primary">Procedi all'acquisto</a>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			   
 		</div>
+	</div>
+	<div class="col-md-4 colonnaPagamento"
+		th:if="${session['utente'] != null}">
+		<h5>
+			<strong>Totale: </strong>
+		</h5>
+		<p th:text="${totale}+'€'"></p>
+		<br> <a th:href="@{/carrello/invia}" class="btn btn-primary">Paga
+			Ora</a>
 	</div>
 
 	<div th:unless="${session['utente'] != null}">
@@ -194,7 +189,7 @@
 		</div>
 	</footer>
 
-
+	
 </body>
 
 </html>
