@@ -66,7 +66,10 @@ public class CategoriaController {
 	@GetMapping ("/aggiungi")
 	public String aggiungi (@RequestParam("id") int id, HttpSession session, @RequestParam("idCat") int idCat) {
 		carrelloService.aggiungiProdotto(id, session);
-		return "redirect:/categoria?id="+idCat+"&add";
+		Prodotto prodotto = prodottoService.getProdottoById(id);
+		
+		return "redirect:/categoria?id="+prodotto.getSottocategoria().getCategoria().getId()+"&add";
+		
 	}
 	
 	 @GetMapping("/ricerca")

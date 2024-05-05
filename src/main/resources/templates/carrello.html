@@ -14,10 +14,6 @@
 	rel="stylesheet">
 <link th:href="@{style.css}" rel="stylesheet">
 <title>Il tuo carrello</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Prova AJAX -->
-
 </head>
 
 <body>
@@ -82,101 +78,6 @@
 			</div>
 		</div>
 	</nav>
-	<!-- <div id="cart-container">
-        <div id="cart-items">
-            <div class="container">
-                <div class="row">
-                    Riassunto del carrello
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Il tuo Carrello</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Immagine</th>
-                                            <th>Prodotto</th>
-                                            <th>Descrizione</th>
-                                            <th>Prezzo</th>
-                                            <th></th>
-                                            spazio per il pulsante Rimuovi
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                         prodotti nel carrello
-                                        <tr th:each="prodotto : ${carrello}">
-                                            <td><img th:src="@{${prodotto.immagine}}" alt="Immagine Prodotto"
-                                                    style="max-width: 50px;"></td>
-                                            <td th:text="${prodotto.nome}"></td>
-                                            <td th:text="${prodotto.descrizione}"></td>
-                                            <td th:text="${prodotto.prezzo}+'€'"></td>
-                                            <td><a th:href="@{/carrello/rimuovi(id=${prodotto.id})}"
-                                                    class="btn btn-danger btn-sm">Rimuovi</a></td>
-                                        </tr>
-                                        Fine della sezione prodotti nel carrello
-                                    </tbody>
-                                </table>
-                                <div>
-                                    Mostra questo div solo se il carrello è vuoto
-                                    <div th:if="${carrello == null}" class="alert alert-danger" role="alert">
-                                        Il carrello sembra esser vuoto... Perchè non lo riempi? <a
-                                            th:href="@{/categoria?id=1}" class="btn btn-warning">Acquista</a>
-                                    </div>
-
-                                    Mostra questo div solo se il carrello NON è vuoto
-                                    <div th:if="${carrello != null}" class="alert alert-danger">
-                                        <form th:action="@{/carrello/svuota}" method="post">
-                                            <button type="submit" class="btn btn-warning">Svuota Carrello</button> 
-                                       <button id="svuotaCarrelloBtn" type="button" class="btn btn-warning">Svuota Carrello</button>
-                                       
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 colonnaPagamento" th:if="${session['utente'] != null}">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Totale</h5>
-                                <p th:text="${totale}+'€'"></p>
-                                <h5 class="card-title">Metodi di Pagamento</h5>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="metodoPagamento"
-                                        id="paypalRadio" value="paypal" checked>
-                                    <label class="form-check-label" for="paypalRadio">
-                                        PayPal
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="metodoPagamento"
-                                        id="cartaCreditoRadio" value="cartaCredito">
-                                    <label class="form-check-label" for="cartaCreditoRadio">
-                                        Carta di Credito
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="metodoPagamento"
-                                        id="pagamentoConsegnaRadio" value="pagamentoConsegna">
-                                    <label class="form-check-label" for="pagamentoConsegnaRadio">
-                                        Pagamento alla Consegna
-                                    </label>
-                                </div>
-								<div class="mb-3">
-								<label>Indirizzo di spedizione</label>
-								<input type="text" placeholder="Inserisci indirizzo di spedizione">
-								</div>
-                                <br>
-                                <a th:href="@{/carrello/invia}" class="btn btn-primary">Procedi all'acquisto</a>      
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-               
-        </div>
-    </div> -->
-
 
 	<div id="cart-container">
 		<div id="cart-items">
@@ -230,8 +131,7 @@
 						</div>
 					</div>
 					<!-- Colonna pagamento -->
-					<div class="col-md-4 colonnaPagamento"
-						th:if="${session['utente'] != null}">
+					<!-- <div class="col-md-4 colonnaPagamento">
 						<div class="card">
 							<form th:action="@{/carrello/invia}" method="post">
 								<div class="card-body">
@@ -257,33 +157,81 @@
 											class="form-check-label" for="pagamentoConsegnaRadio">Pagamento
 											alla Consegna</label>
 									</div>
-									<!-- <div class="mb-3">
-										<label>Indirizzo di spedizione</label> <input type="text"
-											class="form-control" name="indirizzoSpedizione"
-											placeholder="Inserisci indirizzo di spedizione" required>
-									</div> -->
 
 									<div class="mb-3">
 										<label for="indirizzoSpedizione">Indirizzo di
-											spedizione</label> <input type="text" class="form-control"
+											spedizione</label> <input th:if="${session['utente']==null}" type="text" class="form-control"
+											id="indirizzoSpedizione" name="indirizzoSpedizione"
+											placeholder="Inserisci indirizzo di spedizione">
+											<input th:if="${session['utente']!=null}" type="text" class="form-control"
 											id="indirizzoSpedizione" name="indirizzoSpedizione"
 											placeholder="Inserisci indirizzo di spedizione" required>
 									</div>
-									<button th:if="${carrello != null}" type="submit" class="btn btn-primary" >Procedi
-										all'acquisto</button>
+									<div th:if="${session['utente'] !=null}">
+
+										<button th:if="${carrello != null}" type="submit"
+											class="btn btn-primary" th:href="@{/invia}">Procedi all'acquisto</button>
+										<button th:if="${carrello == null}" type="submit"
+											class="btn btn-primary" th:href="@{/}">Guarda il catalogo!</button>
+									</div>
+									<div th:if="${session['utente'] ==null}">
+
+										<button th:if="${carrello != null}" type="submit"
+											class="btn btn-primary" th:href="@{/login}">Loggati per continuare!</button>
+										<button th:if="${carrello == null}" type="submit"
+											class="btn btn-primary" th:href="@{/}">Guarda il catalogo!</button>
+									</div>
 								</div>
 							</form>
 						</div>
-					</div>
+					 </div>-->
+					 
+					 <div class="col-md-4 colonnaPagamento">
+    <div class="card">
+        <form th:action="@{/carrello/invia}" method="post" th:if="${session['utente'] != null}">
+            <div class="card-body">
+                <h5 class="card-title">Totale</h5>
+                <p th:text="${totale}+'€'"></p>
+                <h5 class="card-title">Metodi di Pagamento</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="metodoPagamento" id="paypalRadio" value="paypal" checked>
+                    <label class="form-check-label" for="paypalRadio">PayPal</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="metodoPagamento" id="cartaCreditoRadio" value="cartaCredito">
+                    <label class="form-check-label" for="cartaCreditoRadio">Carta di Credito</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoConsegnaRadio" value="pagamentoConsegna">
+                    <label class="form-check-label" for="pagamentoConsegnaRadio">Pagamento alla Consegna</label>
+                </div>
+                <div class="mb-3">
+                    <label for="indirizzoSpedizione">Indirizzo di spedizione</label>
+                    <input type="text" class="form-control" id="indirizzoSpedizione" name="indirizzoSpedizione" placeholder="Inserisci indirizzo di spedizione" required>
+                </div>
+                <button th:if="${carrello != null}" type="submit" class="btn btn-primary">Procedi all'acquisto</button>
+            </div>
+        </form>
+        <div th:if="${session['utente'] == null}">
+            <div class="card-body">
+                <button th:if="${carrello != null}" class="btn btn-primary">
+                    <a th:href="@{/login}" class="text-white" style="text-decoration: none;">Loggati per continuare!</a>
+                </button>
+                <button th:if="${carrello == null}" class="btn btn-primary">
+                    <a th:href="@{/}" class="text-white" style="text-decoration: none;">Guarda il catalogo!</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+					 
+					 
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div th:unless="${session['utente'] != null}">
-		<p>Devi effettuare il login per procedere al pagamento.</p>
-		<a th:href="@{/login}" class="btn btn-primary">Login</a>
-	</div>
+
 	<footer class="footer py-3">
 		<div class="containerF">
 			<div class="row">
@@ -315,38 +263,6 @@
 
 		</div>
 	</footer>
-
-
-	<!-- <script th:inline="javascript">
-/*<![CDATA[*/
-var csrfToken = /*[[${_csrf.token}]]*/ 'CSRF-TOKEN-HERE';
-var csrfHeader = /*[[${_csrf.headerName}]]*/ 'X-CSRF-TOKEN';
-/*]]>*/
-$(document).ready(function() {
-    $('#svuotaCarrelloBtn').click(function(event) {
-        event.preventDefault(); // Impedisci il comportamento di default del form
-
-        $.ajax({
-            url: '/carrello/svuota',
-            type: 'POST',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader(csrfHeader, csrfToken);
-            },
-            success: function(response) {
-                console.log(response); // Vedi cosa viene restituito dal server
-                if (response.carrelloVuoto) {
-                    $('#cart-items').empty();
-                    $('#cart-container').html('<div class="alert alert-info">Il carrello è ora vuoto.</div>');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Errore AJAX: ' + status + ', ' + error);
-            }
-        });
-    });
-});
-</script>
- -->
 </body>
 
 </html>
