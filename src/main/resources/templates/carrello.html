@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
     <link th:href="@{style.css}" rel="stylesheet">
     <title>Il tuo carrello</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Prova AJAX -->
+    
 </head>
 
 <body>
@@ -106,7 +108,9 @@
                                     <!-- Mostra questo div solo se il carrello NON è vuoto -->
                                     <div th:if="${carrello != null}" class="alert alert-danger">
                                         <form th:action="@{/carrello/svuota}" method="post">
-                                            <button type="submit" class="btn btn-warning">Svuota Carrello</button>
+                                            <button type="submit" class="btn btn-warning">Svuota Carrello</button> 
+                                       <!-- <button id="svuotaCarrelloBtn" type="button" class="btn btn-warning">Svuota Carrello</button> -->
+                                       
                                         </form>
                                     </div>
                                 </div>
@@ -188,8 +192,38 @@
 
         </div>
     </footer>
+    
+    
+  <!-- <script th:inline="javascript">
+/*<![CDATA[*/
+var csrfToken = /*[[${_csrf.token}]]*/ 'CSRF-TOKEN-HERE';
+var csrfHeader = /*[[${_csrf.headerName}]]*/ 'X-CSRF-TOKEN';
+/*]]>*/
+$(document).ready(function() {
+    $('#svuotaCarrelloBtn').click(function(event) {
+        event.preventDefault(); // Impedisci il comportamento di default del form
 
-
+        $.ajax({
+            url: '/carrello/svuota',
+            type: 'POST',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(csrfHeader, csrfToken);
+            },
+            success: function(response) {
+                console.log(response); // Vedi cosa viene restituito dal server
+                if (response.carrelloVuoto) {
+                    $('#cart-items').empty();
+                    $('#cart-container').html('<div class="alert alert-info">Il carrello è ora vuoto.</div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Errore AJAX: ' + status + ', ' + error);
+            }
+        });
+    });
+});
+</script>
+ -->
 </body>
 
 </html>
