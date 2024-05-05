@@ -33,7 +33,10 @@ public class CarrelloServiceImpl implements CarrelloService {
                carrello.remove(rimuovi);
            }
            session.setAttribute("carrello", carrello);
-       }   
+       }
+       if(carrello.isEmpty()) {
+    	   session.removeAttribute("carrello");
+       }
    }
 
     

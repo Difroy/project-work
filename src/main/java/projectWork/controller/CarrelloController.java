@@ -67,11 +67,24 @@ public class CarrelloController {
 		Utente utente = (Utente) session.getAttribute("utente");
 		@SuppressWarnings("unchecked")
 		List<Prodotto> prodottiNelCarrello = (List<Prodotto>) session.getAttribute("carrello");
+<<<<<<< Updated upstream
 
 		acquistoService.inviaAcquisto(utente, prodottiNelCarrello, indirizzoSpedizione, metodoPagamento, session);
 
 		carrelloService.svuotaCarrello(session);
 		return "redirect:/areariservata";
+=======
+		if(prodottiNelCarrello == null) {
+			return "redirect:/carrello";	
+		} else {
+			acquistoService.inviaAcquisto(utente, prodottiNelCarrello, session);
+			carrelloService.svuotaCarrello(session);
+			
+				
+			return "redirect:/areariservata";		
+		}
+		
+>>>>>>> Stashed changes
 	}
 	@PostMapping("/svuota")
 	public String svuotaCarrello(HttpSession session) {
