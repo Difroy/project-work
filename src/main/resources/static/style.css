@@ -108,6 +108,7 @@ body {
 .footer {
     background-image: url("footer.png");
     background-size: 105%;
+    background-repeat: no-repeat;
     background-position: center;
     color: rgb(50, 23, 23);
     font-size: small;
