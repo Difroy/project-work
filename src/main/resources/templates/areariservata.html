@@ -109,7 +109,7 @@
 
 	<div class="row">
 		<div class="col-md-8 offset-md-2 mt-5 d-flex justify-content-center">
-			<div class="card">
+			<div class="card" style="border-radius: 15px;">
 				<div class="card-body text-center text-md-start">
 					<h1
 						th:text="'Benvenuto nella tua Area Riservata ' + ${utente.username}"
@@ -194,25 +194,7 @@
 	</footer>
 </div>
 
-	<!-- 
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var pwd = document.getElementById("password");
-			pwd.type = "password";
-			let indirizzo = document.getElementById("indirizzo");
-			let address = document.getElementById("address");
-			address.value = indirizzo.value;
-		});
-
-		const togglePassword = document.getElementById('togglePassword');
-		const password = document.getElementById('password');
-		togglePassword.addEventListener('click', function() {
-			const type = password.getAttribute('type') === 'password' ? 'text'
-					: 'password';
-			password.setAttribute('type', type);
-			this.textContent = type === 'password' ? '👁️' : '🔒';
-		});
-	</script> -->
+	
 </body>
 
 </html>

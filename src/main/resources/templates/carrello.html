@@ -15,290 +15,277 @@
 <link th:href="@{style.css}" rel="stylesheet">
 <title>Il tuo carrello</title>
 <style>
-	#flex-container {
-    display:flex;
-    flex-direction:column;
- 
-    /* fallback height */
-    min-height:100vh;
- 
-    /* new small viewport height for modern browsers */
-    min-height:100svh;
+#flex-container {
+	display: flex;
+	flex-direction: column;
+	/* fallback height */
+	min-height: 100vh;
+	/* new small viewport height for modern browsers */
+	min-height: 100svh;
 }
-    #flex-container > footer {
-    margin-top:auto;
+
+#flex-container>footer {
+	margin-top: auto;
 }
 </style>
 </head>
 
 <body>
 	<div id="flex-container">
-	<nav class="navbar navbar-expand-lg">
-		<div class="container-fluid">
-			<a class="navbar-brand" th:href="@{/}"> <img
-				th:src="@{LOGOTIPO.png}" alt="Logo"
-				class="logoN d-inline-block align-top me-2">
-			</a>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<a class="navbar-brand" th:href="@{/}"> <img
+					th:src="@{LOGOTIPO.png}" alt="Logo"
+					class="logoN d-inline-block align-top me-2">
+				</a>
 
-			<form class="d-flex ms-2 flex-grow-1" role="search">
-				<div class="input-group">
-					<div class="dropdown">
-						<button class="btn btn-warning dropdown-toggle" type="button"
-							id="dropdownMenuButton" data-bs-toggle="dropdown"
-							aria-expanded="false">Categorie</button>
-						<ul class="dropdown-menu bg-warning"
-							aria-labelledby="dropdownMenuButton">
+				<form class="d-flex ms-2 flex-grow-1" role="search">
+					<div class="input-group">
+						<div class="dropdown">
+							<button class="btn btn-warning dropdown-toggle" type="button"
+								id="dropdownMenuButton" data-bs-toggle="dropdown"
+								aria-expanded="false">Categorie</button>
+							<ul class="dropdown-menu bg-warning"
+								aria-labelledby="dropdownMenuButton">
 
 
-							<li th:each="categoria : ${categorie}"><a
-								th:text="${categoria.tipo}" class="dropdown-item"
-								th:href="@{/categoria(id=${categoria.id})}"></a></li>
-						</ul>
+								<li th:each="categoria : ${categorie}"><a
+									th:text="${categoria.tipo}" class="dropdown-item"
+									th:href="@{/categoria(id=${categoria.id})}"></a></li>
+							</ul>
+						</div>
+						<input class="form-control" type="search" placeholder="Cerca"
+							aria-label="Search">
+						<button class="btn btn-warning" type="submit">
+							<i class="bi bi-search"></i>
+						</button>
 					</div>
-					<input class="form-control" type="search" placeholder="Cerca"
-						aria-label="Search">
-					<button class="btn btn-warning" type="submit">
-						<i class="bi bi-search"></i>
-					</button>
+				</form>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarText"
+					aria-controls="navbarText" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+
+
+
+				<div th:if="${session['utente'] != null}"
+					class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<img th:src="@{'/' + ${utente.avatar}}"
+								alt="Immagine Impostazioni" class="img-fluid rounded-circle"
+								style="width: 30px; height: 30px;">
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<!-- Inserisci qui le voci del dropdown -->
+								<li><a class="dropdown-item" th:href="@{/areariservata}">Area
+										Riservata</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/modificacredenziali}">Modifica Credenziali</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li class="nav-item"><a th:href="@{/areariservata/logout}"
+									class="nav-link active" aria-current="page">Logout</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+					</ul>
 				</div>
-			</form>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarText"
-				aria-controls="navbarText" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 
 
-			
-			
-			<div th:if="${session['utente'] != null}"
-				class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img th:src="@{'/' + ${utente.avatar}}"
-							alt="Immagine Impostazioni" class="img-fluid rounded-circle"
-							style="width: 30px; height: 30px;">
-					</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<!-- Inserisci qui le voci del dropdown -->
-							<li><a class="dropdown-item" th:href="@{/areariservata}">Area
-									Riservata</a></li>
-							<li><a class="dropdown-item"
-								th:href="@{/modificacredenziali}">Modifica Credenziali</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li class="nav-item"><a th:href="@{/areariservata/logout}"
-								class="nav-link active" aria-current="page">Logout</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/}">Home</a></li>
-				</ul>
+
+				<div th:unless="${session['utente'] != null}"
+					class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+						<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/registrazioneutente}">Registrazione</a></li>
+
+					</ul>
+				</div>
 			</div>
-			
-			
-			
-			<div th:unless="${session['utente'] != null}"
-				class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/}">Home</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a>
-					</li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/registrazioneutente}">Registrazione</a></li>
-					
-				</ul>
-			</div>
-		</div>
-	</nav>
+		</nav>
 
-	<div id="cart-container">
-		<div id="cart-items">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-body">
-								<h3 class="card-title">Il tuo Carrello</h3>
-								<table class="table">
-									<thead th:if="${carrello!=null}">
-										<tr>
-											<th>Immagine</th>
-											<th>Prodotto</th>
-											<th>Descrizione</th>
-											<th>Prezzo</th>
-											<th></th>
-											<!-- spazio per il pulsante Rimuovi -->
-										</tr>
-									</thead>
-									<tbody>
-										<!-- Prodotti nel carrello -->
-										<tr th:each="prodotto : ${carrello}">
-											<td><img th:src="@{${prodotto.immagine}}"
-												alt="Immagine Prodotto" style="max-width: 50px;"></td>
-											<td th:text="${prodotto.nome}"></td>
-											<td th:text="${prodotto.descrizione}"></td>
-											<td th:text="${prodotto.prezzo}+'€'"></td>
-											<td><a th:href="@{/carrello/rimuovi(id=${prodotto.id})}"
-												class="btn btn-danger btn-sm">Rimuovi</a></td>
-										</tr>
-										<!-- Fine della sezione prodotti nel carrello -->
-									</tbody>
-								</table>
-								<div>
-									<!-- Mostra questo div solo se il carrello è vuoto -->
-									<div th:if="${carrello == null}" class="alert alert-danger"
-										role="alert">
-										Il carrello sembra esser vuoto... perché non lo riempi? <a
-											th:href="@{/categoria?id=1}" class="btn btn-warning">Acquista</a>
-									</div>
-									<!-- Mostra questo div solo se il carrello NON è vuoto -->
-									<div th:if="${carrello != null}" class="alert alert-danger">
-										<form th:action="@{/carrello/svuota}" method="post">
-											<button type="submit" class="btn btn-warning">Svuota
-												Carrello</button>
-										</form>
+		<div id="cart-container">
+			<div id="cart-items">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<h3 class="card-title">Il tuo Carrello</h3>
+									<table class="table">
+										<thead th:if="${carrello!=null}">
+											<tr>
+												<th>Immagine</th>
+												<th>Prodotto</th>
+												<th>Descrizione</th>
+												<th>Prezzo</th>
+												<th></th>
+												<!-- spazio per il pulsante Rimuovi -->
+											</tr>
+										</thead>
+										<tbody>
+											<!-- Prodotti nel carrello -->
+											<tr th:each="prodotto : ${carrello}">
+												<td><img th:src="@{${prodotto.immagine}}"
+													alt="Immagine Prodotto" style="max-width: 50px;"></td>
+												<td th:text="${prodotto.nome}"></td>
+												<td th:text="${prodotto.descrizione}"></td>
+												<td th:text="${prodotto.prezzo}+'€'"></td>
+												<td><a
+													th:href="@{/carrello/rimuovi(id=${prodotto.id})}"
+													class="btn btn-danger btn-sm">Rimuovi</a></td>
+											</tr>
+											<!-- Fine della sezione prodotti nel carrello -->
+										</tbody>
+									</table>
+									<div>
+										<!-- Mostra questo div solo se il carrello è vuoto -->
+										<div th:if="${carrello == null}" class="alert alert-danger"
+											role="alert">
+											Il carrello sembra esser vuoto... perché non lo riempi? <a
+												th:href="@{/categoria?id=1}" class="btn btn-warning">Acquista</a>
+										</div>
+										<!-- Mostra questo div solo se il carrello NON è vuoto -->
+										<div th:if="${carrello != null}" class="alert alert-danger">
+											<form th:action="@{/carrello/svuota}" method="post">
+												<button type="submit" class="btn btn-warning">Svuota
+													Carrello</button>
+											</form>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- Colonna pagamento -->
-					<!-- <div class="col-md-4 colonnaPagamento">
-						<div class="card">
-							<form th:action="@{/carrello/invia}" method="post">
-								<div class="card-body">
-									<h5 class="card-title">Totale</h5>
-									<p th:text="${totale}+'€'"></p>
-									<h5 class="card-title">Metodi di Pagamento</h5>
-									<div class="form-check">
-										<input class="form-check-input" type="radio"
-											name="metodoPagamento" id="paypalRadio" value="paypal"
-											checked> <label class="form-check-label"
-											for="paypalRadio">PayPal</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="radio"
-											name="metodoPagamento" id="cartaCreditoRadio"
-											value="cartaCredito"> <label class="form-check-label"
-											for="cartaCreditoRadio">Carta di Credito</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="radio"
-											name="metodoPagamento" id="pagamentoConsegnaRadio"
-											value="pagamentoConsegna"> <label
-											class="form-check-label" for="pagamentoConsegnaRadio">Pagamento
-											alla Consegna</label>
-									</div>
 
-									<div class="mb-3">
-										<label for="indirizzoSpedizione">Indirizzo di
-											spedizione</label> <input th:if="${session['utente']==null}" type="text" class="form-control"
-											id="indirizzoSpedizione" name="indirizzoSpedizione"
-											placeholder="Inserisci indirizzo di spedizione">
-											<input th:if="${session['utente']!=null}" type="text" class="form-control"
-											id="indirizzoSpedizione" name="indirizzoSpedizione"
-											placeholder="Inserisci indirizzo di spedizione" required>
-									</div>
-									<div th:if="${session['utente'] !=null}">
 
-										<button th:if="${carrello != null}" type="submit"
-											class="btn btn-primary" th:href="@{/invia}">Procedi all'acquisto</button>
-										<button th:if="${carrello == null}" type="submit"
-											class="btn btn-primary" th:href="@{/}">Guarda il catalogo!</button>
-									</div>
-									<div th:if="${session['utente'] ==null}">
 
-										<button th:if="${carrello != null}" type="submit"
-											class="btn btn-primary" th:href="@{/login}">Loggati per continuare!</button>
-										<button th:if="${carrello == null}" type="submit"
-											class="btn btn-primary" th:href="@{/}">Guarda il catalogo!</button>
-									</div>
+
+						<div class="col-md-4 colonnaPagamento">
+							<div class="card">
+								<!-- Controlla se l'utente NON è loggato e mostra il pulsante di login -->
+								<div th:if="${session['utente'] == null}"
+									class="d-flex justify-content-center"
+									style="padding: 20px; border-radius: 15px; background-color: #f8f9fa;">
+									<a th:href="@{/login}" class="btn btn-secondary"
+										style="margin-right: 16px; border-radius: 10px;">Loggati
+										per continuare</a>
 								</div>
-							</form>
+								
+
+								<!-- Form visibile solo quando l'utente è loggato -->
+								<form th:action="@{/carrello/invia}" method="post"
+									th:if="${session['utente'] != null}">
+									<div class="card-body">
+										<h5 class="card-title">Totale</h5>
+										<p th:text="${totale}+'€'"></p>
+										<h5 class="card-title">Metodi di Pagamento</h5>
+										<div class="form-check">
+											<input class="form-check-input" type="radio"
+												name="metodoPagamento" id="paypalRadio" value="paypal"
+												checked> <label class="form-check-label"
+												for="paypalRadio">PayPal</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio"
+												name="metodoPagamento" id="cartaCreditoRadio"
+												value="cartaCredito"> <label
+												class="form-check-label" for="cartaCreditoRadio">Carta
+												di Credito</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio"
+												name="metodoPagamento" id="pagamentoConsegnaRadio"
+												value="pagamentoConsegna"> <label
+												class="form-check-label" for="pagamentoConsegnaRadio">Pagamento
+												alla Consegna</label>
+										</div>
+										<div class="mb-3">
+											<label for="indirizzoSpedizione">Indirizzo di
+												spedizione</label> <input type="text" class="form-control"
+												id="indirizzoSpedizione" name="indirizzoSpedizione"
+												placeholder="Inserisci indirizzo di spedizione" required>
+										</div>
+										<div class="d-flex justify-content-start">
+											<a th:if="${carrello != null}" th:href="@{/}"
+												class="btn btn-secondary"
+												style="margin-right: 16px; border-radius: 10px;">Continua
+												all'acquisto</a>
+											<button th:if="${carrello != null}" type="submit"
+												class="btn btn-primary" style="border-radius: 10px;">Procedi
+												all'acquisto</button>
+										</div>
+										<br>
+										<h3 th:text="'Totale: ' + ${totale} + '€'"></h3>
+									</div>
+								</form>
+							</div>
 						</div>
-					 </div>-->
-					 
-					 <div class="col-md-4 colonnaPagamento">
-    <div class="card">
-        <form th:action="@{/carrello/invia}" method="post" th:if="${session['utente'] != null}">
-            <div class="card-body">
-                <h5 class="card-title">Totale</h5>
-                <p th:text="${totale}+'€'"></p>
-                <h5 class="card-title">Metodi di Pagamento</h5>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="metodoPagamento" id="paypalRadio" value="paypal" checked>
-                    <label class="form-check-label" for="paypalRadio">PayPal</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="metodoPagamento" id="cartaCreditoRadio" value="cartaCredito">
-                    <label class="form-check-label" for="cartaCreditoRadio">Carta di Credito</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoConsegnaRadio" value="pagamentoConsegna">
-                    <label class="form-check-label" for="pagamentoConsegnaRadio">Pagamento alla Consegna</label>
-                </div>
-                <div class="mb-3">
-                    <label for="indirizzoSpedizione">Indirizzo di spedizione</label>
-                    <input type="text" class="form-control" id="indirizzoSpedizione" name="indirizzoSpedizione" placeholder="Inserisci indirizzo di spedizione" required>
-                </div>
-                <button th:if="${carrello != null}" type="submit" class="btn btn-primary">Procedi all'acquisto</button>
-            </div>
-        </form>
-        <div th:if="${session['utente'] == null}">
-            <div class="card-body">
-                <button th:if="${carrello != null}" class="btn btn-primary">
-                    <a th:href="@{/login}" class="text-white" style="text-decoration: none;">Loggati per continuare!</a>
-                </button>
-                
-            </div>
-        </div>
-    </div>
-</div>
-					 
-					 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<footer class="footer py-3">
+			<div class="containerF">
+				<div class="row">
+					<div class="text-center">
+						<br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
+							class="logoF mb-3">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<ul class="footer-links list-unstyled">
+							<li th:each="categoria: ${categorie}" class="d-inline me-3"><a
+								th:href="@{/categoria(id=${categoria.id})}"
+								th:text="${categoria.tipo}"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-12 text-center">
+						<p>Ci trovi in rete, viandante! Arr!</p>
+						<a href="#"><img th:src="@{social.png}" width="100px"></a>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-12 text-center" id="dichiarazione">
+						<p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
+					</div>
+				</div>
+
+			</div>
+		</footer>
 	</div>
-
-
-	<footer class="footer py-3">
-		<div class="containerF">
-			<div class="row">
-				<div class="text-center">
-					<br> <br> <img th:src="@{LOGOTIPO.png}" alt="Logo"
-						class="logoF mb-3">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="footer-links list-unstyled">
-						<li th:each="categoria: ${categorie}" class="d-inline me-3"><a
-							th:href="@{/categoria(id=${categoria.id})}"
-							th:text="${categoria.tipo}"></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row mt-3">
-				<div class="col-md-12 text-center">
-					<p>Ci trovi in rete, viandante! Arr!</p>
-					<a href="#"><img th:src="@{social.png}" width="100px"></a>
-				</div>
-			</div>
-			<div class="row mt-3">
-				<div class="col-md-12 text-center" id="dichiarazione">
-					<p>© 2024 Bottegadelbrigante.com, Inc. o società affiliate</p>
-				</div>
-			</div>
-
-		</div>
-	</footer>
-</div>
 </body>
 
 </html>
