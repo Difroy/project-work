@@ -123,11 +123,17 @@
 			th:href="@{/}" class="btn btn-warning"> Mostra tutto</a>
 	</div>
 
-	<p th:if="${add!=null}">Prodotto aggiunto al carrello</p>
+
+		<div class="text-center">
+			<div id="myAlert" th:if="${add != null}" class="alert alert-warning alert-dismissible show" role="alert">
+				<p>Prodotto aggiunto al carrello</p>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
 
 
 
-	<div class="container mt-3">
+		<div class="container mt-3">
 		<div class="row">
 			<div th:each="prodotto : ${prodotti}" class="col-md-3 col-sm-12"
 				th:categoria="${prodotto.sottocategoria.categoria}">

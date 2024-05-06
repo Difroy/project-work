@@ -270,6 +270,12 @@ body {
     border: 5px solid #007bff;
 }
 
+#myAlert{
+width:500px;
+margin-left:auto;
+margin-right:auto;
+margin-top:20px;
+}
 
 @media (max-width: 991.98px) {
 
@@ -357,5 +363,14 @@ body {
         margin-left: 20%;
     }
 
+    .card{
+    text-align:center;
+    }
+
+    #tasto{
+     margin-left: auto;
+     margin-right: auto;
+     display: inline-block;
+    }
 
 }
