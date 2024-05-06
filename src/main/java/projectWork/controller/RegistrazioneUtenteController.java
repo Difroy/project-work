@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+import jakarta.validation.Valid;
 import projectWork.model.Categoria;
 import projectWork.model.Utente;
 import projectWork.service.CategoriaService;
@@ -36,15 +36,10 @@ public class RegistrazioneUtenteController {
 		Utente utente = new Utente ();
 		model.addAttribute("utente", utente);
 		return "registrazioneutente";
-		
-		
 	}
 	
-	
-
-	
     @PostMapping
-    public String processaFormRegistrazione(@ModelAttribute("utente") Utente utente,
+    public String processaFormRegistrazione(@Valid @ModelAttribute("utente") Utente utente,
                                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "registrazioneutente";
@@ -71,6 +66,7 @@ public class RegistrazioneUtenteController {
         	return "registrazioneutente";
         }
 
+ 
         // Altre operazioni di registrazione
         utenteService.registraUtente(utente);
 

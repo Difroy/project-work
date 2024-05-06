@@ -47,6 +47,14 @@ public class UtenteServiceImpl implements UtenteService {
 	public boolean controlloEmail(String email) {
 		return utenteDao.findByEmail(email) == null;
 	}
+
+
+
+	@Override
+	public void modificaUtente(Utente utente) {
+		utenteDao.save(utente);
+		
+	}
 	 
 	/*
 	 * @Override public void registraUtente(Utente utente) { try {

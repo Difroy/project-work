@@ -39,7 +39,7 @@ public class CategoriaController {
 	    model.addAttribute("utente", utente);
 		List<Categoria>categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
-
+		model.addAttribute("ricerca", ricerca);
 		model.addAttribute("add", add);
 		Categoria categoria = new Categoria();
 		if (id != null)

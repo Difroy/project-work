@@ -8,4 +8,5 @@ public interface UtenteService {
     void registraUtente(Utente utente);
     boolean controlloUsername(String username);
     boolean controlloEmail(String email);
+    void modificaUtente (Utente utente);
 }

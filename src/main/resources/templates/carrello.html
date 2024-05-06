@@ -149,7 +149,7 @@
 									</table>
 									<div>
 										<!-- Mostra questo div solo se il carrello è vuoto -->
-										<div th:if="${carrello == null}" class="alert alert-danger"
+										<div th:if="${carrello == null}" class="alert alert-danger text-center"
 											role="alert">
 											Il carrello sembra esser vuoto... perché non lo riempi? <a
 												th:href="@{/categoria?id=1}" class="btn btn-warning">Acquista</a>
@@ -185,8 +185,7 @@
 								<form th:action="@{/carrello/invia}" method="post"
 									th:if="${session['utente'] != null}">
 									<div class="card-body">
-										<h5 class="card-title">Totale</h5>
-										<p th:text="${totale}+'€'"></p>
+									
 										<h5 class="card-title">Metodi di Pagamento</h5>
 										<div class="form-check">
 											<input class="form-check-input" type="radio"
@@ -229,25 +228,6 @@
 								</form>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					</div>
 				</div>
 			</div>

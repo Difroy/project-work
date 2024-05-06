@@ -48,9 +48,11 @@ public class ModificaCredenzialiController {
 			BindingResult result,
 			HttpSession session
 	) {
+    	System.out.println("Analisi cognome"+utente.getProfilo().getNome());
+    	System.out.println("Analisi cognome"+utente.getProfilo().getCognome());
 		if(result.hasErrors())
 			return "modificaCred";
-		utenteService.registraUtente(utente);
+		utenteService.modificaUtente(utente);
 		session.setAttribute("utente", utente);
 		return "redirect:/areariservata";
 	}

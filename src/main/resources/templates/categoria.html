@@ -119,8 +119,10 @@
 
 		<a th:each="sottocategoria: ${categoria.sottocategorie}"
 			th:href="@{/categoria(id=${categoria.id},filtro=${sottocategoria.nome})}"
-			class="btn btn-warning" th:text="${sottocategoria.nome}"></a> <a
-			th:href="@{/}" class="btn btn-warning"> Mostra tutto</a>
+			class="btn btn-warning" th:text="${sottocategoria.nome}"></a>
+			 
+			 <a th:if="${ricerca!=null}" th:href="@{/}"  class="btn btn-warning"> Mostra tutto</a>
+			 <a th:if="${ricerca==null}" th:href="@{/categoria(id=${categoria.id})}" class="btn btn-warning">Mostra tutto</a>
 	</div>
 
 
