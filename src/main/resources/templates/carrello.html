@@ -27,6 +27,9 @@
 #flex-container>footer {
 	margin-top: auto;
 }
+#cardCar {
+    width: 800px;
+}
 </style>
 </head>
 
@@ -118,7 +121,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<div class="card">
+							<div class="card" id="cardCar">
 								<div class="card-body">
 									<h3 class="card-title">Il tuo Carrello</h3>
 									<table class="table">
@@ -151,13 +154,13 @@
 										<!-- Mostra questo div solo se il carrello è vuoto -->
 										<div th:if="${carrello == null}" class="alert alert-danger text-center"
 											role="alert">
-											Il carrello sembra esser vuoto... perché non lo riempi? <a
-												th:href="@{/categoria?id=1}" class="btn btn-warning">Acquista</a>
+											Il carrello sembra esser vuoto... perché non lo riempi? <br> <a
+												th:href="@{/categoria?id=1}" class="btn btn-warning text-center">Acquista</a>
 										</div>
 										<!-- Mostra questo div solo se il carrello NON è vuoto -->
 										<div th:if="${carrello != null}" class="alert alert-danger">
 											<form th:action="@{/carrello/svuota}" method="post">
-												<button type="submit" class="btn btn-warning">Svuota
+												<button type="submit" class="btn btn-warning text-center">Svuota
 													Carrello</button>
 											</form>
 										</div>
