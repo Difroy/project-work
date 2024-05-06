@@ -20,7 +20,7 @@ public class AcquistoController {
 
 		@GetMapping
 		public String getPage(HttpSession session, Model model,
-			@RequestParam(name= "send", required = false) String send)
+			@RequestParam(name= "send", required = false) String send, @RequestParam(name = "ricerca", required = false) String ricerca)
 		{
 			if(session.getAttribute("utente") == null)
 				return "redirect:/login";
