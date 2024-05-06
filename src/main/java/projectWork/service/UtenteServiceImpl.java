@@ -55,6 +55,13 @@ public class UtenteServiceImpl implements UtenteService {
 		utenteDao.save(utente);
 		
 	}
+
+
+
+	@Override
+	public boolean controlloPassword(String password) {
+		return utenteDao.findByPassword(password) == null;
+		}
 	 
 	/*
 	 * @Override public void registraUtente(Utente utente) { try {
