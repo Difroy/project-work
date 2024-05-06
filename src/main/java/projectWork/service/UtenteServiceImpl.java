@@ -25,11 +25,9 @@ public class UtenteServiceImpl implements UtenteService {
 	@Override
 	public boolean loginUtente(String username, String password, HttpSession session) {
 		Utente utente = utenteDao.findByUsernameAndPassword(username, password);
-		if (utente != null) {
+		if (utente != null)
 			session.setAttribute("utente", utente); // setta un attributo nell'ambito della sessione
 			return true;
-		}
-		return false;
 
 	}
 
@@ -42,6 +40,13 @@ public class UtenteServiceImpl implements UtenteService {
             throw new IllegalArgumentException("Username già in uso"); // Solleva un'eccezione se l'username è già in uso
         }
     }
+
+
+
+	@Override
+	public boolean controlloEmail(String email) {
+		return utenteDao.findByEmail(email) == null;
+	}
 	 
 	/*
 	 * @Override public void registraUtente(Utente utente) { try {

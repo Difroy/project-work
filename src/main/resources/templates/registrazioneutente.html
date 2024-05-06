@@ -158,6 +158,10 @@
                                 <input type="email" class="form-control" id="email" th:field="*{email}"
                                     placeholder="Inserisci la tua email" required>
                                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                                <div th:if="${erroreEmail}">
+    <div class="alert alert-danger" role="alert">
+        Email già in uso. Scegline un'altra.
+    </div>
                             </div>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>

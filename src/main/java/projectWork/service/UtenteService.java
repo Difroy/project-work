@@ -7,5 +7,5 @@ public interface UtenteService {
     boolean loginUtente(String username, String password, HttpSession session);
     void registraUtente(Utente utente);
     boolean controlloUsername(String username);
-    
+    boolean controlloEmail(String email);
 }

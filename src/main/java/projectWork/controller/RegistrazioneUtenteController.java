@@ -63,6 +63,12 @@ public class RegistrazioneUtenteController {
             model.addAttribute("erroreUsername", true);
             return "registrazioneutente";
         }
+        
+        
+        if(!utenteService.controlloEmail(utente.getEmail())) {
+        	model.addAttribute("erroreEmail", true);
+        	return "registrazioneutente";
+        }
 
         // Altre operazioni di registrazione
         utenteService.registraUtente(utente);

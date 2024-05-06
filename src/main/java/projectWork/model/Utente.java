@@ -37,7 +37,7 @@ public class Utente {
 	private String email;
 
 	@Column
-	@Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,50}", message = "Password troppo debole, deve andare in palestra")
+	@Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,50}", message = "Password troppo debole, deve contenere almeno un carattere Maiuscolo, Minuscolo, un numero ed un carattere speciale")
 	private String password;
 
 	@Column
