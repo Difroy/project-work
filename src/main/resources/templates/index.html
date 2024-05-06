@@ -14,10 +14,25 @@
 	rel="stylesheet">
 <link th:href="@{style.css}" rel="stylesheet">
 <title>Home - La Bottega del Brigante</title>
+<style>
+	#flex-container {
+    display:flex;
+    flex-direction:column;
+ 
+    /* fallback height */
+    min-height:100vh;
+ 
+    /* new small viewport height for modern browsers */
+    min-height:100svh;
+}
+    #flex-container > footer {
+    margin-top:auto;
+}
+</style>
 </head>
 
 <body id="bg">
-
+	<div id="flex-container">
 	<nav class="navbar navbar-expand-lg">
 		<div class="container-fluid">
 			<a class="navbar-brand" th:href="@{/}"> <img
@@ -162,6 +177,7 @@
 
 		</div>
 	</footer>
+</div>
 
 
 </body>
