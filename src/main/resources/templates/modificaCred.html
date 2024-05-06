@@ -241,19 +241,19 @@
 							<div>
 								<label for="nome" class="form-label">Nome</label>
 								<input type="text" class="form-control w-100" id="nome" th:field="*{profilo.nome}"
-									placeholder="Inserisci il tuo nome" required>
+									placeholder="Inserisci il tuo nome" required readonly>
 								<p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
 							</div>
 							<div>
 								<label for="cognome" class="form-label">Cognome</label>
 								<input type="text" class="form-control w-100" id="cognome" th:field="*{profilo.cognome}"
-									placeholder="Inserisci il tuo cognome" required>
+									placeholder="Inserisci il tuo cognome" required readonly>
 								<p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}">
 								</p>
 							</div>
 							<div>
 								<label for="genere" class="form-label">Genere</label>
-								<select class="form-select w-100" id="genere" name="profilo.genere" required>
+								<select class="form-select w-100" id="genere" name="profilo.genere" required readonly>
 
 									<option value="maschio">Maschio</option>
 									<option value="femmina">Femmina</option>
@@ -264,7 +264,7 @@
 								<label for="dataNascita" class="form-label">Data di Nascita</label>
 								<input type="date" class="form-control w-100" id="dataNascita"
 									th:field="*{profilo.dataDiNascita}" placeholder="Inserisci la tua data di nascita"
-									required>
+									required readonly>
 								<p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
 									th:errors="*{profilo.dataDiNascita}">
 								</p>
@@ -277,11 +277,6 @@
 								<p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}"
 									th:errors="*{profilo.indirizzoResidenza}">
 								</p>
-							</div>
-							<div>
-								<label for="address" class="form-label">Indirizzo di spedizione</label>
-								<input type="text" class="form-control w-100" id="address"
-									placeholder="Inserisci il tuo indirizzo di spedizione">
 							</div>
 							<div>
 								<label for="telefono" class="form-label">Telefono</label>
@@ -310,16 +305,16 @@
 								<div>
 									<label for="username" class="form-label">Username</label>
 									<input type="text" class="form-control w-100" id="username" th:field="*{username}"
-										placeholder="Inserisci il tuo username" required>
+										placeholder="Inserisci il tuo username" required readonly>
 									<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
 								</div>
 								<div>
 									<label for="password" class="form-label">Password</label>
 									<div class="input-group">
-										<input type="password" class="form-control w-95" id="password"
-											th:field="*{password}" placeholder="Inserisci la tua password" required>
+										<input type="text" class="form-control" id="password" th:field="*{password}"
+										placeholder="Inserisci la tua password" required>
 										<button class="btn btn-outline-secondary" type="button"
-											id="togglePassword">👁️</button>
+										id="togglePassword">🔒</button>
 										<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
 									</div>
 
