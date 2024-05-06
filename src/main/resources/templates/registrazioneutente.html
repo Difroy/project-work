@@ -9,10 +9,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
     <link th:href="@{style.css}" rel="stylesheet">
     <title>Registrazione</title>
+    <style>
+        #flex-container {
+        display:flex;
+        flex-direction:column;
+     
+        /* fallback height */
+        min-height:100vh;
+     
+        /* new small viewport height for modern browsers */
+        min-height:100svh;
+    }
+        #flex-container > footer {
+        margin-top:auto;
+    }
+    </style>
 
 </head>
 
 <body>
+    <div id="flex-container">
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}">
@@ -245,6 +261,7 @@
 
         </div>
     </footer>
+</div>
 
     <script>
         const togglePassword = document.getElementById('togglePassword');
