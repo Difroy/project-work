@@ -150,12 +150,14 @@
 
 								<h5>Descrizione</h5>
 								<p th:text="${prodotto.descrizione}"></p>
-								<div>
-									<h5 th:text="${prodotto.prezzo} +'€'"></h5>
+								<div style="text-align: center;">
+									<h5 th:text="${prodotto.prezzo} +'€'" style="display: inline-block;"></h5>
+
+									<a th:href="@{/categoria/aggiungi(id=${prodotto.id},idCat=${categoria.id})}"
+									   class="btn btn-warning" style="display: inline-block; margin-left: 10px;">Aggiungi al carrello</a>
 								</div>
-								<a
-									th:href="@{/categoria/aggiungi(id=${prodotto.id},idCat=${categoria.id})}"
-									class="btn btn-warning">Aggiungi al carrello</a>
+
+
 							</div>
 						</div>
 					</div>
