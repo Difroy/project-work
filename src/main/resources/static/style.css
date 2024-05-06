@@ -108,7 +108,7 @@ body {
 .footer {
     background-image: url("footer.png");
     align-items: center;
-    background-size: 105%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     color: rgb(50, 23, 23);
