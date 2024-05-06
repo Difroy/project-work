@@ -133,207 +133,59 @@
 
 			</div>
 		</nav>
-
-
-		<h3 class="my-3 text-center">Modifica Credenziali</h3>
-
-
-		<!--<div class="container mt-5">
-        <div class="card" id="settingsCard">
-            <div class="card-body">
-                <h2 class="mb-4" id="cardT">Modifica Credenziali</h2>
-                <form id="settingsForm">
+		
+		<div class="card" id="settingsCard">
+    <div class="container">
+        <h3 class="my-3 text-center">Modifica Credenziali</h3>
+        <form th:object="${utente}" id="settingsForm" method="post">
+            <div class="row">
+                <!-- Prima parte del form a sinistra -->
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}"
-                            placeholder="Inserisci il tuo nome" required>
-                        <p th:if="${#fields.hasErrors('profilo.nome')}" th:errors="*{profilo.nome}"></p>
+                        <input type="text" class="form-control" id="nome" th:field="*{profilo.nome}" placeholder="Inserisci il tuo nome" required readonly>
                     </div>
                     <div class="mb-3">
                         <label for="cognome" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}"
-                            placeholder="Inserisci il tuo cognome" required>
-                        <p th:if="${#fields.hasErrors('profilo.cognome')}" th:errors="*{profilo.cognome}">
-                        </p>
+                        <input type="text" class="form-control" id="cognome" th:field="*{profilo.cognome}" placeholder="Inserisci il tuo cognome" required readonly>
                     </div>
                     <div class="mb-3">
                         <label for="genere" class="form-label">Genere</label>
-                        <select class="form-select" id="genere" name="profilo.genere" required>
-        
-                            <option value="maschio">Maschio</option>
-                            <option value="femmina">Femmina</option>
-                            <option value="altro">Altro</option>
-                        </select>
+                        <input type="text" class="form-control" id="genere" th:field="*{profilo.genere}" required readonly>
                     </div>
                     <div class="mb-3">
                         <label for="dataNascita" class="form-label">Data di Nascita</label>
-                        <input type="date" class="form-control" id="dataNascita" th:field="*{profilo.dataDiNascita}"
-                            placeholder="Inserisci la tua data di nascita" required>
-                        <p th:if="${#fields.hasErrors('profilo.dataDiNascita')}" th:errors="*{profilo.dataDiNascita}"></p>
+                        <input type="date" class="form-control" id="dataNascita" th:field="*{profilo.dataDiNascita}" required readonly>
                     </div>
                     <div class="mb-3">
                         <label for="indirizzo" class="form-label">Indirizzo di Residenza</label>
-                        <input type="text" class="form-control" id="indirizzo" th:field="*{profilo.indirizzoResidenza}"
-                            placeholder="Inserisci il tuo indirizzo di residenza" required>
-                        <p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}" th:errors="*{profilo.indirizzoResidenza}">
-                        </p>
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Indirizzo di spedizione</label>
-                        <input type="text" class="form-control" id="address"
-                            placeholder="Inserisci il tuo indirizzo di spedizione">
+                        <input type="text" class="form-control" id="indirizzo" th:field="*{profilo.indirizzoResidenza}" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}"
-                            placeholder="Inserisci il tuo numero di telefono" required>
-                        <p th:if="${#fields.hasErrors('profilo.telefono')}" th:errors="*{profilo.telefono}"></p>
+                        <input type="text" class="form-control" id="telefono" th:field="*{profilo.telefono}" required>
                     </div>
+                </div>
+
+                <!-- Seconda parte del form a destra -->
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" th:field="*{email}"
-                            placeholder="Inserisci la tua email" required>
-                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Inserisci la tua email" required>
                     </div>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" th:field="*{username}"
-                            placeholder="Inserisci il tuo username" required>
-                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                        <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Inserisci il tuo username" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control" id="password" th:field="*{password}"
-                            placeholder="Inserisci la tua password" required>
-                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">👁️</button>
-                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-                    </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="avatar" class="form-label">Avatar</label>
-                        <div class="avatar-selection">
-                            <label class="radio-inline">
-                                <input type="radio" name="avatar" value="avatar1.jpg" checked>
-                                <img src="../static/avatar1.jpg" alt="Avatar 1">
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="avatar" value="avatar2.jpg">
-                                <img src="../static/avatar2.jpg" alt="Avatar 2">
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="avatar" value="avatar3.jpg">
-                                <img src="../static/avatar3.jpg" alt="Avatar 3">
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="avatar" value="avatar4.jpg">
-                                <img src="../static/avatar4.jpg" alt="Avatar 4">
-                            </label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Inserisci la tua password" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">🔒</button>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="bottone2">Salva modifiche</button>
-            </div>
-        
-        </form>
-    	</div> -->
-
-
-		<!-- mod credenziali orizzontale-->
-
-
-		<div class="card" id="settingsCard">
-			<div class="row">
-
-
-				<!--prima parte-->
-				<div class="col-md-6">
-					<div class="p-4 d-flex flex-column" id="prima">
-						<form th:object="${utente}" id="settingsForm" method="post">
-							<input type="hidden" th:field="*{id}"> <input
-								type="hidden" th:field="*{profilo.id}">
-							<div>
-								<label for="nome" class="form-label">Nome</label> <input
-									type="text" class="form-control w-100" id="nome"
-									th:field="*{profilo.nome}" placeholder="Inserisci il tuo nome"
-									required readonly>
-
-							</div>
-							<div>
-								<label for="cognome" class="form-label">Cognome</label> <input
-									type="text" class="form-control w-100" id="cognome"
-									th:field="*{profilo.cognome}"
-									placeholder="Inserisci il tuo cognome" required readonly>
-
-							</div>
-							<div>
-								<label for="genere" class="form-label">Genere</label> 
-								<input
-									type="text" class="form-control w-100" id="genere"
-									th:field="*{profilo.genere}" required readonly>
-							</div>
-							<div>
-								<label for="dataNascita" class="form-label">Data di
-									Nascita</label> <input type="date" class="form-control w-100"
-									id="dataNascita" th:field="*{profilo.dataDiNascita}"
-									placeholder="Inserisci la tua data di nascita" required
-									readonly>
-								<p th:if="${#fields.hasErrors('profilo.dataDiNascita')}"
-									th:errors="*{profilo.dataDiNascita}"></p>
-							</div>
-							<div>
-								<label for="indirizzo" class="form-label">Indirizzo di
-									Residenza</label> <input type="text" class="form-control w-100"
-									id="indirizzo" th:field="*{profilo.indirizzoResidenza}"
-									placeholder="Inserisci il tuo indirizzo di residenza" required>
-								<p th:if="${#fields.hasErrors('profilo.indirizzoResidenza')}"
-									th:errors="*{profilo.indirizzoResidenza}"></p>
-							</div>
-							<div>
-								<label for="telefono" class="form-label">Telefono</label> <input
-									type="text" class="form-control w-100" id="telefono"
-									th:field="*{profilo.telefono}"
-									placeholder="Inserisci il tuo numero di telefono" required>
-								<p th:if="${#fields.hasErrors('profilo.telefono')}"
-									th:errors="*{profilo.telefono}"></p>
-							</div>
-
-
-							<!--seconda parte-->
-
-							<div class="col-md-6">
-
-								<div class="p-4 d-flex flex-column" id="seconda">
-									<div>
-										<div>
-											<label for="email" class="form-label">Email</label> <input
-												type="email" class="form-control" id="email"
-												th:field="*{email}" placeholder="Inserisci la tua email"
-												required>
-											<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-										</div>
-										<div>
-											<label for="username" class="form-label">Username</label> <input
-												type="text" class="form-control w-100" id="username"
-												th:field="*{username}"
-												placeholder="Inserisci il tuo username" readonly>
-
-										</div>
-										<div>
-											<label for="password" class="form-label">Password</label>
-											<div class="input-group">
-												<input type="text" class="form-control" id="password"
-													th:field="*{password}"
-													placeholder="Inserisci la tua password" required>
-												<button class="btn btn-outline-secondary" type="button"
-													id="togglePassword">🔒</button>
-												<p th:if="${#fields.hasErrors('password')}"
-													th:errors="*{password}"></p>
-											</div>
-
-											<div>
-												<label for="avatar" class="form-label">Avatar</label>
-												<div class="avatar-selection">
-													<label class="radio-inline"> <input type="radio"
+                    <div class="mb-3">
+                        <label class="radio-inline"> <input type="radio"
 														name="avatar" value="avatar1.jpg" checked> <img
 														src="avatar1.jpg" alt="Avatar 1">
 													</label> <label class="radio-inline"> <input type="radio"
@@ -346,22 +198,28 @@
 														name="avatar" value="avatar4.jpg"> <img
 														src="avatar4.jpg" alt="Avatar 4">
 													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<button type="submit" class="btn btn-primary" id="bottone2">Salva
-								modifiche</button>
-						</form>
-					</div>
-				</div>
-
-
-
-
-				<footer class="footer py-3">
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">Salva modifiche</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	<footer class="footer py-3">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="text-center">
@@ -392,7 +250,7 @@
 
 					</div>
 				</footer>
-			</div>
+			
 
 
 			<script>
@@ -411,7 +269,7 @@
 											: '🔒';
 								});
 			</script>
-		</div>
+		
 </body>
 
 </html>
