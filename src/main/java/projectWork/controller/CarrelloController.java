@@ -31,15 +31,15 @@ private AcquistoService acquistoService;
 	
 	@SuppressWarnings("unchecked")
 	@GetMapping
-	public String getPage(Model model, HttpSession session) {
-		Utente utente = (Utente) session.getAttribute("utente");
+	public String getPage(@RequestParam(name = "ricerca", required = false)String ricerca, Model model, HttpSession session) {
+		List<Categoria>categorie = categoriaService.getCategorie();
+		model.addAttribute("categorie", categorie);Utente utente = (Utente) session.getAttribute("utente");
 		List<Prodotto> carrello = (List<Prodotto>) session.getAttribute("carrello");
 		model.addAttribute("carrello", carrello);
 		model.addAttribute("utente", utente);
 		double totaleOrdine = calcolaTotale(carrello);
 		model.addAttribute("totale", String.format("%.2f", totaleOrdine));
-		List<Categoria>categorie = categoriaService.getCategorie();
-		model.addAttribute("categorie", categorie);
+		
 		return "carrello";
 	}
 	

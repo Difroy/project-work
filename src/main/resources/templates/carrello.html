@@ -42,8 +42,8 @@
 					class="logoN d-inline-block align-top me-2">
 				</a>
 
-				<form class="d-flex ms-2 flex-grow-1" role="search">
-					<div class="input-group">
+				<form class="d-flex ms-2 flex-grow-1" role="search" action="/categoria/ricerca" method="get">
+					<div class="input-group" >
 						<div class="dropdown">
 							<button class="btn btn-warning dropdown-toggle" type="button"
 								id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -159,10 +159,10 @@
 										</div>
 										<!-- Mostra questo div solo se il carrello NON è vuoto -->
 										<div th:if="${carrello != null}" class="alert alert-danger">
-											<form th:action="@{/carrello/svuota}" method="post">
-												<button type="submit" class="btn btn-warning text-center">Svuota
-													Carrello</button>
-											</form>
+											<form th:action="@{/carrello/svuota}" method="post" class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-warning text-center">Svuota Carrello</button>
+</form>
+											
 										</div>
 									</div>
 								</div>
