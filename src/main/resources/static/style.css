@@ -277,6 +277,11 @@ margin-right:auto;
 margin-top:20px;
 }
 
+.filtrobottoni a {
+    margin-right: 20px;
+}
+
+
 @media (max-width: 991.98px) {
 
     .footer-links a {

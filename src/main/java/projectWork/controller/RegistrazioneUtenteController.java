@@ -65,6 +65,11 @@ public class RegistrazioneUtenteController {
         	model.addAttribute("erroreEmail", true);
         	return "registrazioneutente";
         }
+        
+        if(!utenteService.controlloPassword(utente.getPassword())) {
+        	model.addAttribute("errorePassword", true);
+        	return "registrazioneutente";
+        }
 
  
         // Altre operazioni di registrazione
