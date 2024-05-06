@@ -2,6 +2,7 @@ package projectWork.controller;
 
 import jakarta.servlet.http.HttpSession;
 import projectWork.model.Categoria;
+import projectWork.model.Utente;
 import projectWork.service.CategoriaService;
 import projectWork.service.UtenteService;
 
@@ -25,11 +26,14 @@ public class LoginUtenteController
     @Autowired
 	private CategoriaService categoriaService;
     @GetMapping
-    public String getPage(HttpSession session, @RequestParam(name = "error", required = false) String error, Model model)
+    public String getPage( Model model, @RequestParam(name = "error", required = false) String error,@RequestParam(name="ricerca", required = false)  String ricerca, HttpSession session)
     {
     	List<Categoria> categorie = categoriaService.getCategorie();
 		model.addAttribute("categorie", categorie);
-        if(session.getAttribute("utente") != null)
+       Utente utente = (Utente) session.getAttribute("utente");
+       model.addAttribute("utente", utente);
+		
+		if(session.getAttribute("utente") != null)
             return "redirect:/areariservata";
         model.addAttribute("error", error);
         return "login";

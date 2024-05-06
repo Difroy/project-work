@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import projectWork.model.Categoria;
 import projectWork.model.Utente;
 import projectWork.service.CategoriaService;
@@ -38,7 +39,7 @@ public class RegistrazioneUtenteController {
 		
 		
 	}
-	//prova maggiorenne
+	
 	
 
 	
