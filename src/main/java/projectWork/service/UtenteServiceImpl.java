@@ -58,10 +58,10 @@ public class UtenteServiceImpl implements UtenteService {
 
 
 
-	@Override
+	/*@Override
 	public boolean controlloPassword(String password) {
 		return utenteDao.findByPassword(password) == null;
-		}
+		} */
 	 
 	/*
 	 * @Override public void registraUtente(Utente utente) { try {

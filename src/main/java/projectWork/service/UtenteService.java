@@ -9,5 +9,5 @@ public interface UtenteService {
     boolean controlloUsername(String username);
     boolean controlloEmail(String email);
     void modificaUtente (Utente utente);
-    boolean controlloPassword(String password);
+   // boolean controlloPassword(String password);
 }
