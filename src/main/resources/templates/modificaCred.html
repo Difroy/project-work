@@ -123,6 +123,8 @@
 			<div class="container">
 				<h3 class="my-3 text-center" id="cardT">Modifica Credenziali</h3>
 				<form th:object="${utente}" id="settingsForm" method="post">
+					<input type="hidden" th:field="*{id}">
+					<input type="hidden" th:field="*{profilo.id}">
 					<div class="row">
 						<!-- Prima parte del form a sinistra -->
 						<div class="col-md-6">
