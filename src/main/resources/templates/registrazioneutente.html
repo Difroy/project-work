@@ -190,12 +190,12 @@
                                         <button class="btn btn-outline-secondary" type="button"
                                             id="togglePassword">👁️</button>
                                         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-                                        <div th:if="${errorePassword}">
+                                     <!--   <div th:if="${errorePassword}">
                                             <div class="alert alert-danger" role="alert">
                                                 Password troppo debole, deve contenere almeno un carattere Maiuscolo,
                                                 minuscolo, un numero ed un carattere speciale
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="mb-3">
                                         <label for="avatar" class="form-label">Avatar</label>
