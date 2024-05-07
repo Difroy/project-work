@@ -67,7 +67,7 @@ public class RegistrazioneUtenteController {
         }
         
         if(!utenteService.controlloPassword(utente.getPassword())) {
-        	model.addAttribute("errorePassword", true);
+        	model.addAttribute("errorePassword", false);
         	return "registrazioneutente";
         }
 
