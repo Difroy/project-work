@@ -15,7 +15,7 @@ Crea un nuovo database chiamato pirata
 Importa il file pirata.sql che trovi nel repository
 
 Utilizzo:
-Per utilizzare la nostra Web App, segui questi passaggi:
+Per utilizzare la nostra Web App, segui questi passaggi.
 Apri il progetto clonato e accedi su src/main/resources.
 Assicurati di avere il file application.properties con il seguente contenuto: 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
