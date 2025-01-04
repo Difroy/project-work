@@ -47,6 +47,6 @@ public class LoginUtenteController
     {
         if(!utenteService.loginUtente(username, password, session))
             return "redirect:/login";
-        return "redirect:/areariservata";
+        return "redirect:/";
     }
 }
