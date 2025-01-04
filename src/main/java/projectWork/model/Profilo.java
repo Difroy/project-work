@@ -40,6 +40,12 @@ public class Profilo {
 	@Column
 	private String telefono;
 	
+	@OneToOne(
+			mappedBy = "profilo",
+			cascade = CascadeType.REFRESH
+			)
+	private Utente utente;
+	
 	public Utente getUtente() {
 		return utente;
 	}
@@ -48,12 +54,7 @@ public class Profilo {
 		this.utente = utente;
 	}
 
-	@OneToOne(
-			mappedBy = "profilo",
-			cascade = CascadeType.REFRESH
-			)
-	private Utente utente;
-
+	
 	public int getId() {
 		return id;
 	}

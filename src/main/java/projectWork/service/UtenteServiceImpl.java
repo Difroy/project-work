@@ -1,14 +1,10 @@
 package projectWork.service;
 
 import jakarta.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import projectWork.dao.UtenteDao;
-
 import projectWork.model.Utente;
-
+import projectWork.dao.UtenteDao;
 @Service
 public class UtenteServiceImpl implements UtenteService {
 	@Autowired
